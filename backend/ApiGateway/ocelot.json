@@ -1,0 +1,42 @@
+{
+  // 
+  "Routes": [
+
+
+    // Sendmoney Web API
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "sendmoneyservice",
+      "UpstreamPathTemplate": "/sendmoney/{url}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Administrator"
+      }
+      // "UpstreamPathTemplate": "/sendmoney/{catchAll}",
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5183
+      //  }
+      //],s
+      //"DownstreamPathTemplate": "/{catchAll}",
+
+      //"DownstreamPathTemplate": "/{url}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000",
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "localhost",
+      "Port": "8500",
+      "Type": "Consul"
+    }
+  }
+}
