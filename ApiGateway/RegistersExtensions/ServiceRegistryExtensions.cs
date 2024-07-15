@@ -23,7 +23,7 @@ namespace SendMoneyService.RegistersExtensions
             var serviceId=serviceSettings.ServiceName+"-"+Guid.NewGuid();
             var registration = new AgentServiceRegistration()
             {
-                ID = "gateway-service1", //{uri.Port}",
+                ID = "gateway-service", //{uri.Port}",
                 // servie name
                 Name = serviceSettings.ServiceName,
                 Address = serviceSettings.ServiceHost, //$"{uri.Host}",

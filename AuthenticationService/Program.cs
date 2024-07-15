@@ -1,6 +1,13 @@
 using JwtAuthenticationManager;
+using SendMoneyService.RegistersExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
+var services = builder.Services;
+var serviceSettings = services.StartupBoostrap(configuration);
+services.AddSingleton(serviceSettings);
+services.AddConsulSettings(serviceSettings);
+services.AddHealthChecks();
 
 // Add services to the container.
 
@@ -19,9 +26,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseConsul(serviceSettings);
+app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHealthChecks("/health");
+});
+
 
 app.Run();
