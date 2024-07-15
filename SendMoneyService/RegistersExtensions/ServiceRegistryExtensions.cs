@@ -27,7 +27,13 @@ namespace SendMoneyService.RegistersExtensions
                 // servie name
                 Name = serviceSettings.ServiceName,
                 Address = serviceSettings.ServiceHost, //$"{uri.Host}",
-                Port = serviceSettings.ServicePort  // uri.Port
+                Port = serviceSettings.ServicePort, // uri.Port
+                Check = new AgentServiceCheck()
+                {
+                    HTTP = $"http://{serviceSettings.ServiceHost}:{serviceSettings.ServicePort}/health",
+                    Interval = TimeSpan.FromSeconds(5),
+                    DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(10)
+                }
             };
 
             logger.LogInformation("Registering with Consul");

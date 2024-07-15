@@ -5,8 +5,6 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{D63F88FD-BC68-4088-B486-ADA916A0ACE5}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{B0637289-A5B2-4E82-AC33-ABCFF0251384}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GateWay", "GateWay", "{8E67744C-AA65-4343-A961-C58D637BF930}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F8782795-FA23-4CB4-8264-072E3173BD36}"
@@ -17,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReceivedMoneyService", "Rec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtAuthenticationManager", "JwtAuthenticationManager\JwtAuthenticationManager.csproj", "{449A635B-16B0-466D-96CD-B86BE52BED5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{46A6708E-4334-4A39-A843-D635B6731EEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{46A6708E-4334-4A39-A843-D635B6731EEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{D63F88FD-BC68-4088-B486-ADA916A0ACE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D63F88FD-BC68-4088-B486-ADA916A0ACE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D63F88FD-BC68-4088-B486-ADA916A0ACE5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0637289-A5B2-4E82-AC33-ABCFF0251384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0637289-A5B2-4E82-AC33-ABCFF0251384}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0637289-A5B2-4E82-AC33-ABCFF0251384}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0637289-A5B2-4E82-AC33-ABCFF0251384}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9AC14ADE-1BE5-4F36-9756-42EC85A7F7DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9AC14ADE-1BE5-4F36-9756-42EC85A7F7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AC14ADE-1BE5-4F36-9756-42EC85A7F7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU

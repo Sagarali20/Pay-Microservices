@@ -1,8 +1,15 @@
 {
-  // 
+  //
   "Routes": [
-
-
+    // Authentication Web API
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/auth/api/Account",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Account"
+    },
     // Sendmoney Web API
     {
       "DownstreamPathTemplate": "/{url}",
@@ -11,12 +18,20 @@
       "ServiceName": "sendmoneyservice",
       "UpstreamPathTemplate": "/sendmoney/{url}",
       "UpstreamHttpMethod": [ "GET", "POST" ],
+      "AuthorizationPolicy": "RequireAdministratorRole",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       },
       "RouteClaimsRequirement": {
         "Role": "Administrator"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 60,
+        "Limit": 100
       }
       // "UpstreamPathTemplate": "/sendmoney/{catchAll}",
       //"DownstreamHostAndPorts": [
@@ -32,6 +47,10 @@
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5000",
+    "RateLimitOptions": {
+      "QuotaExceededMessage": "Request not allowed",
+      "HttpStatusCode": 909
+    },
     "ServiceDiscoveryProvider": {
       "Scheme": "http",
       "Host": "localhost",
