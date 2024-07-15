@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{D63F88FD-BC68-4088-B486-ADA916A0ACE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GateWay", "GateWay", "{8E67744C-AA65-4343-A961-C58D637BF930}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F8782795-FA23-4CB4-8264-072E3173BD36}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SendMoneyService", "SendMoneyService\SendMoneyService.csproj", "{9AC14ADE-1BE5-4F36-9756-42EC85A7F7DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReceivedMoneyService", "ReceivedMoneyService\ReceivedMoneyService.csproj", "{F9899313-8CA5-4AE8-8AFA-67BF9DF8CA47}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtAuthenticationManager", "JwtAuthenticationManager\JwtAuthenticationManager.csproj", "{449A635B-16B0-466D-96CD-B86BE52BED5D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{46A6708E-4334-4A39-A843-D635B6731EEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D63F88FD-BC68-4088-B486-ADA916A0ACE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D63F88FD-BC68-4088-B486-ADA916A0ACE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D63F88FD-BC68-4088-B486-ADA916A0ACE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D63F88FD-BC68-4088-B486-ADA916A0ACE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC14ADE-1BE5-4F36-9756-42EC85A7F7DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC14ADE-1BE5-4F36-9756-42EC85A7F7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC14ADE-1BE5-4F36-9756-42EC85A7F7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC14ADE-1BE5-4F36-9756-42EC85A7F7DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9899313-8CA5-4AE8-8AFA-67BF9DF8CA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9899313-8CA5-4AE8-8AFA-67BF9DF8CA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9899313-8CA5-4AE8-8AFA-67BF9DF8CA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9899313-8CA5-4AE8-8AFA-67BF9DF8CA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{449A635B-16B0-466D-96CD-B86BE52BED5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{449A635B-16B0-466D-96CD-B86BE52BED5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{449A635B-16B0-466D-96CD-B86BE52BED5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{449A635B-16B0-466D-96CD-B86BE52BED5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46A6708E-4334-4A39-A843-D635B6731EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46A6708E-4334-4A39-A843-D635B6731EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46A6708E-4334-4A39-A843-D635B6731EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46A6708E-4334-4A39-A843-D635B6731EEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9AC14ADE-1BE5-4F36-9756-42EC85A7F7DE} = {F8782795-FA23-4CB4-8264-072E3173BD36}
+		{F9899313-8CA5-4AE8-8AFA-67BF9DF8CA47} = {F8782795-FA23-4CB4-8264-072E3173BD36}
+		{46A6708E-4334-4A39-A843-D635B6731EEE} = {8E67744C-AA65-4343-A961-C58D637BF930}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05F63309-D7AE-4C40-A02B-846821D39F2C}
+	EndGlobalSection
+EndGlobal
