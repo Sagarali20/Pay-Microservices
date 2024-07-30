@@ -1,3 +1,6 @@
+using ApiGateway.Helpers.Interface;
+using AuthenticationService.Helpers;
+using AuthenticationService.Utils;
 using JwtAuthenticationManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
@@ -8,6 +11,8 @@ builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
      .AddJsonFile("ocelot.json")
      .AddEnvironmentVariables();
 builder.Services.AddOcelot().AddConsul();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+
 
 // Add services to the container.
 
@@ -38,6 +43,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseMiddleware<ApiKeyAuthHandler>();
 await app.UseOcelot();
 
 app.Run();

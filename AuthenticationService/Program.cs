@@ -1,7 +1,18 @@
 using JwtAuthenticationManager;
-using SendMoneyService.RegistersExtensions;
+using AuthenticationService.Helpers.Interface;
+using AuthenticationService.Helpers;
+using System.Reflection;
+using AuthenticationService.Application.Request.Login;
+//using AuthenticationService.Helpers.Service;
+using AuthenticationService.RegistersExtensions;
+using AuthenticationService.Helpers.Service;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+builder.Services.AddScoped<DapperContext>();
+builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+
 var configuration = builder.Configuration;
 var services = builder.Services;
 var serviceSettings = services.StartupBoostrap(configuration);
@@ -17,6 +28,12 @@ builder.Services.AddCustomJwtAuthentication();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<JwtTokenHandler>();
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddCors(p => p.AddPolicy("PSP", policy =>
+{
+    policy.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
 
 var app = builder.Build();
 
@@ -31,6 +48,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();

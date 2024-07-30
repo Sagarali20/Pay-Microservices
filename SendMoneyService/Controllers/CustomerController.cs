@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SendMoneyService.Helpers;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,7 +15,14 @@ namespace SendMoneyService.Controllers
         //[Authorize(Roles = "Administrator")]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            int userId = CurrentUserInfo.UserId();
+            string  UserName = CurrentUserInfo.UserName();
+
+            // Attempt to get the 'userid' header value
+            // Handle the case where the 'userid' header is missing
+
+            return new string[] { userId.ToString(), UserName };
+            
         }
         [HttpGet]
         [Route("GetAll")]
