@@ -1,7 +1,6 @@
-﻿using Consul;
-using SendMoneyService.Settings;
-
-namespace SendMoneyService.RegistersExtensions
+﻿using AuthenticationService.Settings;
+using Consul;
+namespace AuthenticationService.RegistersExtensions
 {
     public static class ServiceRegistryExtensions
     {

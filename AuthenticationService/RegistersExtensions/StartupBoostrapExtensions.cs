@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Options;
-using SendMoneyService.Settings;
+﻿using AuthenticationService.Settings;
+using Microsoft.Extensions.Options;
 
-namespace SendMoneyService.RegistersExtensions
+namespace AuthenticationService.RegistersExtensions
 {
     public static class StartupBoostrapExtensions
     {

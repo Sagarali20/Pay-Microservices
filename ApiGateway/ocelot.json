@@ -4,28 +4,28 @@
     // Authentication Web API
     {
       "ServiceName": "auth-service",
-      "UpstreamPathTemplate": "/auth/api/Account",
+      "UpstreamPathTemplate": "/auth/api/Login/Login",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "/api/Account"
+      "DownstreamPathTemplate": "/api/Login/Login"
     },
     // Sendmoney Web API
     {
       "DownstreamPathTemplate": "/{url}",
       "DownstreamScheme": "http",
       "UseServiceDiscovery": true,
-      "ServiceName": "sendmoneyservice",
+      "ServiceName": "sendmoney-service",
       "UpstreamPathTemplate": "/sendmoney/{url}",
       "UpstreamHttpMethod": [ "GET", "POST" ],
-      "AuthorizationPolicy": "RequireAdministratorRole",
+      //"AuthorizationPolicy": "RequireAdministratorRole",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       },
-      "RouteClaimsRequirement": {
-        "Role": "Administrator"
-      },
+      //"RouteClaimsRequirement": {
+      //  "Role": "Administrator"
+      //},
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,

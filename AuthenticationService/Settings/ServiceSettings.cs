@@ -1,4 +1,4 @@
-﻿namespace SendMoneyService.Settings
+﻿namespace AuthenticationService.Settings
 {
     public class ServiceSettings
     {
