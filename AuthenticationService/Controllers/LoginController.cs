@@ -10,6 +10,7 @@ using Consul;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using AuthenticationService.Helpers.Interface;
+using AuthenticationService.Helpers;
 
 namespace AuthenticationService.Controllers
 {
@@ -32,7 +33,6 @@ namespace AuthenticationService.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> SaveUser(AddOrEditUser command)
         {
-            var userid = _currentUserService;
            
             var result = await _mediator.Send(command);
             return Ok(result);
@@ -43,6 +43,10 @@ namespace AuthenticationService.Controllers
       
             try
             {
+                string ip = CurrentUserInfo.GetIpAddress();
+                string hostname= CurrentUserInfo.GetHostName();
+                string macaddress= CurrentUserInfo.GetMacAddress();
+
                 command.TxPassword = MD5Encryption.GetMD5HashData(command.TxPassword);
                 AuthenticationResponse authenticationResponse = new AuthenticationResponse();
                 User user = await _mediator.Send(command);
@@ -73,10 +77,19 @@ namespace AuthenticationService.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> TestU(Test command)
+        public async Task<IActionResult> LogOut()
         {
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            var identity = User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                foreach (var claim in identity.Claims.ToList())
+                {
+                    identity.RemoveClaim(claim);
+                }
+            }
+
+
+            return Ok("ok");
         }  
     }
 }
