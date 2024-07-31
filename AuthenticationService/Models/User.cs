@@ -7,5 +7,6 @@
         public string tx_last_name { get; set; }
         public string tx_mobile_no { get; set; }         
         public string tx_password { get; set; }
+        public string tx_email { get; set; }
     }
 }
