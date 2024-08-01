@@ -57,6 +57,7 @@ namespace JwtAuthenticationManager
             var securityToken = jwtSecurityTokenHandler.CreateToken(securityTokenDescriptor);
             var token = jwtSecurityTokenHandler.WriteToken(securityToken);
 
+
             return new AuthenticationResponse
             {
                 UserName = username,

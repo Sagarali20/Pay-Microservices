@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddScoped<DapperContext>();
 builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<IPermissionServicecs, PermissionService>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
 var configuration = builder.Configuration;

@@ -21,13 +21,10 @@ namespace AuthenticationService.Controllers
         private readonly JwtTokenHandler _jwtTokenHandler;
         private readonly IMediator _mediator;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly ICurrentUserService _currentUserService;
-
-        public LoginController(IMediator mediator, JwtTokenHandler jwtTokenHandler, ICurrentUserService currentUserService)
+        public LoginController(IMediator mediator, JwtTokenHandler jwtTokenHandler)
         {
             _mediator = mediator;
             _jwtTokenHandler = jwtTokenHandler;
-            _currentUserService = currentUserService;
         }
 
         [HttpPost("[action]")]
@@ -43,9 +40,6 @@ namespace AuthenticationService.Controllers
       
             try
             {
-                string ip = CurrentUserInfo.GetIpAddress();
-                string hostname= CurrentUserInfo.GetHostName();
-                string macaddress= CurrentUserInfo.GetMacAddress();
 
                 command.TxPassword = MD5Encryption.GetMD5HashData(command.TxPassword);
                 AuthenticationResponse authenticationResponse = new AuthenticationResponse();

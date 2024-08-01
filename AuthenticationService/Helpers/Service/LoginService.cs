@@ -96,8 +96,6 @@ namespace AuthenticationService.Helpers.Service
                         }
 
                     }
-
-
                     return Result.Failure(new List<string>() { "Something wrong" });
 
                 }
@@ -162,7 +160,7 @@ namespace AuthenticationService.Helpers.Service
                     parameter.Add(LOGIN_IS_LOG_IN, 0, DbType.String, ParameterDirection.Input);
                     parameter.Add(LOGIN_USER_MOD_KEY,0, DbType.String, ParameterDirection.Input);
 
-                    parameter.Add(Constants.TX_DESCRIPTION, "User not found", DbType.String, ParameterDirection.Input);
+                    parameter.Add(Constants.TX_DESCRIPTION, "Invalid user", DbType.String, ParameterDirection.Input);
                     parameter.Add(Constants.IS_ACTIVE, 1, DbType.Int32, ParameterDirection.Input);
 
                     parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
