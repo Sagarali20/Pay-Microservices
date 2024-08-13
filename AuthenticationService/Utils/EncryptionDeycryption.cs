@@ -32,7 +32,7 @@ namespace AuthenticationService.Utils
 
         public string Encrypt(string stringToEncrypt, string SEncryptionKey)
         {
-            try
+            try                   
             {
                 key = System.Text.Encoding.UTF8.GetBytes(SEncryptionKey);
                 DESCryptoServiceProvider des = new DESCryptoServiceProvider();

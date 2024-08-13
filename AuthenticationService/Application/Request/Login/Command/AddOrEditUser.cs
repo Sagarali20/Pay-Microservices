@@ -38,20 +38,21 @@ namespace AuthenticationService.Application.Request.Login.Command
             DttDob = dttDob;    
             IsActive = isActive;
         }
-        public class AddOrEditUserHandler : IRequestHandler<AddOrEditUser, Result>
-        {
-            private readonly ILoginService loginService;
-            public AddOrEditUserHandler(ILoginService _loginService)
-            {
-                loginService = _loginService;
-            }
-
-            public async Task<Result> Handle(AddOrEditUser request, CancellationToken cancellationToken)
-            {
-                var result = await loginService.AddUser(request);
-                return result;
-            }
-        }
 
     }
+    public class AddOrEditUserHandler : IRequestHandler<AddOrEditUser, Result>
+    {
+        private readonly ILoginService loginService;
+        public AddOrEditUserHandler(ILoginService _loginService)
+        {
+            loginService = _loginService;
+        }
+
+        public async Task<Result> Handle(AddOrEditUser request, CancellationToken cancellationToken)
+        {
+            var result = await loginService.AddUser(request);
+            return result;
+        }
+    }
+
 }

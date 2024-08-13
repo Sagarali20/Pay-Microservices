@@ -53,7 +53,8 @@ namespace AuthenticationService.Controllers
                         {
                             result = true,
                             token = authenticationResponse,
-                            userFullName = user.tx_first_name + " " + user.tx_last_name
+                            userFullName = user.tx_first_name + " " + user.tx_last_name,
+                            permission=user.Permission
                         };
                         var userId = User.FindFirst(JwtRegisteredClaimNames.Name)?.Value;
                         return Ok(res);
@@ -81,8 +82,6 @@ namespace AuthenticationService.Controllers
                     identity.RemoveClaim(claim);
                 }
             }
-
-
             return Ok("ok");
         }  
     }

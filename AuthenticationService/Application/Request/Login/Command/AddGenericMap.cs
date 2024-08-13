@@ -10,19 +10,20 @@ namespace AuthenticationService.Application.Request.Login.Command
         { 
             GenericMap = genericMap;
         }
-        public class AddOrEditUserHandler : IRequestHandler<AddGenericMap, Result>
+    }
+    public class AddGenericMapHandler : IRequestHandler<AddGenericMap, Result>
+    {
+        private readonly IPermissionServicecs permissionServicecs;
+        public AddGenericMapHandler(IPermissionServicecs _permissionServicecs)
         {
-            private readonly IPermissionServicecs permissionServicecs;
-            public AddOrEditUserHandler(IPermissionServicecs _permissionServicecs)
-            {
-                permissionServicecs = _permissionServicecs;
-            }
+            permissionServicecs = _permissionServicecs;
+        }
 
-            public async Task<Result> Handle(AddGenericMap request, CancellationToken cancellationToken)
-            {
-                var result = await permissionServicecs.AddGenericMap(request);
-                return result;
-            }
+        public async Task<Result> Handle(AddGenericMap request, CancellationToken cancellationToken)
+        {
+            var result = await permissionServicecs.AddGenericMap(request);
+            return result;
         }
     }
+
 }

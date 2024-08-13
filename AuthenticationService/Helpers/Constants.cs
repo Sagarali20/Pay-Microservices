@@ -11,6 +11,9 @@
         public static string Add_User = "INS_user";
         public static string UPD_User = "UPD_user";
         public static string ADD_Login = "INS_login";
+        public static string ADD_GenericMap = "INS_genericmap";
+        public static string ADD_Group = "INS_group";
+        public static string ADD_Role = "INS_role";
 
         #endregion
 

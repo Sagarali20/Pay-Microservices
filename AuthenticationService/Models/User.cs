@@ -8,5 +8,6 @@
         public string tx_mobile_no { get; set; }         
         public string tx_password { get; set; }
         public string tx_email { get; set; }
+        public List<Permission> Permission { get; set;}
     }
 }

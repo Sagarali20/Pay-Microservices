@@ -13,21 +13,20 @@ namespace AuthenticationService.Application.Request.Login.Command
             TxUserName = txUserName;
             TxPassword = txPassword;           
         }
-
-        public class LoginUserHandler : IRequestHandler<LoginUser, User>
+    }
+    public class LoginUserHandler : IRequestHandler<LoginUser, User>
+    {
+        private readonly ILoginService loginService;
+        public LoginUserHandler(ILoginService _loginService)
         {
-            private readonly ILoginService loginService;
-            public LoginUserHandler(ILoginService _loginService)
-            {
-                loginService = _loginService;
-            }
-
-            public async Task<User> Handle(LoginUser request, CancellationToken cancellationToken)
-            {
-                var result = await loginService.VerifyUser(request);
-                return result;
-            }
+            loginService = _loginService;
         }
 
+        public async Task<User> Handle(LoginUser request, CancellationToken cancellationToken)
+        {
+            var result = await loginService.VerifyUser(request);
+            return result;
+        }
     }
+
 }
