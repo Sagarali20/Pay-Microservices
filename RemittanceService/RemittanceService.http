@@ -1,0 +1,6 @@
+@RemittanceService_HostAddress = http://localhost:5264
+
+GET {{RemittanceService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,495 @@
+[2024-08-15 14:23:03.943 +06:00  DBG]  Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[2024-08-15 14:23:03.999 +06:00  DBG]  Hosting starting
+[2024-08-15 14:23:04.205 +06:00  INF]  Now listening on: http://localhost:5264
+[2024-08-15 14:23:04.205 +06:00  DBG]  Loaded hosting startup assembly RemittanceService
+[2024-08-15 14:23:04.205 +06:00  DBG]  Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+[2024-08-15 14:23:04.205 +06:00  DBG]  Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+[2024-08-15 14:23:04.205 +06:00  INF]  Application started. Press Ctrl+C to shut down.
+[2024-08-15 14:23:04.205 +06:00  INF]  Hosting environment: Development
+[2024-08-15 14:23:04.205 +06:00  INF]  Content root path: D:\Project\necpaybd-core\backend\RemittanceService
+[2024-08-15 14:23:04.205 +06:00  DBG]  Hosting started
+[2024-08-15 14:23:04.361 +06:00  DBG]  Connection id "0HN5T0DU0RTR5" accepted.
+[2024-08-15 14:23:04.361 +06:00  DBG]  Connection id "0HN5T0DU0RTR5" started.
+[2024-08-15 14:23:04.435 +06:00  DBG]  Connection id "0HN5T0DU0RTR6" accepted.
+[2024-08-15 14:23:04.435 +06:00  DBG]  Connection id "0HN5T0DU0RTR6" started.
+[2024-08-15 14:23:04.817 +06:00  DBG]  Connection id "0HN5T0DU0RTR7" accepted.
+[2024-08-15 14:23:04.817 +06:00  DBG]  Connection id "0HN5T0DU0RTR7" started.
+[2024-08-15 14:23:04.818 +06:00  DBG]  Connection id "0HN5T0DU0RTR8" accepted.
+[2024-08-15 14:23:04.818 +06:00  DBG]  Connection id "0HN5T0DU0RTR8" started.
+[2024-08-15 14:23:04.870 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/index.html - null null
+[2024-08-15 14:23:04.985 +06:00  DBG]  Wildcard detected, all requests with hosts will be allowed.
+[2024-08-15 14:23:04.994 +06:00  DBG]  No candidates found for the request path '/swagger/index.html'
+[2024-08-15 14:23:04.995 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 14:23:05.035 +06:00  DBG]  Response markup is scheduled to include Browser Link script injection.
+[2024-08-15 14:23:05.036 +06:00  DBG]  Response markup is scheduled to include browser refresh script injection.
+[2024-08-15 14:23:05.071 +06:00  DBG]  Response markup was updated to include Browser Link script injection.
+[2024-08-15 14:23:05.072 +06:00  DBG]  Response markup was updated to include browser refresh script injection.
+[2024-08-15 14:23:05.072 +06:00  DBG]  Connection id "0HN5T0DU0RTR7" completed keep alive response.
+[2024-08-15 14:23:05.073 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/index.html - 200 null text/html;charset=utf-8 208.476ms
+[2024-08-15 14:23:05.082 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - null null
+[2024-08-15 14:23:05.084 +06:00  DBG]  Connection id "0HN5T0DU0RTR7" completed keep alive response.
+[2024-08-15 14:23:05.084 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 2.716ms
+[2024-08-15 14:23:05.089 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_vs/browserLink - null null
+[2024-08-15 14:23:05.117 +06:00  DBG]  Connection id "0HN5T0DU0RTR7" completed keep alive response.
+[2024-08-15 14:23:05.117 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_vs/browserLink - 200 null text/javascript; charset=UTF-8 28.4094ms
+[2024-08-15 14:23:05.281 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - null null
+[2024-08-15 14:23:05.282 +06:00  DBG]  No candidates found for the request path '/swagger/v1/swagger.json'
+[2024-08-15 14:23:05.282 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 14:23:05.340 +06:00  DBG]  Connection id "0HN5T0DU0RTR7" completed keep alive response.
+[2024-08-15 14:23:05.340 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 58.8766ms
+[2024-08-15 14:23:07.830 +06:00  DBG]  Connection id "0HN5T0DU0RTR7" received FIN.
+[2024-08-15 14:23:07.830 +06:00  DBG]  Connection id "0HN5T0DU0RTR8" received FIN.
+[2024-08-15 14:23:07.836 +06:00  DBG]  Connection id "0HN5T0DU0RTR8" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:23:07.836 +06:00  DBG]  Connection id "0HN5T0DU0RTR7" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:23:07.837 +06:00  DBG]  Connection id "0HN5T0DU0RTR8" disconnecting.
+[2024-08-15 14:23:07.837 +06:00  DBG]  Connection id "0HN5T0DU0RTR7" disconnecting.
+[2024-08-15 14:23:07.841 +06:00  DBG]  Connection id "0HN5T0DU0RTR7" stopped.
+[2024-08-15 14:23:07.841 +06:00  DBG]  Connection id "0HN5T0DU0RTR8" stopped.
+[2024-08-15 14:23:08.170 +06:00  DBG]  Connection id "0HN5T0DU0RTR9" accepted.
+[2024-08-15 14:23:08.170 +06:00  DBG]  Connection id "0HN5T0DU0RTR9" started.
+[2024-08-15 14:23:08.171 +06:00  DBG]  Connection id "0HN5T0DU0RTRA" accepted.
+[2024-08-15 14:23:08.171 +06:00  DBG]  Connection id "0HN5T0DU0RTRA" started.
+[2024-08-15 14:23:08.171 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/swagger-ui-standalone-preset.js - null null
+[2024-08-15 14:23:08.171 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - null null
+[2024-08-15 14:23:08.171 +06:00  DBG]  Connection id "0HN5T0DU0RTRB" accepted.
+[2024-08-15 14:23:08.171 +06:00  DBG]  No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js'
+[2024-08-15 14:23:08.171 +06:00  DBG]  Connection id "0HN5T0DU0RTRB" started.
+[2024-08-15 14:23:08.171 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 14:23:08.171 +06:00  DBG]  Connection id "0HN5T0DU0RTRA" completed keep alive response.
+[2024-08-15 14:23:08.171 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/swagger-ui-bundle.js - null null
+[2024-08-15 14:23:08.171 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 0.3225ms
+[2024-08-15 14:23:08.171 +06:00  DBG]  No candidates found for the request path '/swagger/swagger-ui-bundle.js'
+[2024-08-15 14:23:08.172 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 14:23:08.172 +06:00  DBG]  Connection id "0HN5T0DU0RTRC" accepted.
+[2024-08-15 14:23:08.172 +06:00  DBG]  Connection id "0HN5T0DU0RTRC" started.
+[2024-08-15 14:23:08.172 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_vs/browserLink - null null
+[2024-08-15 14:23:08.177 +06:00  DBG]  Connection id "0HN5T0DU0RTRC" completed keep alive response.
+[2024-08-15 14:23:08.177 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.2566ms
+[2024-08-15 14:23:08.188 +06:00  INF]  Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+[2024-08-15 14:23:08.191 +06:00  DBG]  Connection id "0HN5T0DU0RTR9" completed keep alive response.
+[2024-08-15 14:23:08.191 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 19.7792ms
+[2024-08-15 14:23:08.191 +06:00  INF]  Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+[2024-08-15 14:23:08.191 +06:00  DBG]  Connection id "0HN5T0DU0RTRB" completed keep alive response.
+[2024-08-15 14:23:08.191 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 19.7852ms
+[2024-08-15 14:23:22.765 +06:00  DBG]  Connection id "0HN5T0DU0RTRD" accepted.
+[2024-08-15 14:23:22.765 +06:00  DBG]  Connection id "0HN5T0DU0RTRD" started.
+[2024-08-15 14:23:22.766 +06:00  DBG]  Connection id "0HN5T0DU0RTRD" received FIN.
+[2024-08-15 14:23:22.766 +06:00  DBG]  Connection id "0HN5T0DU0RTRE" accepted.
+[2024-08-15 14:23:22.766 +06:00  DBG]  Connection id "0HN5T0DU0RTRE" started.
+[2024-08-15 14:23:22.766 +06:00  DBG]  Connection id "0HN5T0DU0RTRD" disconnecting.
+[2024-08-15 14:23:22.766 +06:00  DBG]  Connection id "0HN5T0DU0RTRD" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:23:22.767 +06:00  INF]  Request starting HTTP/1.1 POST http://localhost:5264/api/Ramittance/Ramittance - application/json 783
+[2024-08-15 14:23:22.769 +06:00  DBG]  1 candidate(s) found for the request path '/api/Ramittance/Ramittance'
+[2024-08-15 14:23:22.770 +06:00  DBG]  Endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)' with route pattern 'api/Ramittance/Ramittance' is valid for the request path '/api/Ramittance/Ramittance'
+[2024-08-15 14:23:22.770 +06:00  DBG]  Request matched endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 14:23:22.771 +06:00  DBG]  Static files was skipped as the request already matched an endpoint.
+[2024-08-15 14:23:22.771 +06:00  INF]  Executing endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 14:23:22.772 +06:00  DBG]  Connection id "0HN5T0DU0RTRD" stopped.
+[2024-08-15 14:23:22.784 +06:00  INF]  Route matched with {action = "Ramittance", controller = "Ramittance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Ramittance(RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation) on controller RemittanceService.Controllers.RamittanceController (RemittanceService).
+[2024-08-15 14:23:22.784 +06:00  DBG]  Execution plan of authorization filters (in the following order): ["None"]
+[2024-08-15 14:23:22.784 +06:00  DBG]  Execution plan of resource filters (in the following order): ["None"]
+[2024-08-15 14:23:22.784 +06:00  DBG]  Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[2024-08-15 14:23:22.784 +06:00  DBG]  Execution plan of exception filters (in the following order): ["None"]
+[2024-08-15 14:23:22.785 +06:00  DBG]  Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[2024-08-15 14:23:22.785 +06:00  DBG]  Executing controller factory for controller RemittanceService.Controllers.RamittanceController (RemittanceService)
+[2024-08-15 14:23:22.785 +06:00  DBG]  Executed controller factory for controller RemittanceService.Controllers.RamittanceController (RemittanceService)
+[2024-08-15 14:23:22.787 +06:00  DBG]  Attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' ...
+[2024-08-15 14:23:22.788 +06:00  DBG]  Attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' using the name '' in request data ...
+[2024-08-15 14:23:22.788 +06:00  DBG]  Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[2024-08-15 14:23:22.793 +06:00  DBG]  Connection id "0HN5T0DU0RTRE", Request id "0HN5T0DU0RTRE:00000001": started reading request body.
+[2024-08-15 14:23:22.793 +06:00  DBG]  Connection id "0HN5T0DU0RTRE", Request id "0HN5T0DU0RTRE:00000001": done reading request body.
+[2024-08-15 14:23:22.797 +06:00  DBG]  JSON input formatter succeeded, deserializing to type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'
+[2024-08-15 14:23:22.797 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 14:23:22.797 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 14:23:22.797 +06:00  DBG]  Attempting to validate the bound parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' ...
+[2024-08-15 14:23:22.802 +06:00  DBG]  Done attempting to validate the bound parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 14:23:22.803 +06:00  INF]  request receive from 
+[2024-08-15 14:23:22.902 +06:00  INF]  request from remittance handler
+[2024-08-15 14:23:23.093 +06:00  INF]  request receive from remittance service
+[2024-08-15 14:24:29.692 +06:00  DBG]  Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[2024-08-15 14:24:29.775 +06:00  DBG]  Hosting starting
+[2024-08-15 14:24:29.853 +06:00  INF]  Now listening on: http://localhost:5264
+[2024-08-15 14:24:29.854 +06:00  DBG]  Loaded hosting startup assembly RemittanceService
+[2024-08-15 14:24:29.854 +06:00  DBG]  Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+[2024-08-15 14:24:29.854 +06:00  DBG]  Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+[2024-08-15 14:24:29.854 +06:00  INF]  Application started. Press Ctrl+C to shut down.
+[2024-08-15 14:24:29.854 +06:00  INF]  Hosting environment: Development
+[2024-08-15 14:24:29.854 +06:00  INF]  Content root path: D:\Project\necpaybd-core\backend\RemittanceService
+[2024-08-15 14:24:29.854 +06:00  DBG]  Hosting started
+[2024-08-15 14:24:30.094 +06:00  DBG]  Connection id "0HN5T0ENIFHCH" accepted.
+[2024-08-15 14:24:30.094 +06:00  DBG]  Connection id "0HN5T0ENIFHCH" started.
+[2024-08-15 14:24:30.103 +06:00  DBG]  Connection id "0HN5T0ENIFHCI" accepted.
+[2024-08-15 14:24:30.103 +06:00  DBG]  Connection id "0HN5T0ENIFHCI" started.
+[2024-08-15 14:24:30.119 +06:00  DBG]  Connection id "0HN5T0ENIFHCH" received FIN.
+[2024-08-15 14:24:30.119 +06:00  DBG]  Connection id "0HN5T0ENIFHCI" received FIN.
+[2024-08-15 14:24:30.124 +06:00  DBG]  Connection id "0HN5T0ENIFHCI" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:24:30.122 +06:00  DBG]  Connection id "0HN5T0ENIFHCH" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:24:30.126 +06:00  DBG]  Connection id "0HN5T0ENIFHCI" disconnecting.
+[2024-08-15 14:24:30.126 +06:00  DBG]  Connection id "0HN5T0ENIFHCH" disconnecting.
+[2024-08-15 14:24:30.128 +06:00  DBG]  Connection id "0HN5T0ENIFHCH" stopped.
+[2024-08-15 14:24:30.128 +06:00  DBG]  Connection id "0HN5T0ENIFHCI" stopped.
+[2024-08-15 14:24:30.455 +06:00  DBG]  Connection id "0HN5T0ENIFHCJ" accepted.
+[2024-08-15 14:24:30.456 +06:00  DBG]  Connection id "0HN5T0ENIFHCJ" started.
+[2024-08-15 14:24:30.456 +06:00  DBG]  Connection id "0HN5T0ENIFHCK" accepted.
+[2024-08-15 14:24:30.456 +06:00  DBG]  Connection id "0HN5T0ENIFHCK" started.
+[2024-08-15 14:24:30.519 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/index.html - null null
+[2024-08-15 14:24:30.590 +06:00  DBG]  Wildcard detected, all requests with hosts will be allowed.
+[2024-08-15 14:24:30.602 +06:00  DBG]  No candidates found for the request path '/swagger/index.html'
+[2024-08-15 14:24:30.602 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 14:24:30.642 +06:00  DBG]  Response markup is scheduled to include Browser Link script injection.
+[2024-08-15 14:24:30.643 +06:00  DBG]  Response markup is scheduled to include browser refresh script injection.
+[2024-08-15 14:24:30.652 +06:00  DBG]  Response markup was updated to include Browser Link script injection.
+[2024-08-15 14:24:30.653 +06:00  DBG]  Response markup was updated to include browser refresh script injection.
+[2024-08-15 14:24:30.653 +06:00  DBG]  Connection id "0HN5T0ENIFHCJ" completed keep alive response.
+[2024-08-15 14:24:30.654 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/index.html - 200 null text/html;charset=utf-8 140.9199ms
+[2024-08-15 14:24:30.658 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - null null
+[2024-08-15 14:24:30.659 +06:00  DBG]  Connection id "0HN5T0ENIFHCJ" completed keep alive response.
+[2024-08-15 14:24:30.659 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 1.9382ms
+[2024-08-15 14:24:30.667 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_vs/browserLink - null null
+[2024-08-15 14:24:30.694 +06:00  DBG]  Connection id "0HN5T0ENIFHCJ" completed keep alive response.
+[2024-08-15 14:24:30.694 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.9848ms
+[2024-08-15 14:24:30.886 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - null null
+[2024-08-15 14:24:30.887 +06:00  DBG]  No candidates found for the request path '/swagger/v1/swagger.json'
+[2024-08-15 14:24:30.887 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 14:24:30.945 +06:00  DBG]  Connection id "0HN5T0ENIFHCJ" completed keep alive response.
+[2024-08-15 14:24:30.945 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 58.9062ms
+[2024-08-15 14:24:33.415 +06:00  DBG]  Connection id "0HN5T0ENIFHCJ" received FIN.
+[2024-08-15 14:24:33.415 +06:00  DBG]  Connection id "0HN5T0ENIFHCK" received FIN.
+[2024-08-15 14:24:33.415 +06:00  DBG]  Connection id "0HN5T0ENIFHCK" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:24:33.415 +06:00  DBG]  Connection id "0HN5T0ENIFHCJ" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:24:33.415 +06:00  DBG]  Connection id "0HN5T0ENIFHCK" disconnecting.
+[2024-08-15 14:24:33.415 +06:00  DBG]  Connection id "0HN5T0ENIFHCJ" disconnecting.
+[2024-08-15 14:24:33.415 +06:00  DBG]  Connection id "0HN5T0ENIFHCK" stopped.
+[2024-08-15 14:24:33.418 +06:00  DBG]  Connection id "0HN5T0ENIFHCJ" stopped.
+[2024-08-15 14:24:33.771 +06:00  DBG]  Connection id "0HN5T0ENIFHCL" accepted.
+[2024-08-15 14:24:33.771 +06:00  DBG]  Connection id "0HN5T0ENIFHCL" started.
+[2024-08-15 14:24:33.771 +06:00  DBG]  Connection id "0HN5T0ENIFHCL" received FIN.
+[2024-08-15 14:24:33.771 +06:00  DBG]  Connection id "0HN5T0ENIFHCL" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:24:33.771 +06:00  DBG]  Connection id "0HN5T0ENIFHCM" accepted.
+[2024-08-15 14:24:33.771 +06:00  DBG]  Connection id "0HN5T0ENIFHCL" disconnecting.
+[2024-08-15 14:24:33.771 +06:00  DBG]  Connection id "0HN5T0ENIFHCM" started.
+[2024-08-15 14:24:33.771 +06:00  DBG]  Connection id "0HN5T0ENIFHCL" stopped.
+[2024-08-15 14:24:33.772 +06:00  INF]  Request starting HTTP/1.1 POST http://localhost:5264/api/Ramittance/Ramittance - application/json 783
+[2024-08-15 14:24:33.774 +06:00  DBG]  1 candidate(s) found for the request path '/api/Ramittance/Ramittance'
+[2024-08-15 14:24:33.776 +06:00  DBG]  Endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)' with route pattern 'api/Ramittance/Ramittance' is valid for the request path '/api/Ramittance/Ramittance'
+[2024-08-15 14:24:33.776 +06:00  DBG]  Request matched endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 14:24:33.778 +06:00  DBG]  Static files was skipped as the request already matched an endpoint.
+[2024-08-15 14:24:33.779 +06:00  INF]  Executing endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 14:24:33.792 +06:00  INF]  Route matched with {action = "Ramittance", controller = "Ramittance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Ramittance(RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation) on controller RemittanceService.Controllers.RamittanceController (RemittanceService).
+[2024-08-15 14:24:33.793 +06:00  DBG]  Execution plan of authorization filters (in the following order): ["None"]
+[2024-08-15 14:24:33.793 +06:00  DBG]  Execution plan of resource filters (in the following order): ["None"]
+[2024-08-15 14:24:33.793 +06:00  DBG]  Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[2024-08-15 14:24:33.793 +06:00  DBG]  Execution plan of exception filters (in the following order): ["None"]
+[2024-08-15 14:24:33.793 +06:00  DBG]  Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[2024-08-15 14:24:33.794 +06:00  DBG]  Executing controller factory for controller RemittanceService.Controllers.RamittanceController (RemittanceService)
+[2024-08-15 14:24:33.794 +06:00  DBG]  Executed controller factory for controller RemittanceService.Controllers.RamittanceController (RemittanceService)
+[2024-08-15 14:24:33.796 +06:00  DBG]  Attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' ...
+[2024-08-15 14:24:33.798 +06:00  DBG]  Attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' using the name '' in request data ...
+[2024-08-15 14:24:33.798 +06:00  DBG]  Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[2024-08-15 14:24:33.803 +06:00  DBG]  Connection id "0HN5T0ENIFHCM", Request id "0HN5T0ENIFHCM:00000001": started reading request body.
+[2024-08-15 14:24:33.803 +06:00  DBG]  Connection id "0HN5T0ENIFHCM", Request id "0HN5T0ENIFHCM:00000001": done reading request body.
+[2024-08-15 14:24:33.807 +06:00  DBG]  JSON input formatter succeeded, deserializing to type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'
+[2024-08-15 14:24:33.807 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 14:24:33.807 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 14:24:33.807 +06:00  DBG]  Attempting to validate the bound parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' ...
+[2024-08-15 14:24:33.811 +06:00  DBG]  Connection id "0HN5T0ENIFHCN" accepted.
+[2024-08-15 14:24:33.811 +06:00  DBG]  Connection id "0HN5T0ENIFHCN" started.
+[2024-08-15 14:24:33.811 +06:00  DBG]  Connection id "0HN5T0ENIFHCO" accepted.
+[2024-08-15 14:24:33.811 +06:00  DBG]  Connection id "0HN5T0ENIFHCO" started.
+[2024-08-15 14:24:33.812 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - null null
+[2024-08-15 14:24:33.812 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_vs/browserLink - null null
+[2024-08-15 14:24:33.812 +06:00  DBG]  Connection id "0HN5T0ENIFHCN" completed keep alive response.
+[2024-08-15 14:24:33.812 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 0.3639ms
+[2024-08-15 14:24:33.815 +06:00  DBG]  Connection id "0HN5T0ENIFHCO" completed keep alive response.
+[2024-08-15 14:24:33.815 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.8346ms
+[2024-08-15 14:24:33.816 +06:00  DBG]  Done attempting to validate the bound parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 14:24:33.817 +06:00  INF]  request receive from 
+[2024-08-15 14:24:33.835 +06:00  INF]  request from remittance handler
+[2024-08-15 14:24:33.903 +06:00  INF]  request receive from remittance service
+[2024-08-15 14:24:33.964 +06:00  INF]  remittance notification start
+[2024-08-15 14:25:15.238 +06:00  DBG]  Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[2024-08-15 14:25:15.279 +06:00  DBG]  Hosting starting
+[2024-08-15 14:25:15.355 +06:00  INF]  Now listening on: http://localhost:5264
+[2024-08-15 14:25:15.355 +06:00  DBG]  Loaded hosting startup assembly RemittanceService
+[2024-08-15 14:25:15.355 +06:00  DBG]  Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+[2024-08-15 14:25:15.355 +06:00  DBG]  Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+[2024-08-15 14:25:15.355 +06:00  INF]  Application started. Press Ctrl+C to shut down.
+[2024-08-15 14:25:15.355 +06:00  INF]  Hosting environment: Development
+[2024-08-15 14:25:15.355 +06:00  INF]  Content root path: D:\Project\necpaybd-core\backend\RemittanceService
+[2024-08-15 14:25:15.356 +06:00  DBG]  Hosting started
+[2024-08-15 14:25:15.545 +06:00  DBG]  Connection id "0HN5T0F53U2NK" accepted.
+[2024-08-15 14:25:15.545 +06:00  DBG]  Connection id "0HN5T0F53U2NK" started.
+[2024-08-15 14:25:15.551 +06:00  DBG]  Connection id "0HN5T0F53U2NL" accepted.
+[2024-08-15 14:25:15.551 +06:00  DBG]  Connection id "0HN5T0F53U2NL" started.
+[2024-08-15 14:25:15.568 +06:00  DBG]  Connection id "0HN5T0F53U2NL" received FIN.
+[2024-08-15 14:25:15.568 +06:00  DBG]  Connection id "0HN5T0F53U2NK" received FIN.
+[2024-08-15 14:25:15.575 +06:00  DBG]  Connection id "0HN5T0F53U2NK" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:25:15.575 +06:00  DBG]  Connection id "0HN5T0F53U2NL" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:25:15.576 +06:00  DBG]  Connection id "0HN5T0F53U2NL" disconnecting.
+[2024-08-15 14:25:15.576 +06:00  DBG]  Connection id "0HN5T0F53U2NK" disconnecting.
+[2024-08-15 14:25:15.580 +06:00  DBG]  Connection id "0HN5T0F53U2NL" stopped.
+[2024-08-15 14:25:15.580 +06:00  DBG]  Connection id "0HN5T0F53U2NK" stopped.
+[2024-08-15 14:25:15.960 +06:00  DBG]  Connection id "0HN5T0F53U2NM" accepted.
+[2024-08-15 14:25:15.960 +06:00  DBG]  Connection id "0HN5T0F53U2NM" started.
+[2024-08-15 14:25:15.962 +06:00  DBG]  Connection id "0HN5T0F53U2NN" accepted.
+[2024-08-15 14:25:15.962 +06:00  DBG]  Connection id "0HN5T0F53U2NN" started.
+[2024-08-15 14:25:15.982 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/index.html - null null
+[2024-08-15 14:25:16.060 +06:00  DBG]  Wildcard detected, all requests with hosts will be allowed.
+[2024-08-15 14:25:16.070 +06:00  DBG]  No candidates found for the request path '/swagger/index.html'
+[2024-08-15 14:25:16.070 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 14:25:16.112 +06:00  DBG]  Response markup is scheduled to include Browser Link script injection.
+[2024-08-15 14:25:16.113 +06:00  DBG]  Response markup is scheduled to include browser refresh script injection.
+[2024-08-15 14:25:16.121 +06:00  DBG]  Response markup was updated to include Browser Link script injection.
+[2024-08-15 14:25:16.121 +06:00  DBG]  Response markup was updated to include browser refresh script injection.
+[2024-08-15 14:25:16.122 +06:00  DBG]  Connection id "0HN5T0F53U2NM" completed keep alive response.
+[2024-08-15 14:25:16.123 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/index.html - 200 null text/html;charset=utf-8 145.0029ms
+[2024-08-15 14:25:16.130 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - null null
+[2024-08-15 14:25:16.131 +06:00  DBG]  Connection id "0HN5T0F53U2NM" completed keep alive response.
+[2024-08-15 14:25:16.131 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 1.5167ms
+[2024-08-15 14:25:16.135 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_vs/browserLink - null null
+[2024-08-15 14:25:16.153 +06:00  DBG]  Connection id "0HN5T0F53U2NM" completed keep alive response.
+[2024-08-15 14:25:16.154 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_vs/browserLink - 200 null text/javascript; charset=UTF-8 18.5865ms
+[2024-08-15 14:25:16.256 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - null null
+[2024-08-15 14:25:16.257 +06:00  DBG]  No candidates found for the request path '/swagger/v1/swagger.json'
+[2024-08-15 14:25:16.257 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 14:25:16.324 +06:00  DBG]  Connection id "0HN5T0F53U2NM" completed keep alive response.
+[2024-08-15 14:25:16.325 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 68.5626ms
+[2024-08-15 14:25:18.951 +06:00  DBG]  Connection id "0HN5T0F53U2NN" received FIN.
+[2024-08-15 14:25:18.951 +06:00  DBG]  Connection id "0HN5T0F53U2NM" received FIN.
+[2024-08-15 14:25:18.952 +06:00  DBG]  Connection id "0HN5T0F53U2NM" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:25:18.952 +06:00  DBG]  Connection id "0HN5T0F53U2NN" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:25:18.952 +06:00  DBG]  Connection id "0HN5T0F53U2NN" disconnecting.
+[2024-08-15 14:25:18.952 +06:00  DBG]  Connection id "0HN5T0F53U2NM" disconnecting.
+[2024-08-15 14:25:18.952 +06:00  DBG]  Connection id "0HN5T0F53U2NN" stopped.
+[2024-08-15 14:25:18.954 +06:00  DBG]  Connection id "0HN5T0F53U2NM" stopped.
+[2024-08-15 14:25:19.287 +06:00  DBG]  Connection id "0HN5T0F53U2NO" accepted.
+[2024-08-15 14:25:19.287 +06:00  DBG]  Connection id "0HN5T0F53U2NO" started.
+[2024-08-15 14:25:19.288 +06:00  DBG]  Connection id "0HN5T0F53U2NP" accepted.
+[2024-08-15 14:25:19.288 +06:00  DBG]  Connection id "0HN5T0F53U2NP" started.
+[2024-08-15 14:25:19.288 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_vs/browserLink - null null
+[2024-08-15 14:25:19.288 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - null null
+[2024-08-15 14:25:19.288 +06:00  DBG]  Connection id "0HN5T0F53U2NO" completed keep alive response.
+[2024-08-15 14:25:19.288 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 0.3039ms
+[2024-08-15 14:25:19.299 +06:00  DBG]  Connection id "0HN5T0F53U2NP" completed keep alive response.
+[2024-08-15 14:25:19.299 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.7687ms
+[2024-08-15 14:25:23.917 +06:00  DBG]  Connection id "0HN5T0F53U2NQ" received FIN.
+[2024-08-15 14:25:23.918 +06:00  DBG]  Connection id "0HN5T0F53U2NQ" accepted.
+[2024-08-15 14:25:23.918 +06:00  DBG]  Connection id "0HN5T0F53U2NQ" started.
+[2024-08-15 14:25:23.918 +06:00  DBG]  Connection id "0HN5T0F53U2NQ" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 14:25:23.918 +06:00  DBG]  Connection id "0HN5T0F53U2NQ" disconnecting.
+[2024-08-15 14:25:23.918 +06:00  DBG]  Connection id "0HN5T0F53U2NR" accepted.
+[2024-08-15 14:25:23.918 +06:00  DBG]  Connection id "0HN5T0F53U2NQ" stopped.
+[2024-08-15 14:25:23.918 +06:00  DBG]  Connection id "0HN5T0F53U2NR" started.
+[2024-08-15 14:25:23.919 +06:00  INF]  Request starting HTTP/1.1 POST http://localhost:5264/api/Ramittance/Ramittance - application/json 783
+[2024-08-15 14:25:23.922 +06:00  DBG]  1 candidate(s) found for the request path '/api/Ramittance/Ramittance'
+[2024-08-15 14:25:23.925 +06:00  DBG]  Endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)' with route pattern 'api/Ramittance/Ramittance' is valid for the request path '/api/Ramittance/Ramittance'
+[2024-08-15 14:25:23.925 +06:00  DBG]  Request matched endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 14:25:23.927 +06:00  DBG]  Static files was skipped as the request already matched an endpoint.
+[2024-08-15 14:25:23.930 +06:00  INF]  Executing endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 14:25:23.953 +06:00  INF]  Route matched with {action = "Ramittance", controller = "Ramittance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Ramittance(RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation) on controller RemittanceService.Controllers.RamittanceController (RemittanceService).
+[2024-08-15 14:25:23.954 +06:00  DBG]  Execution plan of authorization filters (in the following order): ["None"]
+[2024-08-15 14:25:23.954 +06:00  DBG]  Execution plan of resource filters (in the following order): ["None"]
+[2024-08-15 14:25:23.954 +06:00  DBG]  Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[2024-08-15 14:25:23.954 +06:00  DBG]  Execution plan of exception filters (in the following order): ["None"]
+[2024-08-15 14:25:23.954 +06:00  DBG]  Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[2024-08-15 14:25:23.955 +06:00  DBG]  Executing controller factory for controller RemittanceService.Controllers.RamittanceController (RemittanceService)
+[2024-08-15 14:25:23.956 +06:00  DBG]  Executed controller factory for controller RemittanceService.Controllers.RamittanceController (RemittanceService)
+[2024-08-15 14:25:23.959 +06:00  DBG]  Attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' ...
+[2024-08-15 14:25:23.961 +06:00  DBG]  Attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' using the name '' in request data ...
+[2024-08-15 14:25:23.961 +06:00  DBG]  Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[2024-08-15 14:25:23.969 +06:00  DBG]  Connection id "0HN5T0F53U2NR", Request id "0HN5T0F53U2NR:00000001": started reading request body.
+[2024-08-15 14:25:23.969 +06:00  DBG]  Connection id "0HN5T0F53U2NR", Request id "0HN5T0F53U2NR:00000001": done reading request body.
+[2024-08-15 14:25:23.975 +06:00  DBG]  JSON input formatter succeeded, deserializing to type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'
+[2024-08-15 14:25:23.976 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 14:25:23.976 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 14:25:23.976 +06:00  DBG]  Attempting to validate the bound parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' ...
+[2024-08-15 14:25:23.983 +06:00  DBG]  Done attempting to validate the bound parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 14:25:23.985 +06:00  INF]  request receive from 
+[2024-08-15 14:25:24.011 +06:00  INF]  request from remittance handler
+[2024-08-15 14:25:24.114 +06:00  INF]  request receive from remittance service
+[2024-08-15 14:25:24.194 +06:00  INF]  commit done from remittance 
+[2024-08-15 14:25:24.194 +06:00  INF]  success from remittance handler
+[2024-08-15 14:25:24.194 +06:00  INF]  remittance send success
+[2024-08-15 14:25:24.197 +06:00  DBG]  List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[2024-08-15 14:25:24.198 +06:00  DBG]  No information found on request to perform content negotiation.
+[2024-08-15 14:25:24.198 +06:00  DBG]  Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[2024-08-15 14:25:24.198 +06:00  DBG]  Attempting to select the first formatter in the output formatters list which can write the result.
+[2024-08-15 14:25:24.199 +06:00  DBG]  Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[2024-08-15 14:25:24.199 +06:00  INF]  Executing OkObjectResult, writing value of type 'Common.Result'.
+[2024-08-15 14:25:24.205 +06:00  INF]  Executed action RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService) in 247.8388ms
+[2024-08-15 14:25:24.205 +06:00  INF]  Executed endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 14:25:24.206 +06:00  DBG]  Connection id "0HN5T0F53U2NR" completed keep alive response.
+[2024-08-15 14:25:24.210 +06:00  INF]  Request finished HTTP/1.1 POST http://localhost:5264/api/Ramittance/Ramittance - 200 null application/json; charset=utf-8 290.7529ms
+[2024-08-15 15:47:58.717 +06:00  DBG]  Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[2024-08-15 15:47:58.752 +06:00  DBG]  Hosting starting
+[2024-08-15 15:47:58.860 +06:00  INF]  Now listening on: http://localhost:5264
+[2024-08-15 15:47:58.861 +06:00  DBG]  Loaded hosting startup assembly RemittanceService
+[2024-08-15 15:47:58.861 +06:00  DBG]  Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+[2024-08-15 15:47:58.861 +06:00  DBG]  Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+[2024-08-15 15:47:58.861 +06:00  INF]  Application started. Press Ctrl+C to shut down.
+[2024-08-15 15:47:58.861 +06:00  INF]  Hosting environment: Development
+[2024-08-15 15:47:58.861 +06:00  INF]  Content root path: D:\Project\necpaybd-core\backend\RemittanceService
+[2024-08-15 15:47:58.861 +06:00  DBG]  Hosting started
+[2024-08-15 15:47:58.942 +06:00  DBG]  Connection id "0HN5T1TCAIQRD" accepted.
+[2024-08-15 15:47:58.943 +06:00  DBG]  Connection id "0HN5T1TCAIQRD" started.
+[2024-08-15 15:47:58.952 +06:00  DBG]  Connection id "0HN5T1TCAIQRE" accepted.
+[2024-08-15 15:47:58.952 +06:00  DBG]  Connection id "0HN5T1TCAIQRE" started.
+[2024-08-15 15:47:58.985 +06:00  DBG]  Connection id "0HN5T1TCAIQRE" received FIN.
+[2024-08-15 15:47:58.985 +06:00  DBG]  Connection id "0HN5T1TCAIQRD" received FIN.
+[2024-08-15 15:47:58.992 +06:00  DBG]  Connection id "0HN5T1TCAIQRE" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 15:47:58.992 +06:00  DBG]  Connection id "0HN5T1TCAIQRD" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 15:47:58.994 +06:00  DBG]  Connection id "0HN5T1TCAIQRD" disconnecting.
+[2024-08-15 15:47:58.994 +06:00  DBG]  Connection id "0HN5T1TCAIQRE" disconnecting.
+[2024-08-15 15:47:58.995 +06:00  DBG]  Connection id "0HN5T1TCAIQRE" stopped.
+[2024-08-15 15:47:58.996 +06:00  DBG]  Connection id "0HN5T1TCAIQRD" stopped.
+[2024-08-15 15:47:59.106 +06:00  DBG]  Connection id "0HN5T1TCAIQRF" accepted.
+[2024-08-15 15:47:59.106 +06:00  DBG]  Connection id "0HN5T1TCAIQRF" started.
+[2024-08-15 15:47:59.107 +06:00  DBG]  Connection id "0HN5T1TCAIQRG" accepted.
+[2024-08-15 15:47:59.107 +06:00  DBG]  Connection id "0HN5T1TCAIQRG" started.
+[2024-08-15 15:47:59.133 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/index.html - null null
+[2024-08-15 15:47:59.181 +06:00  DBG]  Wildcard detected, all requests with hosts will be allowed.
+[2024-08-15 15:47:59.190 +06:00  DBG]  No candidates found for the request path '/swagger/index.html'
+[2024-08-15 15:47:59.190 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 15:47:59.227 +06:00  DBG]  Response markup is scheduled to include Browser Link script injection.
+[2024-08-15 15:47:59.228 +06:00  DBG]  Response markup is scheduled to include browser refresh script injection.
+[2024-08-15 15:47:59.237 +06:00  DBG]  Response markup was updated to include Browser Link script injection.
+[2024-08-15 15:47:59.237 +06:00  DBG]  Response markup was updated to include browser refresh script injection.
+[2024-08-15 15:47:59.237 +06:00  DBG]  Connection id "0HN5T1TCAIQRF" completed keep alive response.
+[2024-08-15 15:47:59.238 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/index.html - 200 null text/html;charset=utf-8 108.3969ms
+[2024-08-15 15:47:59.271 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_vs/browserLink - null null
+[2024-08-15 15:47:59.271 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - null null
+[2024-08-15 15:47:59.273 +06:00  DBG]  Connection id "0HN5T1TCAIQRG" completed keep alive response.
+[2024-08-15 15:47:59.273 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 2.1529ms
+[2024-08-15 15:47:59.291 +06:00  DBG]  Connection id "0HN5T1TCAIQRF" completed keep alive response.
+[2024-08-15 15:47:59.291 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.906ms
+[2024-08-15 15:47:59.377 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - null null
+[2024-08-15 15:47:59.378 +06:00  DBG]  No candidates found for the request path '/swagger/v1/swagger.json'
+[2024-08-15 15:47:59.378 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 15:47:59.431 +06:00  DBG]  Connection id "0HN5T1TCAIQRF" completed keep alive response.
+[2024-08-15 15:47:59.432 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 54.3709ms
+[2024-08-15 15:48:04.262 +06:00  DBG]  Connection id "0HN5T1TCAIQRH" received FIN.
+[2024-08-15 15:48:04.262 +06:00  DBG]  Connection id "0HN5T1TCAIQRH" accepted.
+[2024-08-15 15:48:04.262 +06:00  DBG]  Connection id "0HN5T1TCAIQRH" started.
+[2024-08-15 15:48:04.262 +06:00  DBG]  Connection id "0HN5T1TCAIQRI" accepted.
+[2024-08-15 15:48:04.262 +06:00  DBG]  Connection id "0HN5T1TCAIQRH" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 15:48:04.263 +06:00  DBG]  Connection id "0HN5T1TCAIQRI" started.
+[2024-08-15 15:48:04.263 +06:00  DBG]  Connection id "0HN5T1TCAIQRH" disconnecting.
+[2024-08-15 15:48:04.263 +06:00  DBG]  Connection id "0HN5T1TCAIQRH" stopped.
+[2024-08-15 15:48:04.264 +06:00  INF]  Request starting HTTP/1.1 POST http://localhost:5264/api/Ramittance/Ramittance - application/json 783
+[2024-08-15 15:48:04.267 +06:00  DBG]  1 candidate(s) found for the request path '/api/Ramittance/Ramittance'
+[2024-08-15 15:48:04.268 +06:00  DBG]  Endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)' with route pattern 'api/Ramittance/Ramittance' is valid for the request path '/api/Ramittance/Ramittance'
+[2024-08-15 15:48:04.268 +06:00  DBG]  Request matched endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 15:48:04.270 +06:00  DBG]  Static files was skipped as the request already matched an endpoint.
+[2024-08-15 15:48:04.271 +06:00  INF]  Executing endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 15:48:04.283 +06:00  INF]  Route matched with {action = "Ramittance", controller = "Ramittance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Ramittance(RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation) on controller RemittanceService.Controllers.RamittanceController (RemittanceService).
+[2024-08-15 15:48:04.284 +06:00  DBG]  Execution plan of authorization filters (in the following order): ["None"]
+[2024-08-15 15:48:04.284 +06:00  DBG]  Execution plan of resource filters (in the following order): ["None"]
+[2024-08-15 15:48:04.284 +06:00  DBG]  Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[2024-08-15 15:48:04.284 +06:00  DBG]  Execution plan of exception filters (in the following order): ["None"]
+[2024-08-15 15:48:04.284 +06:00  DBG]  Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[2024-08-15 15:48:04.285 +06:00  DBG]  Executing controller factory for controller RemittanceService.Controllers.RamittanceController (RemittanceService)
+[2024-08-15 15:48:04.285 +06:00  DBG]  Executed controller factory for controller RemittanceService.Controllers.RamittanceController (RemittanceService)
+[2024-08-15 15:48:04.287 +06:00  DBG]  Attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' ...
+[2024-08-15 15:48:04.288 +06:00  DBG]  Attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' using the name '' in request data ...
+[2024-08-15 15:48:04.288 +06:00  DBG]  Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[2024-08-15 15:48:04.293 +06:00  DBG]  Connection id "0HN5T1TCAIQRI", Request id "0HN5T1TCAIQRI:00000001": started reading request body.
+[2024-08-15 15:48:04.293 +06:00  DBG]  Connection id "0HN5T1TCAIQRI", Request id "0HN5T1TCAIQRI:00000001": done reading request body.
+[2024-08-15 15:48:04.298 +06:00  DBG]  JSON input formatter succeeded, deserializing to type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'
+[2024-08-15 15:48:04.298 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 15:48:04.298 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 15:48:04.298 +06:00  DBG]  Attempting to validate the bound parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' ...
+[2024-08-15 15:48:04.302 +06:00  DBG]  Done attempting to validate the bound parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 15:48:04.304 +06:00  INF]  request receive from 
+[2024-08-15 15:48:04.372 +06:00  INF]  request from remittance handler
+[2024-08-15 15:48:04.521 +06:00  INF]  request receive from remittance service
+[2024-08-15 15:48:08.098 +06:00  INF]  remittance notification start
+[2024-08-15 15:48:17.557 +06:00  INF]  commit done from remittance 
+[2024-08-15 15:48:17.559 +06:00  INF]  success from remittance handler
+[2024-08-15 15:48:17.559 +06:00  INF]  remittance send success
+[2024-08-15 15:49:53.050 +06:00  DBG]  Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[2024-08-15 15:49:53.086 +06:00  DBG]  Hosting starting
+[2024-08-15 15:49:53.151 +06:00  INF]  Now listening on: http://localhost:5264
+[2024-08-15 15:49:53.151 +06:00  DBG]  Loaded hosting startup assembly RemittanceService
+[2024-08-15 15:49:53.151 +06:00  DBG]  Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+[2024-08-15 15:49:53.151 +06:00  DBG]  Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+[2024-08-15 15:49:53.152 +06:00  INF]  Application started. Press Ctrl+C to shut down.
+[2024-08-15 15:49:53.152 +06:00  INF]  Hosting environment: Development
+[2024-08-15 15:49:53.152 +06:00  INF]  Content root path: D:\Project\necpaybd-core\backend\RemittanceService
+[2024-08-15 15:49:53.152 +06:00  DBG]  Hosting started
+[2024-08-15 15:49:53.452 +06:00  DBG]  Connection id "0HN5T1UEEK957" accepted.
+[2024-08-15 15:49:53.452 +06:00  DBG]  Connection id "0HN5T1UEEK957" started.
+[2024-08-15 15:49:53.460 +06:00  DBG]  Connection id "0HN5T1UEEK958" accepted.
+[2024-08-15 15:49:53.460 +06:00  DBG]  Connection id "0HN5T1UEEK958" started.
+[2024-08-15 15:49:53.484 +06:00  DBG]  Connection id "0HN5T1UEEK957" received FIN.
+[2024-08-15 15:49:53.484 +06:00  DBG]  Connection id "0HN5T1UEEK958" received FIN.
+[2024-08-15 15:49:53.486 +06:00  DBG]  Connection id "0HN5T1UEEK957" disconnecting.
+[2024-08-15 15:49:53.487 +06:00  DBG]  Connection id "0HN5T1UEEK957" stopped.
+[2024-08-15 15:49:53.502 +06:00  DBG]  Connection id "0HN5T1UEEK958" disconnecting.
+[2024-08-15 15:49:53.502 +06:00  DBG]  Connection id "0HN5T1UEEK958" stopped.
+[2024-08-15 15:49:53.508 +06:00  DBG]  Connection id "0HN5T1UEEK958" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 15:49:53.508 +06:00  DBG]  Connection id "0HN5T1UEEK957" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 15:49:53.650 +06:00  DBG]  Connection id "0HN5T1UEEK959" accepted.
+[2024-08-15 15:49:53.652 +06:00  DBG]  Connection id "0HN5T1UEEK959" started.
+[2024-08-15 15:49:53.652 +06:00  DBG]  Connection id "0HN5T1UEEK95A" accepted.
+[2024-08-15 15:49:53.653 +06:00  DBG]  Connection id "0HN5T1UEEK95A" started.
+[2024-08-15 15:49:53.676 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/index.html - null null
+[2024-08-15 15:49:53.725 +06:00  DBG]  Wildcard detected, all requests with hosts will be allowed.
+[2024-08-15 15:49:53.734 +06:00  DBG]  No candidates found for the request path '/swagger/index.html'
+[2024-08-15 15:49:53.734 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 15:49:53.773 +06:00  DBG]  Response markup is scheduled to include Browser Link script injection.
+[2024-08-15 15:49:53.773 +06:00  DBG]  Response markup is scheduled to include browser refresh script injection.
+[2024-08-15 15:49:53.782 +06:00  DBG]  Response markup was updated to include Browser Link script injection.
+[2024-08-15 15:49:53.783 +06:00  DBG]  Response markup was updated to include browser refresh script injection.
+[2024-08-15 15:49:53.783 +06:00  DBG]  Connection id "0HN5T1UEEK959" completed keep alive response.
+[2024-08-15 15:49:53.784 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/index.html - 200 null text/html;charset=utf-8 110.6843ms
+[2024-08-15 15:49:53.795 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - null null
+[2024-08-15 15:49:53.797 +06:00  DBG]  Connection id "0HN5T1UEEK959" completed keep alive response.
+[2024-08-15 15:49:53.798 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 2.7359ms
+[2024-08-15 15:49:53.824 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_vs/browserLink - null null
+[2024-08-15 15:49:53.847 +06:00  DBG]  Connection id "0HN5T1UEEK959" completed keep alive response.
+[2024-08-15 15:49:53.847 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.3303ms
+[2024-08-15 15:49:53.940 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - null null
+[2024-08-15 15:49:53.941 +06:00  DBG]  No candidates found for the request path '/swagger/v1/swagger.json'
+[2024-08-15 15:49:53.941 +06:00  DBG]  Request did not match any endpoints
+[2024-08-15 15:49:54.006 +06:00  DBG]  Connection id "0HN5T1UEEK959" completed keep alive response.
+[2024-08-15 15:49:54.006 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 66.1179ms
+[2024-08-15 15:49:58.596 +06:00  DBG]  Connection id "0HN5T1UEEK95B" accepted.
+[2024-08-15 15:49:58.596 +06:00  DBG]  Connection id "0HN5T1UEEK95B" started.
+[2024-08-15 15:49:58.596 +06:00  DBG]  Connection id "0HN5T1UEEK95B" received FIN.
+[2024-08-15 15:49:58.597 +06:00  DBG]  Connection id "0HN5T1UEEK95C" accepted.
+[2024-08-15 15:49:58.597 +06:00  DBG]  Connection id "0HN5T1UEEK95C" started.
+[2024-08-15 15:49:58.597 +06:00  DBG]  Connection id "0HN5T1UEEK95B" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-15 15:49:58.597 +06:00  DBG]  Connection id "0HN5T1UEEK95B" disconnecting.
+[2024-08-15 15:49:58.597 +06:00  DBG]  Connection id "0HN5T1UEEK95B" stopped.
+[2024-08-15 15:49:58.598 +06:00  INF]  Request starting HTTP/1.1 POST http://localhost:5264/api/Ramittance/Ramittance - application/json 783
+[2024-08-15 15:49:58.600 +06:00  DBG]  1 candidate(s) found for the request path '/api/Ramittance/Ramittance'
+[2024-08-15 15:49:58.601 +06:00  DBG]  Endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)' with route pattern 'api/Ramittance/Ramittance' is valid for the request path '/api/Ramittance/Ramittance'
+[2024-08-15 15:49:58.601 +06:00  DBG]  Request matched endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 15:49:58.603 +06:00  DBG]  Static files was skipped as the request already matched an endpoint.
+[2024-08-15 15:49:58.604 +06:00  INF]  Executing endpoint 'RemittanceService.Controllers.RamittanceController.Ramittance (RemittanceService)'
+[2024-08-15 15:49:58.617 +06:00  INF]  Route matched with {action = "Ramittance", controller = "Ramittance"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Ramittance(RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation) on controller RemittanceService.Controllers.RamittanceController (RemittanceService).
+[2024-08-15 15:49:58.618 +06:00  DBG]  Execution plan of authorization filters (in the following order): ["None"]
+[2024-08-15 15:49:58.618 +06:00  DBG]  Execution plan of resource filters (in the following order): ["None"]
+[2024-08-15 15:49:58.618 +06:00  DBG]  Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[2024-08-15 15:49:58.618 +06:00  DBG]  Execution plan of exception filters (in the following order): ["None"]
+[2024-08-15 15:49:58.618 +06:00  DBG]  Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[2024-08-15 15:49:58.618 +06:00  DBG]  Executing controller factory for controller RemittanceService.Controllers.RamittanceController (RemittanceService)
+[2024-08-15 15:49:58.619 +06:00  DBG]  Executed controller factory for controller RemittanceService.Controllers.RamittanceController (RemittanceService)
+[2024-08-15 15:49:58.621 +06:00  DBG]  Attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' ...
+[2024-08-15 15:49:58.622 +06:00  DBG]  Attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' using the name '' in request data ...
+[2024-08-15 15:49:58.622 +06:00  DBG]  Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[2024-08-15 15:49:58.627 +06:00  DBG]  Connection id "0HN5T1UEEK95C", Request id "0HN5T1UEEK95C:00000001": started reading request body.
+[2024-08-15 15:49:58.627 +06:00  DBG]  Connection id "0HN5T1UEEK95C", Request id "0HN5T1UEEK95C:00000001": done reading request body.
+[2024-08-15 15:49:58.631 +06:00  DBG]  JSON input formatter succeeded, deserializing to type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'
+[2024-08-15 15:49:58.631 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 15:49:58.631 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 15:49:58.632 +06:00  DBG]  Attempting to validate the bound parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation' ...
+[2024-08-15 15:49:58.636 +06:00  DBG]  Done attempting to validate the bound parameter 'command' of type 'RemittanceService.Application.Request.Ramittance.Command.RamittanceInformation'.
+[2024-08-15 15:49:58.637 +06:00  INF]  request receive from 
+[2024-08-15 15:49:58.656 +06:00  INF]  request from remittance handler
+[2024-08-15 15:49:58.725 +06:00  INF]  request receive from remittance service
+[2024-08-15 15:50:02.178 +06:00  INF]  remittance notification start
+[2024-08-15 15:50:05.352 +06:00  INF]  commit done from remittance 
+[2024-08-15 15:50:06.832 +06:00  INF]  success from remittance handler
+[2024-08-15 15:50:06.832 +06:00  INF]  remittance send success
+[2024-08-15 15:50:06.838 +06:00  INF]  remittance notification end

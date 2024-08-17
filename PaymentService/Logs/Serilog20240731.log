@@ -1,0 +1,312 @@
+[2024-07-31 12:44:47.144 +06:00  DBG]  Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[2024-07-31 12:44:47.235 +06:00  DBG]  Hosting starting
+[2024-07-31 12:44:47.467 +06:00  INF]  Now listening on: http://localhost:5183
+[2024-07-31 12:44:47.467 +06:00  DBG]  Loaded hosting startup assembly PaymentService
+[2024-07-31 12:44:47.467 +06:00  DBG]  Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+[2024-07-31 12:44:47.467 +06:00  DBG]  Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+[2024-07-31 12:44:47.467 +06:00  INF]  Application started. Press Ctrl+C to shut down.
+[2024-07-31 12:44:47.467 +06:00  INF]  Hosting environment: Development
+[2024-07-31 12:44:47.467 +06:00  INF]  Content root path: D:\Project\necpaybd-core\backend\PaymentService
+[2024-07-31 12:44:47.467 +06:00  DBG]  Hosting started
+[2024-07-31 12:44:47.665 +06:00  DBG]  Connection id "0HN5H5H2IEM4F" accepted.
+[2024-07-31 12:44:47.665 +06:00  DBG]  Connection id "0HN5H5H2IEM4E" accepted.
+[2024-07-31 12:44:47.669 +06:00  DBG]  Connection id "0HN5H5H2IEM4E" started.
+[2024-07-31 12:44:47.669 +06:00  DBG]  Connection id "0HN5H5H2IEM4F" started.
+[2024-07-31 12:44:48.375 +06:00  DBG]  Connection id "0HN5H5H2IEM4G" accepted.
+[2024-07-31 12:44:48.375 +06:00  DBG]  Connection id "0HN5H5H2IEM4G" started.
+[2024-07-31 12:44:48.375 +06:00  DBG]  Connection id "0HN5H5H2IEM4H" accepted.
+[2024-07-31 12:44:48.375 +06:00  DBG]  Connection id "0HN5H5H2IEM4H" started.
+[2024-07-31 12:44:48.422 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/swagger/index.html - null null
+[2024-07-31 12:44:48.547 +06:00  DBG]  Wildcard detected, all requests with hosts will be allowed.
+[2024-07-31 12:44:48.555 +06:00  DBG]  No candidates found for the request path '/swagger/index.html'
+[2024-07-31 12:44:48.556 +06:00  DBG]  Request did not match any endpoints
+[2024-07-31 12:44:48.597 +06:00  DBG]  Response markup is scheduled to include Browser Link script injection.
+[2024-07-31 12:44:48.598 +06:00  DBG]  Response markup is scheduled to include browser refresh script injection.
+[2024-07-31 12:44:48.629 +06:00  DBG]  Response markup was updated to include Browser Link script injection.
+[2024-07-31 12:44:48.630 +06:00  DBG]  Response markup was updated to include browser refresh script injection.
+[2024-07-31 12:44:48.630 +06:00  DBG]  Connection id "0HN5H5H2IEM4G" completed keep alive response.
+[2024-07-31 12:44:48.631 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/swagger/index.html - 200 null text/html;charset=utf-8 212.1588ms
+[2024-07-31 12:44:48.676 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/_framework/aspnetcore-browser-refresh.js - null null
+[2024-07-31 12:44:48.677 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/_vs/browserLink - null null
+[2024-07-31 12:44:48.678 +06:00  DBG]  Connection id "0HN5H5H2IEM4G" completed keep alive response.
+[2024-07-31 12:44:48.679 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 3.0108ms
+[2024-07-31 12:44:48.710 +06:00  DBG]  Connection id "0HN5H5H2IEM4H" completed keep alive response.
+[2024-07-31 12:44:48.711 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.988ms
+[2024-07-31 12:44:48.876 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/swagger/v1/swagger.json - null null
+[2024-07-31 12:44:48.877 +06:00  DBG]  No candidates found for the request path '/swagger/v1/swagger.json'
+[2024-07-31 12:44:48.877 +06:00  DBG]  Request did not match any endpoints
+[2024-07-31 12:44:48.940 +06:00  DBG]  Connection id "0HN5H5H2IEM4H" completed keep alive response.
+[2024-07-31 12:44:48.940 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 63.9284ms
+[2024-07-31 12:45:12.810 +06:00  DBG]  Connection id "0HN5H5H2IEM4I" accepted.
+[2024-07-31 12:45:12.813 +06:00  DBG]  Connection id "0HN5H5H2IEM4I" received FIN.
+[2024-07-31 12:45:12.813 +06:00  DBG]  Connection id "0HN5H5H2IEM4J" accepted.
+[2024-07-31 12:45:12.814 +06:00  DBG]  Connection id "0HN5H5H2IEM4I" started.
+[2024-07-31 12:45:12.816 +06:00  DBG]  Connection id "0HN5H5H2IEM4J" started.
+[2024-07-31 12:45:12.817 +06:00  DBG]  Connection id "0HN5H5H2IEM4I" disconnecting.
+[2024-07-31 12:45:12.818 +06:00  INF]  Request starting HTTP/1.1 POST http://localhost:5183/api/SendMoney/Send - application/json 201
+[2024-07-31 12:45:12.823 +06:00  DBG]  Connection id "0HN5H5H2IEM4I" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-07-31 12:45:12.825 +06:00  DBG]  1 candidate(s) found for the request path '/api/SendMoney/Send'
+[2024-07-31 12:45:12.827 +06:00  DBG]  Endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)' with route pattern 'api/SendMoney/Send' is valid for the request path '/api/SendMoney/Send'
+[2024-07-31 12:45:12.828 +06:00  DBG]  Request matched endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:45:12.830 +06:00  DBG]  Static files was skipped as the request already matched an endpoint.
+[2024-07-31 12:45:12.832 +06:00  INF]  Executing endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:45:12.834 +06:00  DBG]  Connection id "0HN5H5H2IEM4I" stopped.
+[2024-07-31 12:45:12.854 +06:00  INF]  Route matched with {action = "Send", controller = "SendMoney"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Send(PaymentService.Application.Request.Send.Command.AddOrEditTransaction) on controller PaymentService.Controllers.SendMoneyController (PaymentService).
+[2024-07-31 12:45:12.855 +06:00  DBG]  Execution plan of authorization filters (in the following order): ["None"]
+[2024-07-31 12:45:12.855 +06:00  DBG]  Execution plan of resource filters (in the following order): ["None"]
+[2024-07-31 12:45:12.855 +06:00  DBG]  Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[2024-07-31 12:45:12.855 +06:00  DBG]  Execution plan of exception filters (in the following order): ["None"]
+[2024-07-31 12:45:12.855 +06:00  DBG]  Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[2024-07-31 12:45:12.856 +06:00  DBG]  Executing controller factory for controller PaymentService.Controllers.SendMoneyController (PaymentService)
+[2024-07-31 12:45:12.857 +06:00  DBG]  Executed controller factory for controller PaymentService.Controllers.SendMoneyController (PaymentService)
+[2024-07-31 12:45:12.860 +06:00  DBG]  Attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' ...
+[2024-07-31 12:45:12.862 +06:00  DBG]  Attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' using the name '' in request data ...
+[2024-07-31 12:45:12.863 +06:00  DBG]  Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[2024-07-31 12:45:12.871 +06:00  DBG]  Connection id "0HN5H5H2IEM4J", Request id "0HN5H5H2IEM4J:00000001": started reading request body.
+[2024-07-31 12:45:12.871 +06:00  DBG]  Connection id "0HN5H5H2IEM4J", Request id "0HN5H5H2IEM4J:00000001": done reading request body.
+[2024-07-31 12:45:12.877 +06:00  DBG]  JSON input formatter succeeded, deserializing to type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'
+[2024-07-31 12:45:12.877 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:45:12.877 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:45:12.877 +06:00  DBG]  Attempting to validate the bound parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' ...
+[2024-07-31 12:45:12.883 +06:00  DBG]  Done attempting to validate the bound parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:45:13.449 +06:00  DBG]  List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[2024-07-31 12:45:13.450 +06:00  DBG]  No information found on request to perform content negotiation.
+[2024-07-31 12:45:13.450 +06:00  DBG]  Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[2024-07-31 12:45:13.450 +06:00  DBG]  Attempting to select the first formatter in the output formatters list which can write the result.
+[2024-07-31 12:45:13.451 +06:00  DBG]  Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[2024-07-31 12:45:13.451 +06:00  INF]  Executing OkObjectResult, writing value of type 'PaymentService.Helpers.Result'.
+[2024-07-31 12:45:13.457 +06:00  INF]  Executed action PaymentService.Controllers.SendMoneyController.Send (PaymentService) in 599.0487ms
+[2024-07-31 12:45:13.457 +06:00  INF]  Executed endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:45:13.457 +06:00  DBG]  Connection id "0HN5H5H2IEM4J" completed keep alive response.
+[2024-07-31 12:45:13.457 +06:00  INF]  Request finished HTTP/1.1 POST http://localhost:5183/api/SendMoney/Send - 200 null application/json; charset=utf-8 639.0759ms
+[2024-07-31 12:46:44.600 +06:00  INF]  Request starting HTTP/1.1 POST http://localhost:5183/api/SendMoney/Send - application/json 201
+[2024-07-31 12:46:44.601 +06:00  DBG]  1 candidate(s) found for the request path '/api/SendMoney/Send'
+[2024-07-31 12:46:44.601 +06:00  DBG]  Endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)' with route pattern 'api/SendMoney/Send' is valid for the request path '/api/SendMoney/Send'
+[2024-07-31 12:46:44.601 +06:00  DBG]  Request matched endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:46:44.602 +06:00  DBG]  Static files was skipped as the request already matched an endpoint.
+[2024-07-31 12:46:44.602 +06:00  INF]  Executing endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:46:44.602 +06:00  INF]  Route matched with {action = "Send", controller = "SendMoney"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Send(PaymentService.Application.Request.Send.Command.AddOrEditTransaction) on controller PaymentService.Controllers.SendMoneyController (PaymentService).
+[2024-07-31 12:46:44.602 +06:00  DBG]  Execution plan of authorization filters (in the following order): ["None"]
+[2024-07-31 12:46:44.602 +06:00  DBG]  Execution plan of resource filters (in the following order): ["None"]
+[2024-07-31 12:46:44.602 +06:00  DBG]  Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[2024-07-31 12:46:44.602 +06:00  DBG]  Execution plan of exception filters (in the following order): ["None"]
+[2024-07-31 12:46:44.602 +06:00  DBG]  Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[2024-07-31 12:46:44.602 +06:00  DBG]  Executing controller factory for controller PaymentService.Controllers.SendMoneyController (PaymentService)
+[2024-07-31 12:46:44.603 +06:00  DBG]  Executed controller factory for controller PaymentService.Controllers.SendMoneyController (PaymentService)
+[2024-07-31 12:46:44.605 +06:00  DBG]  Attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' ...
+[2024-07-31 12:46:44.606 +06:00  DBG]  Attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' using the name '' in request data ...
+[2024-07-31 12:46:44.606 +06:00  DBG]  Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[2024-07-31 12:46:44.606 +06:00  DBG]  Connection id "0HN5H5H2IEM4J", Request id "0HN5H5H2IEM4J:00000002": started reading request body.
+[2024-07-31 12:46:44.606 +06:00  DBG]  Connection id "0HN5H5H2IEM4J", Request id "0HN5H5H2IEM4J:00000002": done reading request body.
+[2024-07-31 12:46:44.607 +06:00  DBG]  JSON input formatter succeeded, deserializing to type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'
+[2024-07-31 12:46:44.607 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:46:44.607 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:46:44.607 +06:00  DBG]  Attempting to validate the bound parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' ...
+[2024-07-31 12:46:44.607 +06:00  DBG]  Done attempting to validate the bound parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:46:44.656 +06:00  DBG]  List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[2024-07-31 12:46:44.656 +06:00  DBG]  No information found on request to perform content negotiation.
+[2024-07-31 12:46:44.656 +06:00  DBG]  Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[2024-07-31 12:46:44.656 +06:00  DBG]  Attempting to select the first formatter in the output formatters list which can write the result.
+[2024-07-31 12:46:44.657 +06:00  DBG]  Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[2024-07-31 12:46:44.657 +06:00  INF]  Executing OkObjectResult, writing value of type 'PaymentService.Helpers.Result'.
+[2024-07-31 12:46:44.657 +06:00  INF]  Executed action PaymentService.Controllers.SendMoneyController.Send (PaymentService) in 54.6712ms
+[2024-07-31 12:46:44.657 +06:00  INF]  Executed endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:46:44.659 +06:00  DBG]  Connection id "0HN5H5H2IEM4J" completed keep alive response.
+[2024-07-31 12:46:44.659 +06:00  INF]  Request finished HTTP/1.1 POST http://localhost:5183/api/SendMoney/Send - 200 null application/json; charset=utf-8 60.9326ms
+[2024-07-31 12:46:54.862 +06:00  INF]  Request starting HTTP/1.1 POST http://localhost:5183/api/SendMoney/Send - application/json 201
+[2024-07-31 12:46:54.863 +06:00  DBG]  1 candidate(s) found for the request path '/api/SendMoney/Send'
+[2024-07-31 12:46:54.863 +06:00  DBG]  Endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)' with route pattern 'api/SendMoney/Send' is valid for the request path '/api/SendMoney/Send'
+[2024-07-31 12:46:54.863 +06:00  DBG]  Request matched endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:46:54.863 +06:00  DBG]  Static files was skipped as the request already matched an endpoint.
+[2024-07-31 12:46:54.864 +06:00  INF]  Executing endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:46:54.864 +06:00  INF]  Route matched with {action = "Send", controller = "SendMoney"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Send(PaymentService.Application.Request.Send.Command.AddOrEditTransaction) on controller PaymentService.Controllers.SendMoneyController (PaymentService).
+[2024-07-31 12:46:54.864 +06:00  DBG]  Execution plan of authorization filters (in the following order): ["None"]
+[2024-07-31 12:46:54.864 +06:00  DBG]  Execution plan of resource filters (in the following order): ["None"]
+[2024-07-31 12:46:54.864 +06:00  DBG]  Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[2024-07-31 12:46:54.864 +06:00  DBG]  Execution plan of exception filters (in the following order): ["None"]
+[2024-07-31 12:46:54.864 +06:00  DBG]  Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[2024-07-31 12:46:54.865 +06:00  DBG]  Executing controller factory for controller PaymentService.Controllers.SendMoneyController (PaymentService)
+[2024-07-31 12:46:54.865 +06:00  DBG]  Executed controller factory for controller PaymentService.Controllers.SendMoneyController (PaymentService)
+[2024-07-31 12:46:54.865 +06:00  DBG]  Attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' ...
+[2024-07-31 12:46:54.865 +06:00  DBG]  Attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' using the name '' in request data ...
+[2024-07-31 12:46:54.865 +06:00  DBG]  Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[2024-07-31 12:46:54.865 +06:00  DBG]  Connection id "0HN5H5H2IEM4J", Request id "0HN5H5H2IEM4J:00000003": started reading request body.
+[2024-07-31 12:46:54.865 +06:00  DBG]  Connection id "0HN5H5H2IEM4J", Request id "0HN5H5H2IEM4J:00000003": done reading request body.
+[2024-07-31 12:46:54.866 +06:00  DBG]  JSON input formatter succeeded, deserializing to type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'
+[2024-07-31 12:46:54.866 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:46:54.866 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:46:54.866 +06:00  DBG]  Attempting to validate the bound parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' ...
+[2024-07-31 12:46:54.866 +06:00  DBG]  Done attempting to validate the bound parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:46:54.873 +06:00  DBG]  List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[2024-07-31 12:46:54.873 +06:00  DBG]  No information found on request to perform content negotiation.
+[2024-07-31 12:46:54.873 +06:00  DBG]  Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[2024-07-31 12:46:54.873 +06:00  DBG]  Attempting to select the first formatter in the output formatters list which can write the result.
+[2024-07-31 12:46:54.873 +06:00  DBG]  Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[2024-07-31 12:46:54.873 +06:00  INF]  Executing OkObjectResult, writing value of type 'PaymentService.Helpers.Result'.
+[2024-07-31 12:46:54.873 +06:00  INF]  Executed action PaymentService.Controllers.SendMoneyController.Send (PaymentService) in 8.2864ms
+[2024-07-31 12:46:54.873 +06:00  INF]  Executed endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:46:54.873 +06:00  DBG]  Connection id "0HN5H5H2IEM4J" completed keep alive response.
+[2024-07-31 12:46:54.873 +06:00  INF]  Request finished HTTP/1.1 POST http://localhost:5183/api/SendMoney/Send - 200 null application/json; charset=utf-8 10.6308ms
+[2024-07-31 12:50:01.474 +06:00  DBG]  Connection id "0HN5H5H2IEM4G" received FIN.
+[2024-07-31 12:50:01.475 +06:00  DBG]  Connection id "0HN5H5H2IEM4H" received FIN.
+[2024-07-31 12:50:01.475 +06:00  DBG]  Connection id "0HN5H5H2IEM4G" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-07-31 12:50:01.475 +06:00  DBG]  Connection id "0HN5H5H2IEM4G" disconnecting.
+[2024-07-31 12:50:01.477 +06:00  DBG]  Connection id "0HN5H5H2IEM4H" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-07-31 12:50:01.478 +06:00  DBG]  Connection id "0HN5H5H2IEM4H" disconnecting.
+[2024-07-31 12:50:01.483 +06:00  DBG]  Connection id "0HN5H5H2IEM4G" stopped.
+[2024-07-31 12:50:01.483 +06:00  DBG]  Connection id "0HN5H5H2IEM4H" stopped.
+[2024-07-31 12:51:26.843 +06:00  INF]  Request starting HTTP/1.1 POST http://localhost:5183/api/SendMoney/Send - application/json 200
+[2024-07-31 12:51:26.844 +06:00  DBG]  1 candidate(s) found for the request path '/api/SendMoney/Send'
+[2024-07-31 12:51:26.844 +06:00  DBG]  Endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)' with route pattern 'api/SendMoney/Send' is valid for the request path '/api/SendMoney/Send'
+[2024-07-31 12:51:26.844 +06:00  DBG]  Request matched endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:51:26.846 +06:00  DBG]  Static files was skipped as the request already matched an endpoint.
+[2024-07-31 12:51:26.846 +06:00  INF]  Executing endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 12:51:26.846 +06:00  INF]  Route matched with {action = "Send", controller = "SendMoney"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Send(PaymentService.Application.Request.Send.Command.AddOrEditTransaction) on controller PaymentService.Controllers.SendMoneyController (PaymentService).
+[2024-07-31 12:51:26.847 +06:00  DBG]  Execution plan of authorization filters (in the following order): ["None"]
+[2024-07-31 12:51:26.847 +06:00  DBG]  Execution plan of resource filters (in the following order): ["None"]
+[2024-07-31 12:51:26.847 +06:00  DBG]  Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[2024-07-31 12:51:26.847 +06:00  DBG]  Execution plan of exception filters (in the following order): ["None"]
+[2024-07-31 12:51:26.847 +06:00  DBG]  Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[2024-07-31 12:51:26.847 +06:00  DBG]  Executing controller factory for controller PaymentService.Controllers.SendMoneyController (PaymentService)
+[2024-07-31 12:51:26.847 +06:00  DBG]  Executed controller factory for controller PaymentService.Controllers.SendMoneyController (PaymentService)
+[2024-07-31 12:51:26.847 +06:00  DBG]  Attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' ...
+[2024-07-31 12:51:26.847 +06:00  DBG]  Attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' using the name '' in request data ...
+[2024-07-31 12:51:26.847 +06:00  DBG]  Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[2024-07-31 12:51:26.847 +06:00  DBG]  Connection id "0HN5H5H2IEM4J", Request id "0HN5H5H2IEM4J:00000004": started reading request body.
+[2024-07-31 12:51:26.847 +06:00  DBG]  Connection id "0HN5H5H2IEM4J", Request id "0HN5H5H2IEM4J:00000004": done reading request body.
+[2024-07-31 12:51:26.847 +06:00  DBG]  JSON input formatter succeeded, deserializing to type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'
+[2024-07-31 12:51:26.847 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:51:26.847 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:51:26.847 +06:00  DBG]  Attempting to validate the bound parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' ...
+[2024-07-31 12:51:26.847 +06:00  DBG]  Done attempting to validate the bound parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 12:51:37.188 +06:00  DBG]  Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[2024-07-31 12:51:37.235 +06:00  DBG]  Hosting starting
+[2024-07-31 12:51:37.307 +06:00  INF]  Now listening on: http://localhost:5183
+[2024-07-31 12:51:37.307 +06:00  DBG]  Loaded hosting startup assembly PaymentService
+[2024-07-31 12:51:37.307 +06:00  DBG]  Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+[2024-07-31 12:51:37.307 +06:00  DBG]  Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+[2024-07-31 12:51:37.307 +06:00  INF]  Application started. Press Ctrl+C to shut down.
+[2024-07-31 12:51:37.307 +06:00  INF]  Hosting environment: Development
+[2024-07-31 12:51:37.307 +06:00  INF]  Content root path: D:\Project\necpaybd-core\backend\PaymentService
+[2024-07-31 12:51:37.307 +06:00  DBG]  Hosting started
+[2024-07-31 12:51:37.517 +06:00  DBG]  Connection id "0HN5H5KSN3I5K" accepted.
+[2024-07-31 12:51:37.517 +06:00  DBG]  Connection id "0HN5H5KSN3I5K" started.
+[2024-07-31 12:51:37.528 +06:00  DBG]  Connection id "0HN5H5KSN3I5L" received FIN.
+[2024-07-31 12:51:37.528 +06:00  DBG]  Connection id "0HN5H5KSN3I5K" received FIN.
+[2024-07-31 12:51:37.529 +06:00  DBG]  Connection id "0HN5H5KSN3I5L" accepted.
+[2024-07-31 12:51:37.529 +06:00  DBG]  Connection id "0HN5H5KSN3I5L" started.
+[2024-07-31 12:51:37.537 +06:00  DBG]  Connection id "0HN5H5KSN3I5K" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-07-31 12:51:37.537 +06:00  DBG]  Connection id "0HN5H5KSN3I5L" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-07-31 12:51:37.538 +06:00  DBG]  Connection id "0HN5H5KSN3I5L" disconnecting.
+[2024-07-31 12:51:37.538 +06:00  DBG]  Connection id "0HN5H5KSN3I5K" disconnecting.
+[2024-07-31 12:51:37.539 +06:00  DBG]  Connection id "0HN5H5KSN3I5L" stopped.
+[2024-07-31 12:51:37.539 +06:00  DBG]  Connection id "0HN5H5KSN3I5K" stopped.
+[2024-07-31 12:51:37.698 +06:00  DBG]  Connection id "0HN5H5KSN3I5M" accepted.
+[2024-07-31 12:51:37.698 +06:00  DBG]  Connection id "0HN5H5KSN3I5M" started.
+[2024-07-31 12:51:37.698 +06:00  DBG]  Connection id "0HN5H5KSN3I5N" accepted.
+[2024-07-31 12:51:37.699 +06:00  DBG]  Connection id "0HN5H5KSN3I5N" started.
+[2024-07-31 12:51:37.725 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/swagger/index.html - null null
+[2024-07-31 12:51:37.793 +06:00  DBG]  Wildcard detected, all requests with hosts will be allowed.
+[2024-07-31 12:51:37.805 +06:00  DBG]  No candidates found for the request path '/swagger/index.html'
+[2024-07-31 12:51:37.806 +06:00  DBG]  Request did not match any endpoints
+[2024-07-31 12:51:37.849 +06:00  DBG]  Response markup is scheduled to include Browser Link script injection.
+[2024-07-31 12:51:37.850 +06:00  DBG]  Response markup is scheduled to include browser refresh script injection.
+[2024-07-31 12:51:37.863 +06:00  DBG]  Response markup was updated to include Browser Link script injection.
+[2024-07-31 12:51:37.863 +06:00  DBG]  Response markup was updated to include browser refresh script injection.
+[2024-07-31 12:51:37.863 +06:00  DBG]  Connection id "0HN5H5KSN3I5M" completed keep alive response.
+[2024-07-31 12:51:37.865 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/swagger/index.html - 200 null text/html;charset=utf-8 142.2623ms
+[2024-07-31 12:51:37.911 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/_framework/aspnetcore-browser-refresh.js - null null
+[2024-07-31 12:51:37.913 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/_vs/browserLink - null null
+[2024-07-31 12:51:37.913 +06:00  DBG]  Connection id "0HN5H5KSN3I5M" completed keep alive response.
+[2024-07-31 12:51:37.914 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 3.0008ms
+[2024-07-31 12:51:37.936 +06:00  DBG]  Connection id "0HN5H5KSN3I5N" completed keep alive response.
+[2024-07-31 12:51:37.936 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.7805ms
+[2024-07-31 12:51:38.112 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/swagger/v1/swagger.json - null null
+[2024-07-31 12:51:38.112 +06:00  DBG]  No candidates found for the request path '/swagger/v1/swagger.json'
+[2024-07-31 12:51:38.113 +06:00  DBG]  Request did not match any endpoints
+[2024-07-31 12:51:38.171 +06:00  DBG]  Connection id "0HN5H5KSN3I5N" completed keep alive response.
+[2024-07-31 12:51:38.171 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 59.7611ms
+[2024-07-31 13:09:17.873 +06:00  DBG]  Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[2024-07-31 13:09:17.924 +06:00  DBG]  Hosting starting
+[2024-07-31 13:09:18.022 +06:00  INF]  Now listening on: http://localhost:5183
+[2024-07-31 13:09:18.022 +06:00  DBG]  Loaded hosting startup assembly PaymentService
+[2024-07-31 13:09:18.022 +06:00  DBG]  Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+[2024-07-31 13:09:18.022 +06:00  DBG]  Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+[2024-07-31 13:09:18.023 +06:00  INF]  Application started. Press Ctrl+C to shut down.
+[2024-07-31 13:09:18.023 +06:00  INF]  Hosting environment: Development
+[2024-07-31 13:09:18.023 +06:00  INF]  Content root path: D:\Project\necpaybd-core\backend\PaymentService
+[2024-07-31 13:09:18.023 +06:00  DBG]  Hosting started
+[2024-07-31 13:09:18.482 +06:00  DBG]  Connection id "0HN5H5UOT8AVU" accepted.
+[2024-07-31 13:09:18.482 +06:00  DBG]  Connection id "0HN5H5UOT8AVV" accepted.
+[2024-07-31 13:09:18.485 +06:00  DBG]  Connection id "0HN5H5UOT8AVV" started.
+[2024-07-31 13:09:18.485 +06:00  DBG]  Connection id "0HN5H5UOT8AVU" started.
+[2024-07-31 13:09:18.718 +06:00  DBG]  Connection id "0HN5H5UOT8B00" accepted.
+[2024-07-31 13:09:18.718 +06:00  DBG]  Connection id "0HN5H5UOT8B00" started.
+[2024-07-31 13:09:18.718 +06:00  DBG]  Connection id "0HN5H5UOT8B01" accepted.
+[2024-07-31 13:09:18.718 +06:00  DBG]  Connection id "0HN5H5UOT8B01" started.
+[2024-07-31 13:09:18.747 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/swagger/index.html - null null
+[2024-07-31 13:09:18.856 +06:00  DBG]  Wildcard detected, all requests with hosts will be allowed.
+[2024-07-31 13:09:18.867 +06:00  DBG]  No candidates found for the request path '/swagger/index.html'
+[2024-07-31 13:09:18.868 +06:00  DBG]  Request did not match any endpoints
+[2024-07-31 13:09:18.915 +06:00  DBG]  Response markup is scheduled to include Browser Link script injection.
+[2024-07-31 13:09:18.916 +06:00  DBG]  Response markup is scheduled to include browser refresh script injection.
+[2024-07-31 13:09:18.928 +06:00  DBG]  Response markup was updated to include Browser Link script injection.
+[2024-07-31 13:09:18.928 +06:00  DBG]  Response markup was updated to include browser refresh script injection.
+[2024-07-31 13:09:18.929 +06:00  DBG]  Connection id "0HN5H5UOT8B00" completed keep alive response.
+[2024-07-31 13:09:18.931 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/swagger/index.html - 200 null text/html;charset=utf-8 188.8048ms
+[2024-07-31 13:09:18.975 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/_framework/aspnetcore-browser-refresh.js - null null
+[2024-07-31 13:09:18.977 +06:00  DBG]  Connection id "0HN5H5UOT8B00" completed keep alive response.
+[2024-07-31 13:09:18.978 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 2.8855ms
+[2024-07-31 13:09:19.002 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/_vs/browserLink - null null
+[2024-07-31 13:09:19.028 +06:00  DBG]  Connection id "0HN5H5UOT8B00" completed keep alive response.
+[2024-07-31 13:09:19.029 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.578ms
+[2024-07-31 13:09:19.271 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5183/swagger/v1/swagger.json - null null
+[2024-07-31 13:09:19.271 +06:00  DBG]  No candidates found for the request path '/swagger/v1/swagger.json'
+[2024-07-31 13:09:19.271 +06:00  DBG]  Request did not match any endpoints
+[2024-07-31 13:09:19.332 +06:00  DBG]  Connection id "0HN5H5UOT8B00" completed keep alive response.
+[2024-07-31 13:09:19.332 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5183/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 61.7411ms
+[2024-07-31 13:09:28.313 +06:00  DBG]  Connection id "0HN5H5UOT8B02" accepted.
+[2024-07-31 13:09:28.313 +06:00  DBG]  Connection id "0HN5H5UOT8B02" started.
+[2024-07-31 13:09:28.313 +06:00  DBG]  Connection id "0HN5H5UOT8B02" received FIN.
+[2024-07-31 13:09:28.314 +06:00  DBG]  Connection id "0HN5H5UOT8B03" accepted.
+[2024-07-31 13:09:28.314 +06:00  DBG]  Connection id "0HN5H5UOT8B03" started.
+[2024-07-31 13:09:28.317 +06:00  DBG]  Connection id "0HN5H5UOT8B02" disconnecting.
+[2024-07-31 13:09:28.317 +06:00  INF]  Request starting HTTP/1.1 POST http://localhost:5183/api/SendMoney/Send - application/json 200
+[2024-07-31 13:09:28.318 +06:00  DBG]  Connection id "0HN5H5UOT8B02" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-07-31 13:09:28.319 +06:00  DBG]  1 candidate(s) found for the request path '/api/SendMoney/Send'
+[2024-07-31 13:09:28.321 +06:00  DBG]  Endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)' with route pattern 'api/SendMoney/Send' is valid for the request path '/api/SendMoney/Send'
+[2024-07-31 13:09:28.321 +06:00  DBG]  Request matched endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 13:09:28.322 +06:00  DBG]  Static files was skipped as the request already matched an endpoint.
+[2024-07-31 13:09:28.323 +06:00  DBG]  Connection id "0HN5H5UOT8B02" stopped.
+[2024-07-31 13:09:28.323 +06:00  INF]  Executing endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 13:09:28.335 +06:00  INF]  Route matched with {action = "Send", controller = "SendMoney"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Send(PaymentService.Application.Request.Send.Command.AddOrEditTransaction) on controller PaymentService.Controllers.SendMoneyController (PaymentService).
+[2024-07-31 13:09:28.336 +06:00  DBG]  Execution plan of authorization filters (in the following order): ["None"]
+[2024-07-31 13:09:28.336 +06:00  DBG]  Execution plan of resource filters (in the following order): ["None"]
+[2024-07-31 13:09:28.336 +06:00  DBG]  Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+[2024-07-31 13:09:28.336 +06:00  DBG]  Execution plan of exception filters (in the following order): ["None"]
+[2024-07-31 13:09:28.336 +06:00  DBG]  Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+[2024-07-31 13:09:28.337 +06:00  DBG]  Executing controller factory for controller PaymentService.Controllers.SendMoneyController (PaymentService)
+[2024-07-31 13:09:28.337 +06:00  DBG]  Executed controller factory for controller PaymentService.Controllers.SendMoneyController (PaymentService)
+[2024-07-31 13:09:28.338 +06:00  DBG]  Attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' ...
+[2024-07-31 13:09:28.339 +06:00  DBG]  Attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' using the name '' in request data ...
+[2024-07-31 13:09:28.340 +06:00  DBG]  Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+[2024-07-31 13:09:28.344 +06:00  DBG]  Connection id "0HN5H5UOT8B03", Request id "0HN5H5UOT8B03:00000001": started reading request body.
+[2024-07-31 13:09:28.344 +06:00  DBG]  Connection id "0HN5H5UOT8B03", Request id "0HN5H5UOT8B03:00000001": done reading request body.
+[2024-07-31 13:09:28.347 +06:00  DBG]  JSON input formatter succeeded, deserializing to type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'
+[2024-07-31 13:09:28.347 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 13:09:28.347 +06:00  DBG]  Done attempting to bind parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 13:09:28.347 +06:00  DBG]  Attempting to validate the bound parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction' ...
+[2024-07-31 13:09:28.351 +06:00  DBG]  Done attempting to validate the bound parameter 'command' of type 'PaymentService.Application.Request.Send.Command.AddOrEditTransaction'.
+[2024-07-31 13:09:28.409 +06:00  DBG]  Connection id "0HN5H5UOT8B03" received FIN.
+[2024-07-31 13:09:28.409 +06:00  DBG]  Connection id "0HN5H5UOT8B03" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-07-31 13:09:28.410 +06:00  DBG]  Connection id "0HN5H5UOT8B03" disconnecting.
+[2024-07-31 13:09:28.514 +06:00  DBG]  List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+[2024-07-31 13:09:28.515 +06:00  DBG]  No information found on request to perform content negotiation.
+[2024-07-31 13:09:28.515 +06:00  DBG]  Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+[2024-07-31 13:09:28.515 +06:00  DBG]  Attempting to select the first formatter in the output formatters list which can write the result.
+[2024-07-31 13:09:28.515 +06:00  DBG]  Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+[2024-07-31 13:09:28.515 +06:00  INF]  Executing OkObjectResult, writing value of type 'PaymentService.Helpers.Result'.
+[2024-07-31 13:09:28.520 +06:00  INF]  Executed action PaymentService.Controllers.SendMoneyController.Send (PaymentService) in 182.7574ms
+[2024-07-31 13:09:28.520 +06:00  INF]  Executed endpoint 'PaymentService.Controllers.SendMoneyController.Send (PaymentService)'
+[2024-07-31 13:09:28.521 +06:00  INF]  Request finished HTTP/1.1 POST http://localhost:5183/api/SendMoney/Send - 499 null application/json; charset=utf-8 203.9237ms
+[2024-07-31 13:09:28.522 +06:00  DBG]  Connection id "0HN5H5UOT8B03" stopped.

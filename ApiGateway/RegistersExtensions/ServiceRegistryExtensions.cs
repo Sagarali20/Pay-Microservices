@@ -1,7 +1,7 @@
 ﻿using Consul;
-using SendMoneyService.Settings;
+using PaymentService.Settings;
 
-namespace SendMoneyService.RegistersExtensions
+namespace PaymentService.RegistersExtensions
 {
     public static class ServiceRegistryExtensions
     {

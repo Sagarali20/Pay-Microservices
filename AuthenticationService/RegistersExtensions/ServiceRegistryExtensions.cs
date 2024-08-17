@@ -30,8 +30,8 @@ namespace AuthenticationService.RegistersExtensions
                 Check = new AgentServiceCheck()
                 {
                     HTTP = $"http://{serviceSettings.ServiceHost}:{serviceSettings.ServicePort}/health",
-                    Interval = TimeSpan.FromSeconds(5),
-                    DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(10)
+                    Interval = TimeSpan.FromSeconds(10),
+                    DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1)
                 }
             };
 

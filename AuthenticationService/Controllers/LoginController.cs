@@ -56,7 +56,6 @@ namespace AuthenticationService.Controllers
                             userFullName = user.tx_first_name + " " + user.tx_last_name,
                             permission=user.Permission
                         };
-                        var userId = User.FindFirst(JwtRegisteredClaimNames.Name)?.Value;
                         return Ok(res);
 
                     }
@@ -74,6 +73,8 @@ namespace AuthenticationService.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> LogOut()
         {
+
+
             var identity = User.Identity as ClaimsIdentity;
             if (identity != null)
             {

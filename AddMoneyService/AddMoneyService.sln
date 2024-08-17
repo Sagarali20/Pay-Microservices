@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddMoneyService", "AddMoneyService\AddMoneyService.csproj", "{1F44ABDA-EA94-4916-B119-74FB568A0831}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\Common\Common.csproj", "{A39D9E6A-4681-46C4-8727-BF5995AD0414}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F44ABDA-EA94-4916-B119-74FB568A0831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F44ABDA-EA94-4916-B119-74FB568A0831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F44ABDA-EA94-4916-B119-74FB568A0831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F44ABDA-EA94-4916-B119-74FB568A0831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A39D9E6A-4681-46C4-8727-BF5995AD0414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A39D9E6A-4681-46C4-8727-BF5995AD0414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A39D9E6A-4681-46C4-8727-BF5995AD0414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A39D9E6A-4681-46C4-8727-BF5995AD0414}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8200042A-9949-426E-990F-18CCF4AA3BA7}
+	EndGlobalSection
+EndGlobal

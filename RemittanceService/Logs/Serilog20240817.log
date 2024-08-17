@@ -1,0 +1,59 @@
+[2024-08-17 17:40:12.858 +06:00  DBG]  Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[2024-08-17 17:40:12.940 +06:00  DBG]  Hosting starting
+[2024-08-17 17:40:13.042 +06:00  INF]  Now listening on: http://localhost:5264
+[2024-08-17 17:40:13.042 +06:00  DBG]  Loaded hosting startup assembly RemittanceService
+[2024-08-17 17:40:13.042 +06:00  DBG]  Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+[2024-08-17 17:40:13.042 +06:00  DBG]  Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+[2024-08-17 17:40:13.042 +06:00  INF]  Application started. Press Ctrl+C to shut down.
+[2024-08-17 17:40:13.042 +06:00  INF]  Hosting environment: Development
+[2024-08-17 17:40:13.042 +06:00  INF]  Content root path: D:\Project\necpaybd-core\backend\RemittanceService
+[2024-08-17 17:40:13.042 +06:00  DBG]  Hosting started
+[2024-08-17 17:40:13.424 +06:00  DBG]  Connection id "0HN5UM5DOQELF" accepted.
+[2024-08-17 17:40:13.424 +06:00  DBG]  Connection id "0HN5UM5DOQELG" accepted.
+[2024-08-17 17:40:13.425 +06:00  DBG]  Connection id "0HN5UM5DOQELF" started.
+[2024-08-17 17:40:13.425 +06:00  DBG]  Connection id "0HN5UM5DOQELG" started.
+[2024-08-17 17:40:13.535 +06:00  DBG]  Connection id "0HN5UM5DOQELH" accepted.
+[2024-08-17 17:40:13.535 +06:00  DBG]  Connection id "0HN5UM5DOQELH" started.
+[2024-08-17 17:40:13.535 +06:00  DBG]  Connection id "0HN5UM5DOQELI" accepted.
+[2024-08-17 17:40:13.535 +06:00  DBG]  Connection id "0HN5UM5DOQELI" started.
+[2024-08-17 17:40:13.559 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/index.html - null null
+[2024-08-17 17:40:13.607 +06:00  DBG]  Wildcard detected, all requests with hosts will be allowed.
+[2024-08-17 17:40:13.617 +06:00  DBG]  No candidates found for the request path '/swagger/index.html'
+[2024-08-17 17:40:13.617 +06:00  DBG]  Request did not match any endpoints
+[2024-08-17 17:40:13.657 +06:00  DBG]  Response markup is scheduled to include Browser Link script injection.
+[2024-08-17 17:40:13.658 +06:00  DBG]  Response markup is scheduled to include browser refresh script injection.
+[2024-08-17 17:40:13.668 +06:00  DBG]  Response markup was updated to include Browser Link script injection.
+[2024-08-17 17:40:13.668 +06:00  DBG]  Response markup was updated to include browser refresh script injection.
+[2024-08-17 17:40:13.668 +06:00  DBG]  Connection id "0HN5UM5DOQELH" completed keep alive response.
+[2024-08-17 17:40:13.669 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/index.html - 200 null text/html;charset=utf-8 112.7237ms
+[2024-08-17 17:40:13.680 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - null null
+[2024-08-17 17:40:13.683 +06:00  DBG]  Connection id "0HN5UM5DOQELH" completed keep alive response.
+[2024-08-17 17:40:13.683 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 2.704ms
+[2024-08-17 17:40:13.711 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_vs/browserLink - null null
+[2024-08-17 17:40:13.718 +06:00  DBG]  Connection id "0HN5UM5DOQELJ" accepted.
+[2024-08-17 17:40:13.718 +06:00  DBG]  Connection id "0HN5UM5DOQELJ" started.
+[2024-08-17 17:40:13.721 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - null null
+[2024-08-17 17:40:13.722 +06:00  DBG]  Connection id "0HN5UM5DOQELJ" completed keep alive response.
+[2024-08-17 17:40:13.722 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 2.6072ms
+[2024-08-17 17:40:13.735 +06:00  DBG]  Connection id "0HN5UM5DOQELH" completed keep alive response.
+[2024-08-17 17:40:13.735 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.8558ms
+[2024-08-17 17:40:13.873 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - null null
+[2024-08-17 17:40:13.874 +06:00  DBG]  No candidates found for the request path '/swagger/v1/swagger.json'
+[2024-08-17 17:40:13.874 +06:00  DBG]  Request did not match any endpoints
+[2024-08-17 17:40:13.929 +06:00  DBG]  Connection id "0HN5UM5DOQELH" completed keep alive response.
+[2024-08-17 17:40:13.929 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 55.5401ms
+[2024-08-17 17:40:14.904 +06:00  INF]  Request starting HTTP/1.1 GET http://localhost:5264/_vs/browserLink - null null
+[2024-08-17 17:40:14.911 +06:00  DBG]  Connection id "0HN5UM5DOQELJ" completed keep alive response.
+[2024-08-17 17:40:14.911 +06:00  INF]  Request finished HTTP/1.1 GET http://localhost:5264/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.1361ms
+[2024-08-17 17:42:16.673 +06:00  DBG]  Connection id "0HN5UM5DOQELI" received FIN.
+[2024-08-17 17:42:16.680 +06:00  DBG]  Connection id "0HN5UM5DOQELI" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-17 17:42:16.680 +06:00  DBG]  Connection id "0HN5UM5DOQELI" disconnecting.
+[2024-08-17 17:42:16.680 +06:00  DBG]  Connection id "0HN5UM5DOQELI" stopped.
+[2024-08-17 17:45:16.656 +06:00  DBG]  Connection id "0HN5UM5DOQELJ" received FIN.
+[2024-08-17 17:45:16.657 +06:00  DBG]  Connection id "0HN5UM5DOQELH" received FIN.
+[2024-08-17 17:45:16.657 +06:00  DBG]  Connection id "0HN5UM5DOQELJ" disconnecting.
+[2024-08-17 17:45:16.657 +06:00  DBG]  Connection id "0HN5UM5DOQELJ" stopped.
+[2024-08-17 17:45:16.663 +06:00  DBG]  Connection id "0HN5UM5DOQELH" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-17 17:45:16.663 +06:00  DBG]  Connection id "0HN5UM5DOQELH" disconnecting.
+[2024-08-17 17:45:16.663 +06:00  DBG]  Connection id "0HN5UM5DOQELJ" sending FIN because: "The Socket transport's send loop completed gracefully."
+[2024-08-17 17:45:16.664 +06:00  DBG]  Connection id "0HN5UM5DOQELH" stopped.
