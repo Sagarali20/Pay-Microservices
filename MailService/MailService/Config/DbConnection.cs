@@ -1,8 +1,8 @@
-﻿using pay_at.Interfaces;
+﻿using MailService.Interfaces;
 using System.Data;
-using System.Data.SqlClient; // Add this line
+using System.Data.SqlClient;
 
-namespace pay_at.DbConnections
+namespace MailService.Config
 {
     public class DbConnection : IIDbConnection
     {

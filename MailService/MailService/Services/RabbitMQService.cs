@@ -41,7 +41,7 @@ public class RabbitMQService
                 var message = Encoding.UTF8.GetString(body);
                 Console.WriteLine($" [x] Received {message}");
                 MailBody? mailBody = JsonConvert.DeserializeObject<MailBody>(message);
-                _mailServices.handleMails(mailBody);
+                _mailServices.HandleMails(mailBody);
 
             }
             catch (Exception exception) {

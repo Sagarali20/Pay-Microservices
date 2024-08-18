@@ -1,17 +1,14 @@
 ﻿using MailService.Controllers;
 using MailService.Models;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
-namespace pay_at.Interfaces
+namespace MailService.Interfaces
 {
     public class MailLogService : IMailLogService
     {
         public IIDbConnection _dbConnection;
-        private String iParamJson = "@json";
-        private String iParamAct = "@actionName";
-        private String iParamRs = "@rsOut";
+        private String iParamRs = "@rs_out";
         private String dbSchema = "dbo.";
         private String spInsMailLog = "INS_mail_log";
         private readonly ILogger<MailLogService> _logger;

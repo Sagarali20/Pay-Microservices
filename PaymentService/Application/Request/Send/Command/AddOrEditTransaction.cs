@@ -1,5 +1,4 @@
-﻿using System.Data.Common;
-using AuthenticationService.Helpers;
+﻿using Common;
 using MediatR;
 
 namespace PaymentService.Application.Request.Send.Command

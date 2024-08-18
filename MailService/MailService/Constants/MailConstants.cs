@@ -1,4 +1,4 @@
-﻿namespace pay_at.Constants
+﻿namespace MailService.Constants
 {
     /**
      * Static Constants for Common Constants

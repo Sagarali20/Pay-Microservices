@@ -5,7 +5,6 @@ using AuthenticationService.Models;
 using AuthenticationService.Utils;
 using Dapper;
 using System.Data;
-using System.Transactions;
 
 namespace AuthenticationService.Helpers.Service
 {
@@ -57,12 +56,12 @@ namespace AuthenticationService.Helpers.Service
                          * 
                     **/
 
-                    if (request.IdUser >0 )
+                    if (request.UserId >0 )
                     {
-                        var query = "select id_user_key from T_USER where id_user_key=" + request.IdUser;
+                        var query = "select id_user_key from T_USER where id_user_key=" + request.UserId;
                         var data = context.ExecuteScalar(query);
 
-                        if ((Convert.ToInt32(data) == request.IdUser))
+                        if ((Convert.ToInt32(data) == request.UserId))
                         {
 
                             //string qryForemail = string.Format("select  tx_email from  T_USER where tx_email='{0}'", request.TxEmail);
@@ -80,25 +79,25 @@ namespace AuthenticationService.Helpers.Service
                             //    return Result.Failure(new List<string>() { "Mobile no already exists", mobileNo.tx_mobile_no });
                             //}
 
-                            request.TxPassword = MD5Encryption.GetMD5HashData(request.TxPassword);
+                            request.Password = MD5Encryption.GetMD5HashData(request.Password);
 
                             string usquery = Constants.UPD_User;
 
                             DynamicParameters parameter = new DynamicParameters();
 
-                            parameter.Add(USER_USER_KEY, request.IdUser, DbType.Int64, ParameterDirection.Input);
+                            parameter.Add(USER_USER_KEY, request.UserId, DbType.Int64, ParameterDirection.Input);
                             
-                            parameter.Add(USER_FIRST_NAME, request.TxFirstName, DbType.String, ParameterDirection.Input);
-                            parameter.Add(USER_LAST_NAME, request.TxLastName, DbType.String, ParameterDirection.Input);
-                            parameter.Add(USER_EMAIL, request.TxEmail, DbType.String, ParameterDirection.Input);
-                            parameter.Add(USER_MOBILE_NO, request.TxMobileNo, DbType.String, ParameterDirection.Input);
-                            parameter.Add(USER_IDENTITY, request.TxIdentity, DbType.String, ParameterDirection.Input);
+                            parameter.Add(USER_FIRST_NAME, request.FirstName, DbType.String, ParameterDirection.Input);
+                            parameter.Add(USER_LAST_NAME, request.LastName, DbType.String, ParameterDirection.Input);
+                            parameter.Add(USER_EMAIL, request.Email, DbType.String, ParameterDirection.Input);
+                            parameter.Add(USER_MOBILE_NO, request.MobileNo, DbType.String, ParameterDirection.Input);
+                            parameter.Add(USER_IDENTITY, request.Identity, DbType.String, ParameterDirection.Input);
                             //parameter.Add(USER_PASSWORD, request.TxPassword, DbType.String, ParameterDirection.Input);
-                            parameter.Add(USER_GENDER, request.TxGender, DbType.String, ParameterDirection.Input);
+                            parameter.Add(USER_GENDER, request.Gender, DbType.String, ParameterDirection.Input);
                             parameter.Add(USER_DOB, request.DttDob, DbType.Date, ParameterDirection.Input);
                             parameter.Add(USER_MOD_KEY, 1001, DbType.Int32, ParameterDirection.Input);
 
-                            parameter.Add(Constants.TX_DESCRIPTION, request.TxDescription, DbType.String, ParameterDirection.Input);
+                            parameter.Add(Constants.TX_DESCRIPTION, request.Description, DbType.String, ParameterDirection.Input);
                             parameter.Add(Constants.IS_ACTIVE, request.IsActive, DbType.Int32, ParameterDirection.Input);
 
                             parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
@@ -124,7 +123,7 @@ namespace AuthenticationService.Helpers.Service
                     {
                         //    string query = "select id_user_key from T_USER where id_user_key=" + request.IdUser;
 
-                        string qryForemail = string.Format("select  tx_email from  T_USER where tx_email='{0}'", request.TxEmail);
+                        string qryForemail = string.Format("select  tx_email from  T_USER where tx_email='{0}'", request.Email);
 
                         User data = context.QueryFirstOrDefault<User>(qryForemail);
 
@@ -132,28 +131,28 @@ namespace AuthenticationService.Helpers.Service
                         {
                             return Result.Failure(new List<string>() { "Email already exists",data.tx_email });
                         }
-                        string qrymobileNo = string.Format("select  tx_mobile_no from  T_USER where tx_mobile_no='{0}'", request.TxMobileNo);
+                        string qrymobileNo = string.Format("select  tx_mobile_no from  T_USER where tx_mobile_no='{0}'", request.MobileNo);
                         User mobileNo = context.QueryFirstOrDefault<User>(qrymobileNo);
                         if (mobileNo != null)
                         {
                             return Result.Failure(new List<string>() { "Mobile no already exists", mobileNo.tx_mobile_no });
                         }
 
-                        request.TxPassword = MD5Encryption.GetMD5HashData(request.TxPassword);
+                        request.Password = MD5Encryption.GetMD5HashData(request.Password);
 
                         string query = Constants.Add_User;
                         DynamicParameters parameter = new DynamicParameters();
-                        parameter.Add(USER_FIRST_NAME, request.TxFirstName, DbType.String, ParameterDirection.Input);
-                        parameter.Add(USER_LAST_NAME, request.TxLastName, DbType.String, ParameterDirection.Input);
-                        parameter.Add(USER_EMAIL, request.TxEmail, DbType.String, ParameterDirection.Input);
-                        parameter.Add(USER_MOBILE_NO, request.TxMobileNo, DbType.String, ParameterDirection.Input);
-                        parameter.Add(USER_IDENTITY, request.TxIdentity, DbType.String, ParameterDirection.Input);
-                        parameter.Add(USER_PASSWORD, request.TxPassword, DbType.String, ParameterDirection.Input);
-                        parameter.Add(USER_GENDER, request.TxGender, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_FIRST_NAME, request.FirstName, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_LAST_NAME, request.LastName, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_EMAIL, request.Email, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_MOBILE_NO, request.MobileNo, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_IDENTITY, request.Identity, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_PASSWORD, request.Password, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_GENDER, request.Gender, DbType.String, ParameterDirection.Input);
                         parameter.Add(USER_DOB, request.DttDob, DbType.Date, ParameterDirection.Input);
                         parameter.Add(USER_MOD_KEY, 1001, DbType.Int32, ParameterDirection.Input);
 
-                        parameter.Add(Constants.TX_DESCRIPTION, request.TxDescription, DbType.String, ParameterDirection.Input);
+                        parameter.Add(Constants.TX_DESCRIPTION, request.Description, DbType.String, ParameterDirection.Input);
                         parameter.Add(Constants.IS_ACTIVE, request.IsActive, DbType.Int32, ParameterDirection.Input);
 
                         parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
@@ -193,10 +192,10 @@ namespace AuthenticationService.Helpers.Service
                 using (var context = _dapperContext.CreateConnection())
                 {
                     User data = new User();
-                    string qryForvalidUser = string.Format("Select * from T_USER where tx_mobile_no='{0}'", request.TxUserName);
+                    string qryForvalidUser = string.Format("Select * from T_USER where tx_mobile_no='{0}'", request.UserName);
                      data = context.QueryFirstOrDefault<User>(qryForvalidUser);
 
-                    if (data is not null && data.tx_password == request.TxPassword)
+                    if (data is not null && data.tx_password == request.Password)
                     {
                         string query = Constants.ADD_Login;
                         DynamicParameters parameter = new DynamicParameters();
@@ -215,7 +214,7 @@ namespace AuthenticationService.Helpers.Service
                                                       " inner join T_GENERIC_MAP GM2 on GM2.id_from_type_key=GM.id_to_type_key and GM2.id_from_key=GM.id_to_key" +
                                                       " inner join T_GENERIC_MAP GM3 on GM3.id_from_type_key=GM2.id_to_type_key and GM3.id_from_key=GM2.id_to_key" +
                                                       " where GM.id_from_type_key=@TYPEID and GM.id_from_key={0}" +
-                                                      " SELECT P.* FROM T_PERMISSION P" +
+                                                      " SELECT P.id_permission_key as PermissionID,p.id_permission_type as PermissionType,p.tx_permission_name as PermissionName FROM T_PERMISSION P" +
                                                       " inner join #GenericMapPermissionData GMD on GMD.id_to_key=P.id_permission_key" +
                                                        " drop table #GenericMapPermissionData",data.id_user_key) ;
                         data.Permission = context.Query<Permission>(qryForUserPermission).ToList();

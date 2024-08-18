@@ -1,7 +1,7 @@
 ﻿using MailService.Models;
 using System.Data.SqlClient;
 
-namespace pay_at.Interfaces
+namespace MailService.Interfaces
 {
     public interface IMailLogService
     {

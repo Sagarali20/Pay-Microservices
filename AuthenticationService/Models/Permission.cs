@@ -2,8 +2,9 @@
 {
     public class Permission
     {
-        public int id_permission_key { get; set; }    
-        public string tx_permission_name { get; set; }    
-        public string tx_description { get; set; }
+
+        public int PermissionID { get; set; }    
+        public int PermissionType { get; set; }    
+        public string PermissionName { get; set; }
     }
 }

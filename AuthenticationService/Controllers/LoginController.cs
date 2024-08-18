@@ -37,16 +37,14 @@ namespace AuthenticationService.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Login(LoginUser command)
         {
-      
             try
             {
-
-                command.TxPassword = MD5Encryption.GetMD5HashData(command.TxPassword);
+                command.Password = MD5Encryption.GetMD5HashData(command.Password);
                 AuthenticationResponse authenticationResponse = new AuthenticationResponse();
                 User user = await _mediator.Send(command);
                 if (user is not null)
                 {
-                    if (user.tx_password == command.TxPassword)
+                    if (user.tx_password == command.Password)
                     {
                         authenticationResponse = _jwtTokenHandler.GenerateJwtToken(user.id_user_key,user.tx_mobile_no,0,"");
                         var res = new
@@ -73,8 +71,6 @@ namespace AuthenticationService.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> LogOut()
         {
-
-
             var identity = User.Identity as ClaimsIdentity;
             if (identity != null)
             {

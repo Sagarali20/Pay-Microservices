@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace pay_at.Interfaces
+namespace MailService.Interfaces
 {
     public interface IIDbConnection
     {

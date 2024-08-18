@@ -21,11 +21,14 @@ namespace MailService.Models
         public string? ExceptionDetail { get; set; }
         public int IsMailSent { get; set; }
         public string? Comment { get; set; }
-        public ObjectResult? Response { get; set; }
+        public ObjectResult Response { get; set; }
 
         public List<SqlParameter> GetSqlParameters()
         {
             List<SqlParameter> paramsList = new List<SqlParameter>();
+            paramsList.Add(new SqlParameter("@id_mail_log_key", DBNull.Value));
+            paramsList.Add(new SqlParameter("@id_mail_log_ver", DBNull.Value));
+            paramsList.Add(new SqlParameter("@UserModKey", DBNull.Value));
             paramsList.Add(new SqlParameter("@tx_mail_from", (object?)this.MailFrom ?? DBNull.Value));
             paramsList.Add(new SqlParameter("@jsn_mail_to", (object?)this.MailTo ?? DBNull.Value));
             paramsList.Add(new SqlParameter("@tx_subject", (object?)this.Subject ?? DBNull.Value));

@@ -1,17 +1,19 @@
 ﻿using AuthenticationService.Helpers;
 using AuthenticationService.Models;
 using MediatR;
+using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace AuthenticationService.Application.Request.Login.Command
 {
     public class LoginUser : IRequest<User>
     {
-        public string TxUserName { get; set; }    
-        public string TxPassword { get; set; }  
-        public LoginUser(string txUserName,string txPassword)
+        public string UserName { get; set; }    
+        public string Password { get; set; }  
+        public LoginUser(string userName,string password)
         {
-            TxUserName = txUserName;
-            TxPassword = txPassword;           
+            UserName = userName;
+            Password = password;           
         }
     }
     public class LoginUserHandler : IRequestHandler<LoginUser, User>

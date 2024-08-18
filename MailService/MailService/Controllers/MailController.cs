@@ -14,7 +14,7 @@ namespace MailService.Controllers
         [HttpPost]
         public IActionResult? SendMail(MailBody mailBody)
         {
-            return mailServices.handleMails(mailBody);
+            return mailServices.HandleMails(mailBody);
         }
     }
 }

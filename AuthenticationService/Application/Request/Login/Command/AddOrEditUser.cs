@@ -6,35 +6,35 @@ namespace AuthenticationService.Application.Request.Login.Command
 {
     public class AddOrEditUser : IRequest<Result>
     {
-        public int IdUser { get; set; }
-        public string TxFirstName { get; set; }
-        public string TxLastName { get; set; }
-        public string TxEmail { get; set; }
-        public string TxMobileNo { get; set; }
-        public string TxGender { get; set; }
-        public string TxPassword { get; set; }
-        public string TxIdentity { get; set; }
-        public string TxDescription { get; set; }
+        public int UserId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string MobileNo { get; set; }
+        public string Gender { get; set; }
+        public string Password { get; set; }
+        public string Identity { get; set; }
+        public string Description { get; set; }
         public DateTime DttDob { get; set; }
         public int IsActive { get; set; }
 
 
         public AddOrEditUser
             (
-            int idUser, string txFirstName, string txLastName, string txEmail,
-            string txMobileNo, string txGender, string txPassword, string txIdentity,
-            string txDescription, DateTime dttDob, int isActive
+            int userId, string firstName, string lastName, string email,
+            string mobileNo, string gender, string password, string identity,
+            string description, DateTime dttDob, int isActive
             )
         {
-            IdUser = idUser;
-            TxFirstName = txFirstName;
-            TxLastName = txLastName;
-            TxEmail = txEmail;
-            TxMobileNo = txMobileNo;
-            TxGender = txGender;
-            TxPassword = txPassword;
-            TxIdentity = txIdentity;       
-            TxDescription = txDescription;
+            UserId = userId;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            MobileNo = mobileNo;
+            Gender = gender;
+            Password = password;
+            Identity = identity;       
+            Description = description;
             DttDob = dttDob;    
             IsActive = isActive;
         }

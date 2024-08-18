@@ -1,5 +1,3 @@
-﻿using System.Data.Common;
-
 ﻿using Common;
 using Common.Interface;
 using Dapper;
@@ -7,7 +5,6 @@ using PaymentService.Application.Request.Send;
 using PaymentService.Application.Request.Send.Command;
 using System.Data;
 using System.Transactions;
-using AuthenticationService.Helpers;
 
 namespace PaymentService.Helpers.Service
 {

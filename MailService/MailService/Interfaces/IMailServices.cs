@@ -5,12 +5,12 @@ namespace MailService.Interfaces
 {
     public interface IMailServices
     {
-        ObjectResult? sendMail(MailBody mailBody);
-        ObjectResult? sendMailWithFile(MailBody mailBody);
-        ObjectResult? sendMailWithCc(MailBody mailBody);
-        ObjectResult? sendMailWithBcc(MailBody mailBody);
-        ObjectResult? sendCcMailWithFile(MailBody mailBody);
-        ObjectResult? sendBccMailWithFile(MailBody mailBody);
-        ObjectResult handleMails(MailBody mailBody);
+        MailLog SendMail(MailBody mailBody, MailLog mailLog);
+        MailLog SendMailWithFile(MailBody mailBody, MailLog mailLog);
+        MailLog SendMailWithCc(MailBody mailBody, MailLog mailLog);
+        MailLog SendMailWithBcc(MailBody mailBody, MailLog mailLog);
+        MailLog SendCcMailWithFile(MailBody mailBody, MailLog mailLog);
+        MailLog SendBccMailWithFile(MailBody mailBody, MailLog mailLog);
+        ObjectResult HandleMails(MailBody mailBody);
     }
 }

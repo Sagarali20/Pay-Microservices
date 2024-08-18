@@ -1,33 +1,36 @@
 ﻿using MailKit.Net.Smtp;
 using MailKit.Security;
+using MailService.Constants;
 using MailService.Controllers;
 using MailService.Interfaces;
 using MailService.Models;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
+using MimeKit.Tnef;
 using Newtonsoft.Json;
-using pay_at.Constants;
+
 
 namespace MailService.Services
 {
-    public class MailServices(IConfiguration config, ILogger<MailServices> logger) : IMailServices
+    public class MailServices(IConfiguration config, ILogger<MailServices> logger, IMailLogService mailLogService) : IMailServices
     {
-        private readonly MailSetting? mailSetting = config.GetSection("MailSetting").Get<MailSetting>();
+        private readonly MailSetting mailSetting = config.GetSection("MailSetting").Get<MailSetting>();
         private readonly ILogger<MailServices> _logger = logger;
         private readonly bool checkCertificateRevocation = false;
         private readonly bool serverCertificateValidationCallback = true;
+        private readonly IMailLogService _mailLogService = mailLogService;
 
 
-        public ObjectResult handleMails(MailBody mailBody)
+        public ObjectResult HandleMails(MailBody mailBody)
         {
-            MailLog log = new();
+            MailLog mailLog = new();
 
             if (mailBody.Subject == null || mailBody.ToMail == null)
             {
                 _logger.LogWarning("Email subject or recipient cannot be empty.");
-                log.
+                mailLog = buildMailLog(mailBody, mailSetting, 1, "INVALID_DATA", "Email subject or recipient cannot be empty.", 0);
 
-                return new(new
+                mailLog.Response = new(new
                 {
                     ResponseCode = "INVALID_DATA",
                     message = "Email subject or recipient cannot be empty."
@@ -39,19 +42,21 @@ namespace MailService.Services
 
             if (!mailBody.IsWithAttachment && !mailBody.IsWithCc && !mailBody.IsWithBcc) // fun: sendMail 
             {
-                return sendMail(mailBody);
+                mailLog = SendMail(mailBody, mailLog);
             }
             else if (mailBody.IsWithAttachment && !mailBody.IsWithCc && !mailBody.IsWithBcc) // fun: sendMailWithFile
             {
 
                 if (mailBody.Files != null || mailBody.Files.Count <= 0)
                 {
-                    return sendMailWithFile(mailBody);
+                    mailLog = SendMailWithFile(mailBody, mailLog);
                 }
                 else
                 {
                     _logger.LogWarning("Attachment Not Found");
-                    return new(new
+                    mailLog = buildMailLog(mailBody, mailSetting, 1, "INVALID_DATA", "Attachment Not Found", 0);
+
+                    mailLog.Response = new(new
                     {
                         ResponseCode = "INVALID_DATA",
                         message = "Attachment Not Found"
@@ -66,14 +71,14 @@ namespace MailService.Services
                 if (mailBody.CcEmail == null || mailBody.CcEmail.Count <= 0)
                     _logger.LogWarning("Cc recipient Not Found");
 
-                return sendMailWithCc(mailBody);
+                mailLog = SendMailWithCc(mailBody, mailLog);
             }
             else if (!mailBody.IsWithAttachment && !mailBody.IsWithCc && mailBody.IsWithBcc) // fun: sendMailWithBcc
             {
                 if (mailBody.BccEmail == null || mailBody.BccEmail.Count <= 0)
                     _logger.LogWarning("Bcc recipient Not Found");
 
-                return sendMailWithBcc(mailBody);
+                mailLog = SendMailWithBcc(mailBody, mailLog);
             }
             else if (mailBody.IsWithAttachment && mailBody.IsWithCc && !mailBody.IsWithBcc) // fun: sendCcMailWithFile
             {
@@ -82,12 +87,9 @@ namespace MailService.Services
 
                 if (mailBody.Files == null || mailBody.Files.Count <= 0)
                 {
-                    return sendMailWithBcc(mailBody);
-                }
-                else
-                {
                     _logger.LogWarning("Attachment Not Found");
-                    return new(new
+                    mailLog = buildMailLog(mailBody, mailSetting, 1, "INVALID_DATA", "Attachment Not Found", 0);
+                    mailLog.Response = new(new
                     {
                         ResponseCode = "INVALID_DATA",
                         message = "Attachment Not Found"
@@ -95,6 +97,11 @@ namespace MailService.Services
                     {
                         StatusCode = 422
                     };
+                    
+                }
+                else
+                {
+                    mailLog = SendCcMailWithFile(mailBody, mailLog);
                 }
             }
             else if (mailBody.IsWithAttachment && !mailBody.IsWithCc && mailBody.IsWithBcc) // fun: sendBccMailWithFile
@@ -103,12 +110,9 @@ namespace MailService.Services
                     _logger.LogWarning("Bcc recipient Not Found");
                 if (mailBody.Files == null || mailBody.Files.Count <= 0)
                 {
-                    return sendMailWithBcc(mailBody);
-                }
-                else
-                {
                     _logger.LogWarning("Attachment Not Found");
-                    return new(new
+                    mailLog = buildMailLog(mailBody, mailSetting, 1, "INVALID_DATA", "Attachment Not Found", 0);
+                    mailLog.Response = new(new
                     {
                         ResponseCode = "INVALID_DATA",
                         message = "Attachment Not Found"
@@ -117,13 +121,17 @@ namespace MailService.Services
                         StatusCode = 422
                     };
                 }
+                else
+                {
+                    mailLog = SendBccMailWithFile(mailBody, mailLog);
+                }
             }
-            return null;
+            _mailLogService.CreateMailLog(mailLog);
+            return mailLog.Response;
         }
 
-        public ObjectResult? sendBccMailWithFile(MailBody mailBody)
+        public MailLog SendBccMailWithFile(MailBody mailBody, MailLog mailLog)
         {
-            ObjectResult? objectResult = null;
             try
             {
                 var message = new MimeMessage();
@@ -174,7 +182,8 @@ namespace MailService.Services
                     client.Disconnect(true);
 
                 }
-                objectResult = new(new
+                mailLog = buildMailLog(mailBody, mailSetting, 0, null, null, 1);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SUCCESS",
                     message = "Success! The email was delivered."
@@ -185,8 +194,9 @@ namespace MailService.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.StackTrace);
-                objectResult = new(new
+                _logger.LogError(ex.ToString());
+                mailLog = buildMailLog(mailBody, mailSetting, 1, "SERVER_ERROR", ex.ToString(), 0);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SERVER_ERROR",
                     message = "Server does not accept mail."
@@ -195,12 +205,11 @@ namespace MailService.Services
                     StatusCode = 521
                 };
             }
-            return objectResult;
+            return mailLog;
         }
 
-        public ObjectResult? sendCcMailWithFile(MailBody mailBody)
+        public MailLog SendCcMailWithFile(MailBody mailBody, MailLog mailLog)
         {
-            ObjectResult? objectResult = null;
             try
             {
                 var message = new MimeMessage();
@@ -242,16 +251,15 @@ namespace MailService.Services
                 message.Body = multipart;
                 using (var client = new SmtpClient())
                 {
-
                     client.CheckCertificateRevocation = checkCertificateRevocation;
                     client.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => serverCertificateValidationCallback;
                     client.Connect(mailSetting.Host, mailSetting.Port);
                     client.Authenticate(mailSetting.MailFrom, mailSetting.Password);
                     client.Send(message);
                     client.Disconnect(true);
-
                 }
-                objectResult = new(new
+                mailLog = buildMailLog(mailBody, mailSetting, 0, null, null, 1);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SUCCESS",
                     message = "Success! The email was delivered."
@@ -262,8 +270,9 @@ namespace MailService.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.StackTrace);
-                objectResult = new(new
+                _logger.LogError(ex.ToString());
+                mailLog = buildMailLog(mailBody, mailSetting, 1, "SERVER_ERROR", ex.ToString(), 0);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SERVER_ERROR",
                     message = "Server does not accept mail."
@@ -272,10 +281,10 @@ namespace MailService.Services
                     StatusCode = 521
                 };
             }
-            return objectResult;
+            return mailLog;
         }
 
-        public ObjectResult? sendMail(MailBody mailBody)
+        public MailLog? SendMail(MailBody mailBody, MailLog mailLog)
         {
             ObjectResult? objectResult = null;
             try
@@ -304,8 +313,8 @@ namespace MailService.Services
                     client.Send(message);
                     client.Disconnect(true);
                 }
-
-                objectResult = new(new
+                mailLog = buildMailLog(mailBody, mailSetting, 0, null, null, 1);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SUCCESS",
                     message = "Success! The email was delivered."
@@ -317,7 +326,8 @@ namespace MailService.Services
             catch (SmtpCommandException ex)
             {
                 _logger.LogError(ex.ToString());
-                objectResult = new(new
+                mailLog = buildMailLog(mailBody, mailSetting, 1, "SERVER_ERROR", ex.ToString(), 0);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SERVER_ERROR",
                     message = "Server does not accept mail."
@@ -329,7 +339,8 @@ namespace MailService.Services
             catch (SmtpProtocolException ex)
             {
                 _logger.LogError(ex.ToString());
-                objectResult = new(new
+                mailLog = buildMailLog(mailBody, mailSetting, 1, "SERVER_ERROR", ex.ToString(), 0);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SERVER_ERROR",
                     message = "Server does not accept mail."
@@ -341,7 +352,8 @@ namespace MailService.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex.ToString());
-                objectResult = new(new
+                mailLog = buildMailLog(mailBody, mailSetting, 1, "SERVER_ERROR", ex.ToString(), 0);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SERVER_ERROR",
                     message = "Server does not accept mail."
@@ -351,12 +363,11 @@ namespace MailService.Services
                 };
             }
 
-            return objectResult;
+            return mailLog;
         }
 
-        public ObjectResult? sendMailWithBcc(MailBody mailBody)
+        public MailLog SendMailWithBcc(MailBody mailBody, MailLog mailLog)
         {
-            ObjectResult? objectResult = null;
             try
             {
                 var message = new MimeMessage();
@@ -381,16 +392,15 @@ namespace MailService.Services
 
                 using (var client = new SmtpClient())
                 {
-
                     client.CheckCertificateRevocation = checkCertificateRevocation;
                     client.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => serverCertificateValidationCallback;
                     client.Connect(mailSetting.Host, mailSetting.Port);
                     client.Authenticate(mailSetting.MailFrom, mailSetting.Password);
                     client.Send(message);
                     client.Disconnect(true);
-
                 }
-                objectResult = new(new
+                mailLog = buildMailLog(mailBody, mailSetting, 0, null, null, 1);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SUCCESS",
                     message = "Success! The email was delivered."
@@ -401,8 +411,9 @@ namespace MailService.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.StackTrace);
-                objectResult = new(new
+                _logger.LogError(ex.ToString());
+                mailLog = buildMailLog(mailBody, mailSetting, 0, "SERVER_ERROR", ex.ToString(), 1);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SERVER_ERROR",
                     message = "Server does not accept mail."
@@ -411,10 +422,10 @@ namespace MailService.Services
                     StatusCode = 521
                 };
             }
-            return objectResult;
+            return mailLog;
         }
 
-        public ObjectResult? sendMailWithCc(MailBody mailBody)
+        public MailLog SendMailWithCc(MailBody mailBody, MailLog mailLog)
         {
             ObjectResult? objectResult = null;
             try
@@ -448,7 +459,8 @@ namespace MailService.Services
                     client.Send(message);
                     client.Disconnect(true);
                 }
-                objectResult = new(new
+                mailLog = buildMailLog(mailBody, mailSetting, 0, null, null, 1);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SUCCESS",
                     message = "Success! The email was delivered."
@@ -459,8 +471,10 @@ namespace MailService.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.StackTrace);
-                objectResult = new(new
+                _logger.LogError(ex.ToString());
+                mailLog = buildMailLog(mailBody, mailSetting, 1, "SERVER_ERROR", ex.ToString(), 0);
+
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SERVER_ERROR",
                     message = "Server does not accept mail."
@@ -469,10 +483,10 @@ namespace MailService.Services
                     StatusCode = 521
                 };
             }
-            return objectResult;
+            return mailLog;
         }
 
-        public ObjectResult? sendMailWithFile(MailBody mailBody)
+        public MailLog SendMailWithFile(MailBody mailBody, MailLog mailLog)
         {
             ObjectResult? objectResult = null;
             try
@@ -520,7 +534,8 @@ namespace MailService.Services
                     client.Send(message);
                     client.Disconnect(true);
                 }
-                objectResult = new(new
+                mailLog = buildMailLog(mailBody, mailSetting, 0, null, null, 1);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SUCCESS",
                     message = "Success! The email was delivered."
@@ -531,8 +546,9 @@ namespace MailService.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.StackTrace);
-                objectResult = new(new
+                _logger.LogError(ex.ToString());
+                mailLog = buildMailLog(mailBody, mailSetting, 1, "SERVER_ERROR", ex.ToString(), 0);
+                mailLog.Response = new(new
                 {
                     ResponseCode = "SERVER_ERROR",
                     message = "Server does not accept mail."
@@ -541,19 +557,25 @@ namespace MailService.Services
                     StatusCode = 521
                 };
             }
-            return objectResult;
+            return mailLog;
         }
 
-        private MailLog getMailLog(MailBody mailBody, MailSetting mailSetting){
+        private MailLog buildMailLog(MailBody mailBody, MailSetting mailSetting, int isExceptionOccured, string? exceptionStatus, string? exceptionDetail, int isMailSent)
+        {
             MailLog mailLog = new MailLog();
             mailLog.MailFrom = mailSetting.MailFrom;
             mailLog.MailTo = JsonConvert.SerializeObject(mailBody.ToMail.ToList());
-            mailLog.Text = mailBody.Text;
-            mailLog.MailCc = JsonConvert.SerializeObject(mailBody.CcEmail.ToList());
-            mailLog.MailBcc = JsonConvert.SerializeObject(mailBody.BccEmail.ToList());
             mailLog.Subject = mailBody.Subject;
-            
-
+            mailLog.Text = mailBody.Text;
+            mailLog.MailCc = JsonConvert.SerializeObject(mailBody.CcEmail == null ? [] : mailBody.CcEmail.ToList());
+            mailLog.MailBcc = JsonConvert.SerializeObject(mailBody.BccEmail == null ? [] :mailBody.BccEmail.ToList());
+            mailLog.IsWithFiles = mailBody.IsWithAttachment ? 1 : 0;
+            mailLog.IsWithCc = mailBody.IsWithCc ? 1 : 0;
+            mailLog.IsWithBcc = mailBody.IsWithBcc ? 1 : 0;
+            mailLog.IsExceptionOccured = isExceptionOccured;
+            mailLog.ExceptionStatus = exceptionStatus;
+            mailLog.ExceptionDetail = exceptionDetail;
+            mailLog.IsMailSent = isMailSent;
             return mailLog;
         }
     }
