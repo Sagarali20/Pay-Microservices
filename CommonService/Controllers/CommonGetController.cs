@@ -38,12 +38,12 @@ namespace CommonService.Controllers
         * Date : 18/08/2024
         * Description: Get user balance from database.
         */
-        [HttpGet("[action]")]
-        public async Task<IActionResult> GetAccountBalance()
+        [HttpPost("[action]")]
+        public async Task<IActionResult> GetBalanceByAccountNumber(GetAccountBalancec command)
         {
             try
             {
-                return Ok(await _mediator.Send(new GetAllType()));
+                return Ok(new {result= await _mediator.Send(command)});
             }
             catch (Exception ex)
             {

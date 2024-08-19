@@ -2,8 +2,8 @@
 {
     public class Type
     {
-        public int id_type_key { get; set; }
-        public string tx_type_category { get; set; }
-        public string tx_type_name { get; set; }
+        public int TypeID { get; set; }
+        public string CategoryType { get; set; }
+        public string TypeName { get; set; }
     }
 }
