@@ -44,6 +44,8 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction() || app.Env
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+CurrentUserInfo.Configure(app.Services.GetRequiredService<IHttpContextAccessor>());
+
 app.UseConsul(serviceSettings);
 app.UseRouting();
 app.UseAuthentication();

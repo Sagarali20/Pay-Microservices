@@ -11,10 +11,15 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using AuthenticationService.Helpers.Interface;
 using AuthenticationService.Helpers;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System;
+using AuthenticationService.Application.Request.Login.Query;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace AuthenticationService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Authentication")]
     [ApiController]
     public class LoginController : ControllerBase
     {
@@ -50,16 +55,16 @@ namespace AuthenticationService.Controllers
                         var res = new
                         {
                             result = true,
-                            token = authenticationResponse,
                             userFullName = user.tx_first_name + " " + user.tx_last_name,
+                            token = authenticationResponse.JwtToken,
                             permission=user.Permission
                         };
                         return Ok(res);
 
                     }
-                    return Ok(new { result = false, message = "Invalid password." });
+                    return BadRequest(new { result = false, message = "Invalid password." });
                 }
-                return Ok(new { result = false, message = "User not found!" });
+                return NotFound(new { result = false, message = "User not found!" });
             }
             catch (Exception ex)
             {
@@ -67,18 +72,63 @@ namespace AuthenticationService.Controllers
             }
 
         }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Refresh()
+        {
+            int userId = CurrentUserInfo.UserId();
 
-        [HttpPost("[action]")]
+            var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token is null)
+            {
+                return BadRequest("invalid client request");
+            }
+            try
+            {
+                var pricipal = GetPrincipleFromExpiredToken(token);
+
+                var result = await _mediator.Send(new LoginUser(pricipal.Identity.Name.ToString(), "" ));
+                if(result is not null)
+                {
+                    return Ok(new { token = _jwtTokenHandler.GenerateJwtToken(result.id_user_key, result.tx_mobile_no, 0, "").JwtToken.ToString() });
+
+                }
+                return BadRequest(new { token = "Invalid user!" });
+                //var newAccessToken = createJwt(user);
+            }
+            catch (Exception ex)
+            {
+                return  Ok(ex.Message);
+            }
+        }
+
+        private ClaimsPrincipal GetPrincipleFromExpiredToken(string token)
+        {
+            var key = Encoding.ASCII.GetBytes(JwtTokenHandler.JWT_SECURITY_KEY);
+
+            var tokenValidationParameter = new TokenValidationParameters
+            {
+                ValidateAudience = false,
+                ValidateIssuer = false,
+                ValidateIssuerSigningKey = false,
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateLifetime = false
+            };
+            var tokenhandler = new JwtSecurityTokenHandler();
+            SecurityToken securityToken;
+            var principal = tokenhandler.ValidateToken(token, tokenValidationParameter, out securityToken);
+            var jwtSecurityToken = securityToken as JwtSecurityToken;
+            if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+                throw new SecurityTokenException("this is invalid token");
+            return principal;
+
+        }
+
+
+        [HttpPost("logout")]
         public async Task<IActionResult> LogOut()
         {
-            var identity = User.Identity as ClaimsIdentity;
-            if (identity != null)
-            {
-                foreach (var claim in identity.Claims.ToList())
-                {
-                    identity.RemoveClaim(claim);
-                }
-            }
+
             return Ok("ok");
         }  
     }

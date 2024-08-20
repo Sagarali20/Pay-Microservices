@@ -15,7 +15,7 @@ public class RabbitMQService
     private readonly ILogger<RabbitMQService> _logger;
     public RabbitMQService(IConfiguration config, IServiceProvider serviceProvider, ILogger<RabbitMQService> logger)
     {
-        _rabbitMQSetting = config.GetSection("RabbitMQ").Get<RabbitMQSetting>();
+        _rabbitMQSetting = config.GetSection("RabbitMQ").Get<RabbitMQSetting>().getCredentials(config["Encryption:Key"], config["Encryption:IV"]);
         var factory = new ConnectionFactory { HostName = _rabbitMQSetting.Host, Port = _rabbitMQSetting.Port };
         _connection = factory.CreateConnection();
         _channel = _connection.CreateModel();

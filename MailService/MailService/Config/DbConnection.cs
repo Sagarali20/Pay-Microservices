@@ -1,4 +1,5 @@
-﻿using MailService.Interfaces;
+﻿using Common;
+using MailService.Interfaces;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,6 +12,8 @@ namespace MailService.Config
         public DbConnection(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection");
+            var encryptionHelper = new EncryptionHelper(configuration["Encryption:Key"], configuration["Encryption:IV"]);
+            _connectionString = encryptionHelper.Decrypt(_connectionString);
         }
 
         public IDbConnection CreateConnection()

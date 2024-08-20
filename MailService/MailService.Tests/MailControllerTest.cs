@@ -24,7 +24,7 @@ namespace MailService.Tests
         {
             configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())  // Set base path to current directory
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)  // Load the JSON file
+            .AddJsonFile("appsettings.Development.json", optional: false, reloadOnChange: true)  // Load the JSON file
             .Build();
             iDbConnection = new DbConnection(configuration);
             mockMailLogger = new Mock<ILogger<MailServices>>();
@@ -44,7 +44,7 @@ namespace MailService.Tests
                 IsWithBcc = false,
                 ToMail = new Dictionary<string, string>
                 {
-                  {"masud", "masud.ahmed.necmoney@gamail.com" }
+                  {"masud", "masud.ahmed.necmoney@gmail.com" }
                 },
                 Subject = "Test",
                 Text = "Test"

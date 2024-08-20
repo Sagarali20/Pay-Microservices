@@ -14,7 +14,7 @@ namespace MailService.Services
 {
     public class MailServices(IConfiguration config, ILogger<MailServices> logger, IMailLogService mailLogService) : IMailServices
     {
-        private readonly MailSetting mailSetting = config.GetSection("MailSetting").Get<MailSetting>();
+        private readonly MailSetting mailSetting = config.GetSection("MailSetting").Get<MailSetting>().getCredentials(config["Encryption:Key"], config["Encryption:IV"]);
         private readonly ILogger<MailServices> _logger = logger;
         private readonly bool checkCertificateRevocation = false;
         private readonly bool serverCertificateValidationCallback = true;

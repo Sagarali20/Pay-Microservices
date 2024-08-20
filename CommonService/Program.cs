@@ -30,7 +30,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction() || app.Env
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+CurrentUserInfo.Configure(app.Services.GetRequiredService<IHttpContextAccessor>());
 app.UseAuthorization();
 
 app.MapControllers();

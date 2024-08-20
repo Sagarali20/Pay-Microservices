@@ -4,11 +4,19 @@
     // Authentication Web API
     {
       "ServiceName": "auth-service",
-      "UpstreamPathTemplate": "/auth/api/Login/Login",
+      "UpstreamPathTemplate": "/api/Authentication/Login",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "/api/Login/Login"
+      "DownstreamPathTemplate": "/api/Authentication/Login"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Authentication/Refresh",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Authentication/Refresh"
     },
     // Sendmoney Web API
     {

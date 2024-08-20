@@ -26,7 +26,7 @@ namespace CommonService.Controllers
         {
             try
             {
-                return Ok(await _mediator.Send(new GetAllType()));
+                return Ok( new { result = await _mediator.Send(new GetAllType())});
             }
             catch (Exception ex)
             {
