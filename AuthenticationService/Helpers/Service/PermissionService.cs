@@ -14,10 +14,13 @@ namespace AuthenticationService.Helpers.Service
     {
         private readonly DapperContext _dapperContext;
         private readonly ICurrentUserService _currentUserService;
-        public PermissionService(DapperContext dapperContext, ICurrentUserService currentUserService)
+        private readonly ILogger<PermissionService> _logger;
+
+        public PermissionService(DapperContext dapperContext, ICurrentUserService currentUserService, ILogger<PermissionService> logger)
         {
             _dapperContext = dapperContext;
             _currentUserService = currentUserService;
+            _logger = logger;
         }
     
         #region sp_parameter
@@ -44,6 +47,8 @@ namespace AuthenticationService.Helpers.Service
                 {
                     if (request is not null)
                     {
+                        _logger.LogInformation("request receive from Permission service");
+
                         int res = 0;
                         foreach (var item in request.GenericMap)
                         {
@@ -60,6 +65,8 @@ namespace AuthenticationService.Helpers.Service
                         }
                         if(res != 0)
                         {
+                            _logger.LogInformation("Save done from AddGenericMap ");
+
                             return Result.Success("Save has been successfully");
                         }
 
@@ -69,7 +76,8 @@ namespace AuthenticationService.Helpers.Service
             }
             catch (Exception ex)
             {
-
+                _logger.LogError(ex.Message);
+                _logger.LogInformation("exception from catch block : " + ex.Message);
                 return Result.Failure(new List<string> { ex.Message });
             }
 
@@ -81,6 +89,8 @@ namespace AuthenticationService.Helpers.Service
         {
             try
             {
+                _logger.LogInformation("request receive from Permission service");
+
                 List<Models.Group> groups = new List<Models.Group>();
 
                 using (var context = _dapperContext.CreateConnection())
@@ -91,20 +101,24 @@ namespace AuthenticationService.Helpers.Service
                     groups=context.Query<Models.Group>(qryForGroup).ToList();
 
                 }
+                _logger.LogInformation("GetAll from Group");
+
                 return groups;
 
             }
             catch (Exception ex)
             {
-
+                _logger.LogError(ex.Message);
+                _logger.LogInformation("exception from catch block : " + ex.Message);
                 return null;
             }
-            return null;
         }
         public async Task<List<Permission>> GetAllPermission()
         {
             try
             {
+                _logger.LogInformation("request receive from Permission service");
+
                 List<Models.Permission> permissions = new List<Models.Permission>();
 
                 using (var context = _dapperContext.CreateConnection())
@@ -112,21 +126,25 @@ namespace AuthenticationService.Helpers.Service
                     string qryForGroup = "select * from T_PERMISSION";
                     permissions = context.Query<Models.Permission>(qryForGroup).ToList();
                 }
+                _logger.LogInformation("GetAll from Permission");
 
                 return permissions;
 
             }
             catch (Exception ex)
             {
-
+                _logger.LogError(ex.Message);
+                _logger.LogInformation("exception from catch block : " + ex.Message);
                 return null;
             }
-            return null;
+        
         }
         public async Task<List<Role>> GetAllRole()
         {
             try
             {
+                _logger.LogInformation("request receive from Permission service");
+
                 List<Models.Role> roles = new List<Models.Role>();
 
                 using (var context = _dapperContext.CreateConnection())
@@ -134,16 +152,17 @@ namespace AuthenticationService.Helpers.Service
                     string qryForRole = "select * from T_ROLE";
                     roles = context.Query<Models.Role>(qryForRole).ToList();
                 }
+                _logger.LogInformation("GetAll from Role");
 
                 return roles;
 
             }
             catch (Exception ex)
             {
-
+                _logger.LogError(ex.Message);
+                _logger.LogInformation("exception from catch block : " + ex.Message);
                 return null;
             }
-            return null;
         }
         public async Task<Result> AddorEditGroup(AddorEditGroup request)
         {
@@ -151,6 +170,8 @@ namespace AuthenticationService.Helpers.Service
             {
                 using (var context = _dapperContext.CreateConnection())
                 {
+                    _logger.LogInformation("request receive from Permission service");
+
                     string query = Constants.ADD_Group;
                     DynamicParameters parameter = new DynamicParameters();
                     parameter.Add(GGROUP_NAME, request.TxGroupName, DbType.String, ParameterDirection.Input);
@@ -164,6 +185,8 @@ namespace AuthenticationService.Helpers.Service
                     int res = parameter.Get<int>("@message");
                     if (res > 0)
                     {
+                        _logger.LogInformation("Save done from AddGroup ");
+
                         return Result.Success("Save has been successfully");
                     }
 
@@ -172,6 +195,8 @@ namespace AuthenticationService.Helpers.Service
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
+                _logger.LogInformation("exception from catch block : " + ex.Message);
                 return Result.Failure(new List<string> { ex.Message });
             }
             return null;
@@ -183,6 +208,8 @@ namespace AuthenticationService.Helpers.Service
             {
                 using (var context = _dapperContext.CreateConnection())
                 {
+                    _logger.LogInformation("request receive from Permission service");
+
                     string query = Constants.ADD_Role;
                     DynamicParameters parameter = new DynamicParameters();
                     parameter.Add(Role_NAME, request.TxRoleName, DbType.String, ParameterDirection.Input);
@@ -196,6 +223,7 @@ namespace AuthenticationService.Helpers.Service
                     int res = parameter.Get<int>("@id_role_key");
                     if (res > 0)
                     {
+                        _logger.LogInformation("Save done from AddRole");
                         return Result.Success("Save has been successfully");
                     }
 
@@ -204,6 +232,8 @@ namespace AuthenticationService.Helpers.Service
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
+                _logger.LogInformation("exception from catch block : " + ex.Message);
                 return Result.Failure(new List<string> { ex.Message });
             }
             return null;

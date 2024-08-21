@@ -19,14 +19,19 @@ namespace AuthenticationService.Application.Request.Login.Command
     public class AddorEditGroupHandler : IRequestHandler<AddorEditGroup, Result>
     {
         private readonly IPermissionServicecs permissionServicecs;
-        public AddorEditGroupHandler(IPermissionServicecs _permissionServicecs)
+        private readonly ILogger<AddorEditGroupHandler> _logger;
+        public AddorEditGroupHandler(IPermissionServicecs _permissionServicecs , ILogger<AddorEditGroupHandler> logger)
         {
             permissionServicecs = _permissionServicecs;
+            _logger = logger;   
         }
 
         public async Task<Result> Handle(AddorEditGroup request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("request from AddorEditGroup handler");
             var result = await permissionServicecs.AddorEditGroup(request);
+            _logger.LogInformation("success from AddorEditGroup handler");
+
             return result;
         }
     }

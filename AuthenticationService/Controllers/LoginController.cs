@@ -25,18 +25,22 @@ namespace AuthenticationService.Controllers
     {
         private readonly JwtTokenHandler _jwtTokenHandler;
         private readonly IMediator _mediator;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        public LoginController(IMediator mediator, JwtTokenHandler jwtTokenHandler)
+        private readonly ILogger<LoginController> _logger;
+
+        public LoginController(IMediator mediator, JwtTokenHandler jwtTokenHandler, ILogger<LoginController> logger)
         {
             _mediator = mediator;
             _jwtTokenHandler = jwtTokenHandler;
+            _logger = logger;
         }
 
         [HttpPost("[action]")]
         public async Task<IActionResult> SaveUser(AddOrEditUser command)
         {
-           
+            _logger.LogInformation("User save requst received from Endpoint");
             var result = await _mediator.Send(command);
+            _logger.LogInformation("User save request successfully processed");
+
             return Ok(result);
         }
         [HttpPost("[action]")]
@@ -44,6 +48,8 @@ namespace AuthenticationService.Controllers
         {
             try
             {
+                _logger.LogInformation("User Validation requst received from Endpoint");
+
                 command.Password = MD5Encryption.GetMD5HashData(command.Password);
                 AuthenticationResponse authenticationResponse = new AuthenticationResponse();
                 User user = await _mediator.Send(command);
@@ -59,15 +65,22 @@ namespace AuthenticationService.Controllers
                             token = authenticationResponse.JwtToken,
                             permission=user.Permission
                         };
+                        _logger.LogInformation("User Validation request successfully processed");
+
                         return Ok(res);
 
                     }
+                    _logger.LogInformation("User Validation request faild because of Invalid password");
+
                     return BadRequest(new { result = false, message = "Invalid password." });
                 }
+                _logger.LogInformation("User Validation request faild because of User not found!");
+
                 return NotFound(new { result = false, message = "User not found!" });
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return Ok(ex.Message);
             }
 
@@ -75,12 +88,12 @@ namespace AuthenticationService.Controllers
         [HttpGet("[action]")]
         public async Task<IActionResult> Refresh()
         {
-            int userId = CurrentUserInfo.UserId();
-
+            _logger.LogInformation("Refresh token requst received from Endpoint");
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
             if (token is null)
             {
+                _logger.LogWarning("invalid client request for token");
                 return BadRequest("invalid client request");
             }
             try
@@ -90,15 +103,19 @@ namespace AuthenticationService.Controllers
                 var result = await _mediator.Send(new LoginUser(pricipal.Identity.Name.ToString(), "" ));
                 if(result is not null)
                 {
+                    _logger.LogInformation("User token request successfully processed");
                     return Ok(new { token = _jwtTokenHandler.GenerateJwtToken(result.id_user_key, result.tx_mobile_no, 0, "").JwtToken.ToString() });
 
                 }
+                _logger.LogWarning("invalid client request for token");
+
                 return BadRequest(new { token = "Invalid user!" });
                 //var newAccessToken = createJwt(user);
             }
             catch (Exception ex)
             {
-                return  Ok(ex.Message);
+               _logger.LogError(ex.Message);
+                return Ok(ex.Message);
             }
         }
 

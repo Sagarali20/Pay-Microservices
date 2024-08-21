@@ -43,14 +43,21 @@ namespace AuthenticationService.Application.Request.Login.Command
     public class AddOrEditUserHandler : IRequestHandler<AddOrEditUser, Result>
     {
         private readonly ILoginService loginService;
-        public AddOrEditUserHandler(ILoginService _loginService)
+        private readonly ILogger<AddOrEditUserHandler> _logger;
+
+        public AddOrEditUserHandler(ILoginService _loginService , ILogger<AddOrEditUserHandler> logger)
         {
             loginService = _loginService;
+            _logger = logger;   
         }
 
         public async Task<Result> Handle(AddOrEditUser request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("request from AddOrEditUser handler");
+
             var result = await loginService.AddUser(request);
+            _logger.LogInformation("success from AddOrEditUser handler");
+
             return result;
         }
     }

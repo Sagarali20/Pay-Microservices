@@ -14,14 +14,20 @@ namespace AuthenticationService.Application.Request.Login.Command
     public class AddGenericMapHandler : IRequestHandler<AddGenericMap, Result>
     {
         private readonly IPermissionServicecs permissionServicecs;
-        public AddGenericMapHandler(IPermissionServicecs _permissionServicecs)
+        private readonly ILogger<AddGenericMapHandler> _logger;
+
+        public AddGenericMapHandler(IPermissionServicecs _permissionServicecs, ILogger<AddGenericMapHandler> logger)
         {
             permissionServicecs = _permissionServicecs;
+            _logger = logger;
         }
 
         public async Task<Result> Handle(AddGenericMap request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("request from GenericMap handler");
             var result = await permissionServicecs.AddGenericMap(request);
+            _logger.LogInformation("success from GenericMap handler");
+
             return result;
         }
     }

@@ -1,9 +1,21 @@
 using CommonService.Application.Request.CommonGet;
 using CommonService.Helpers;
 using CommonService.Helpers.Service;
+using Serilog;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//logger configuration
+var logger = new LoggerConfiguration()
+ .ReadFrom.Configuration(builder.Configuration)
+ .MinimumLevel.Debug()
+ .Enrich.FromLogContext()
+ .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
+
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddScoped<DapperContext>();
 builder.Services.AddScoped<ICommonGetService, CommonGetService>();

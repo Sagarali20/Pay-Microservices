@@ -15,10 +15,11 @@ namespace AuthenticationService.Controllers
     public class PermissionController : ControllerBase
     {
         private readonly IMediator _mediator;
-
-        public PermissionController(IMediator mediator)
+        private readonly ILogger<PermissionController> _logger;
+        public PermissionController(IMediator mediator, ILogger<PermissionController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
         /*
@@ -32,7 +33,10 @@ namespace AuthenticationService.Controllers
         {
             try
             {
+                _logger.LogInformation("Save Permission requst received from Endpoint");
                 var user = await _mediator.Send(command);
+                _logger.LogInformation("Save Permission request successfully processed");
+
                 return Ok(user);
             }
             catch (Exception ex)
@@ -53,7 +57,9 @@ namespace AuthenticationService.Controllers
         {
             try
             {
-                return Ok(await _mediator.Send(new GetAllGroup()));
+                _logger.LogInformation("GetAllGroup requst received from Endpoint");
+                return Ok(new {result=await _mediator.Send(new GetAllGroup())});
+
             }
             catch (Exception ex)
             {
@@ -72,7 +78,10 @@ namespace AuthenticationService.Controllers
         {
             try
             {
+                _logger.LogInformation("Save Group requst received from Endpoint");
                 var Group = await _mediator.Send(command);
+                _logger.LogInformation("Save Group request successfully processed");
+
 
                 return Ok(Group);
             }
@@ -93,7 +102,9 @@ namespace AuthenticationService.Controllers
         {
             try
             {
+                _logger.LogInformation("Save Role requst received from Endpoint");
                 var Group = await _mediator.Send(command);
+                _logger.LogInformation("Save Role request successfully processed");
 
                 return Ok(Group);
             }
@@ -114,7 +125,8 @@ namespace AuthenticationService.Controllers
         {
             try
             {
-                return Ok(await _mediator.Send(new GetAllRole()));
+                _logger.LogInformation("GetAllRole requst received from Endpoint");
+                return Ok( new {result=await _mediator.Send(new GetAllRole())});
             }
             catch (Exception ex)
             {
@@ -133,7 +145,8 @@ namespace AuthenticationService.Controllers
         {
             try
             {
-                return Ok(await _mediator.Send(new GetAllPermission()));
+                _logger.LogInformation("GetAll Permission requst received from Endpoint");
+                return Ok(new {result=await _mediator.Send(new GetAllPermission())});
             }
             catch (Exception ex)
             {

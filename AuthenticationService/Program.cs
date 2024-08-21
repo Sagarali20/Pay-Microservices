@@ -6,8 +6,20 @@ using AuthenticationService.Application.Request.Login;
 //using AuthenticationService.Helpers.Service;
 using AuthenticationService.RegistersExtensions;
 using AuthenticationService.Helpers.Service;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//logger configuration
+var logger = new LoggerConfiguration()
+ .ReadFrom.Configuration(builder.Configuration)
+ .MinimumLevel.Debug()
+ .Enrich.FromLogContext()
+ .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
+
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddScoped<DapperContext>();
 builder.Services.AddScoped<ILoginService, LoginService>();

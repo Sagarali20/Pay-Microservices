@@ -11,10 +11,12 @@ namespace CommonService.Controllers
     public class CommonGetController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ILogger<CommonGetController> _logger;
 
-        public CommonGetController(IMediator mediator)
+        public CommonGetController(IMediator mediator, ILogger<CommonGetController> logger)
         {         
             _mediator = mediator;
+            _logger = logger;
         }
         /*
         * Author: Md.Sagar Ali
@@ -26,6 +28,7 @@ namespace CommonService.Controllers
         {
             try
             {
+                _logger.LogInformation("GetAll AccountType requst received from Endpoint");
                 return Ok( new { result = await _mediator.Send(new GetAllType())});
             }
             catch (Exception ex)
@@ -39,10 +42,11 @@ namespace CommonService.Controllers
         * Description: Get user balance from database.
         */
         [HttpPost("[action]")]
-        public async Task<IActionResult> GetBalanceByAccountNumber(GetAccountBalancec command)
+        public async Task<IActionResult> GetBalanceByAccountNumber(GetAccountBalance command)
         {
             try
             {
+                _logger.LogInformation("GetAccount Balance requst received from Endpoint");
                 return Ok(new {result= await _mediator.Send(command)});
             }
             catch (Exception ex)

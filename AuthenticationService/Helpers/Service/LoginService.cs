@@ -12,6 +12,8 @@ namespace AuthenticationService.Helpers.Service
     {
         private readonly DapperContext _dapperContext;
         private readonly ICurrentUserService _currentUserService;
+        private readonly ILogger<PermissionService> _logger;
+
 
         #region sp_parameter
         private static string USER_FIRST_NAME = "@tx_first_name";
@@ -33,10 +35,11 @@ namespace AuthenticationService.Helpers.Service
 
         #endregion
 
-        public LoginService(DapperContext dapperContext, ICurrentUserService currentUserService)
+        public LoginService(DapperContext dapperContext, ICurrentUserService currentUserService, ILogger<PermissionService> logger)
         {
             _dapperContext = dapperContext;
             _currentUserService = currentUserService;
+            _logger = logger;   
         }
 
 
@@ -44,7 +47,7 @@ namespace AuthenticationService.Helpers.Service
         {
             using (var context = _dapperContext.CreateConnection())
             {
-                
+                _logger.LogInformation("request receive from Login service");
                 try
                 {
 
@@ -161,6 +164,8 @@ namespace AuthenticationService.Helpers.Service
 
                         if (res > 0)
                         {
+                            _logger.LogInformation("Save done from AddUser ");
+
                             return Result.Success("Save has been successfully");
                         }
 
@@ -170,6 +175,8 @@ namespace AuthenticationService.Helpers.Service
                 }
                 catch (Exception ex)
                 {
+                    _logger.LogError(ex.Message);
+                    _logger.LogInformation("exception from catch block : " + ex.Message);
                     return Result.Failure(new List<string> { ex.Message });
                 }
 
@@ -191,68 +198,82 @@ namespace AuthenticationService.Helpers.Service
 
                 using (var context = _dapperContext.CreateConnection())
                 {
-                    User data = new User();
-                    string qryForvalidUser = string.Format("Select * from T_USER where tx_mobile_no='{0}'", request.UserName);
-                     data = context.QueryFirstOrDefault<User>(qryForvalidUser);
+                       _logger.LogInformation("request receive from Login service");
 
-                    if (data is not null && data.tx_password == request.Password)
-                    {
-                        string query = Constants.ADD_Login;
-                        DynamicParameters parameter = new DynamicParameters();
-                        parameter.Add(LOGIN_USER_KEY, data.id_user_key, DbType.String, ParameterDirection.Input);
-                        parameter.Add(LOGIN_CLIENT_IP_ADDRESS, CurrentUserInfo.GetIpAddress(), DbType.String, ParameterDirection.Input);
-                        parameter.Add(LOGIN_HOSTNAME, CurrentUserInfo.GetHostName(), DbType.String, ParameterDirection.Input);
-                        parameter.Add(LOGIN_IS_LOG_IN, 1, DbType.Int32, ParameterDirection.Input);
-                        parameter.Add(Constants.TX_DESCRIPTION, "Login successfull", DbType.String, ParameterDirection.Input);
+                try
+                {
+                        User data = new User();
+                        string qryForvalidUser = string.Format("Select * from T_USER where tx_mobile_no='{0}'", request.UserName);
+                        data = context.QueryFirstOrDefault<User>(qryForvalidUser);
 
-                        parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
-                        await context.ExecuteAsync(query, parameter);
-                        int res = parameter.Get<int>("@message");
-                        string qryForUserPermission =string.Format("DECLARE @TYPEID AS int" +
-                                                      " SELECT @TYPEID = id_type_key from T_TYPE WHERE tx_type_name='USER'" +
-                                                      " select GM3.* into #GenericMapPermissionData from T_GENERIC_MAP GM" +
-                                                      " inner join T_GENERIC_MAP GM2 on GM2.id_from_type_key=GM.id_to_type_key and GM2.id_from_key=GM.id_to_key" +
-                                                      " inner join T_GENERIC_MAP GM3 on GM3.id_from_type_key=GM2.id_to_type_key and GM3.id_from_key=GM2.id_to_key" +
-                                                      " where GM.id_from_type_key=@TYPEID and GM.id_from_key={0}" +
-                                                      " SELECT P.id_permission_key as PermissionID,p.id_permission_type as PermissionType,p.tx_permission_name as PermissionName FROM T_PERMISSION P" +
-                                                      " inner join #GenericMapPermissionData GMD on GMD.id_to_key=P.id_permission_key" +
-                                                       " drop table #GenericMapPermissionData",data.id_user_key) ;
-                        data.Permission = context.Query<Permission>(qryForUserPermission).ToList();
-                   
+                        if (data is not null && data.tx_password == request.Password)
+                        {
+                            string query = Constants.ADD_Login;
+                            DynamicParameters parameter = new DynamicParameters();
+                            parameter.Add(LOGIN_USER_KEY, data.id_user_key, DbType.String, ParameterDirection.Input);
+                            parameter.Add(LOGIN_CLIENT_IP_ADDRESS, CurrentUserInfo.GetIpAddress(), DbType.String, ParameterDirection.Input);
+                            parameter.Add(LOGIN_HOSTNAME, CurrentUserInfo.GetHostName(), DbType.String, ParameterDirection.Input);
+                            parameter.Add(LOGIN_IS_LOG_IN, 1, DbType.Int32, ParameterDirection.Input);
+                            parameter.Add(Constants.TX_DESCRIPTION, "Login successfull", DbType.String, ParameterDirection.Input);
+
+                            parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
+                            await context.ExecuteAsync(query, parameter);
+                            int res = parameter.Get<int>("@message");
+                            string qryForUserPermission = string.Format("DECLARE @TYPEID AS int" +
+                                                          " SELECT @TYPEID = id_type_key from T_TYPE WHERE tx_type_name='USER'" +
+                                                          " select GM3.* into #GenericMapPermissionData from T_GENERIC_MAP GM" +
+                                                          " inner join T_GENERIC_MAP GM2 on GM2.id_from_type_key=GM.id_to_type_key and GM2.id_from_key=GM.id_to_key" +
+                                                          " inner join T_GENERIC_MAP GM3 on GM3.id_from_type_key=GM2.id_to_type_key and GM3.id_from_key=GM2.id_to_key" +
+                                                          " where GM.id_from_type_key=@TYPEID and GM.id_from_key={0}" +
+                                                          " SELECT P.id_permission_key as PermissionID,p.id_permission_type as PermissionType,p.tx_permission_name as PermissionName FROM T_PERMISSION P" +
+                                                          " inner join #GenericMapPermissionData GMD on GMD.id_to_key=P.id_permission_key" +
+                                                           " drop table #GenericMapPermissionData", data.id_user_key);
+                            data.Permission = context.Query<Permission>(qryForUserPermission).ToList();
+                            _logger.LogInformation("Get VerifyUser done from VerifyUser ");
+
+                        }
+                        else if (data is not null)
+                        {
+
+                            string query = Constants.ADD_Login;
+                            DynamicParameters parameter = new DynamicParameters();
+                            parameter.Add(LOGIN_USER_KEY, data.id_user_key, DbType.String, ParameterDirection.Input);
+                            parameter.Add(LOGIN_CLIENT_IP_ADDRESS, CurrentUserInfo.GetIpAddress(), DbType.String, ParameterDirection.Input);
+                            parameter.Add(LOGIN_HOSTNAME, CurrentUserInfo.GetHostName(), DbType.String, ParameterDirection.Input);
+                            parameter.Add(LOGIN_IS_LOG_IN, 0, DbType.Int32, ParameterDirection.Input);
+                            parameter.Add(Constants.TX_DESCRIPTION, "Invalid password", DbType.String, ParameterDirection.Input);
+                            parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
+                            await context.ExecuteAsync(query, parameter);
+                            int res = parameter.Get<int>("@message");
+                            _logger.LogWarning("Get VerifyUser Invalid password from VerifyUser ");
+
+
+                        }
+                        else
+                        {
+                            string query = Constants.ADD_Login;
+                            DynamicParameters parameter = new DynamicParameters();
+
+                            parameter.Add(LOGIN_USER_KEY, 0, DbType.String, ParameterDirection.Input);
+                            parameter.Add(LOGIN_CLIENT_IP_ADDRESS, CurrentUserInfo.GetIpAddress(), DbType.String, ParameterDirection.Input);
+                            parameter.Add(LOGIN_HOSTNAME, CurrentUserInfo.GetHostName(), DbType.String, ParameterDirection.Input);
+                            parameter.Add(LOGIN_IS_LOG_IN, 0, DbType.Int32, ParameterDirection.Input);
+                            parameter.Add(Constants.TX_DESCRIPTION, "Invalid user", DbType.String, ParameterDirection.Input);
+                            parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
+                            await context.ExecuteAsync(query, parameter);
+                            int res = parameter.Get<int>("@message");
+                            _logger.LogWarning("Get VerifyUser Invalid User from VerifyUser ");
+
+                        }
+
+                        return data == null ? null : data;
                     }
-                    else if (data is not null)
+                    catch (Exception ex)
                     {
-
-                        string query = Constants.ADD_Login;
-                        DynamicParameters parameter = new DynamicParameters();
-                        parameter.Add(LOGIN_USER_KEY, data.id_user_key, DbType.String, ParameterDirection.Input);
-                        parameter.Add(LOGIN_CLIENT_IP_ADDRESS, CurrentUserInfo.GetIpAddress(), DbType.String, ParameterDirection.Input);
-                        parameter.Add(LOGIN_HOSTNAME, CurrentUserInfo.GetHostName(), DbType.String, ParameterDirection.Input);
-                        parameter.Add(LOGIN_IS_LOG_IN, 0, DbType.Int32, ParameterDirection.Input);
-                        parameter.Add(Constants.TX_DESCRIPTION, "Invalid password", DbType.String, ParameterDirection.Input);
-                        parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
-                        await context.ExecuteAsync(query, parameter);
-                        int res = parameter.Get<int>("@message");
-
+                        _logger.LogError(ex.Message);
+                        _logger.LogInformation("exception from catch block : " + ex.Message);
+                         return null;
                     }
-                    else
-                    {
-                        string query = Constants.ADD_Login;
-                        DynamicParameters parameter = new DynamicParameters();
-
-                        parameter.Add(LOGIN_USER_KEY, 0, DbType.String, ParameterDirection.Input);
-                        parameter.Add(LOGIN_CLIENT_IP_ADDRESS, CurrentUserInfo.GetIpAddress(), DbType.String, ParameterDirection.Input);
-                        parameter.Add(LOGIN_HOSTNAME, CurrentUserInfo.GetHostName(), DbType.String, ParameterDirection.Input);
-                        parameter.Add(LOGIN_IS_LOG_IN, 0, DbType.Int32, ParameterDirection.Input);
-                        parameter.Add(Constants.TX_DESCRIPTION, "Invalid user", DbType.String, ParameterDirection.Input);
-
-                        parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
-                        await context.ExecuteAsync(query, parameter);
-                        int res = parameter.Get<int>("@message");
-                    }
-
-                    return data == null ? null : data;
-
 
                 }
 

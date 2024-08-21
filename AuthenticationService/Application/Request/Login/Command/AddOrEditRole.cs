@@ -20,13 +20,19 @@ namespace AuthenticationService.Application.Request.Login.Command
     public class AddOrEditRoleHandler : IRequestHandler<AddOrEditRole, Result>
     {
         private readonly IPermissionServicecs permissionServicecs;
-        public AddOrEditRoleHandler(IPermissionServicecs _permissionServicecs)
+        private readonly ILogger<AddOrEditRoleHandler> _logger;
+
+        public AddOrEditRoleHandler(IPermissionServicecs _permissionServicecs, ILogger<AddOrEditRoleHandler> logger)
         {
             permissionServicecs = _permissionServicecs;
+            _logger = logger;
         }
         public async Task<Result> Handle(AddOrEditRole request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("request from AddOrEditRole handler");
             var result = await permissionServicecs.AddorEditRole(request);
+            _logger.LogInformation("success from AddOrEditRole handler");
+
             return result;
         }
     }
