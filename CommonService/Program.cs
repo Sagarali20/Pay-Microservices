@@ -36,12 +36,19 @@ builder.Services.AddCors(p => p.AddPolicy("PSP", policy =>
 
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction() || app.Environment.IsStaging() || app.Environment.IsEnvironment("UAT"))
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors(option =>
+{
+    option.AllowAnyOrigin();
+    option.AllowAnyMethod();
+    option.AllowAnyHeader();
+});
 CurrentUserInfo.Configure(app.Services.GetRequiredService<IHttpContextAccessor>());
 app.UseAuthorization();
 

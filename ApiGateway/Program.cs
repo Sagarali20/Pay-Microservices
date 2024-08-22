@@ -30,6 +30,8 @@ builder.Services.AddSwaggerGen();
 //});
 
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,6 +40,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors(option =>
+{
+    option.AllowAnyOrigin();
+    option.AllowAnyMethod();
+    option.AllowAnyHeader();
+});
 
 app.UseAuthentication();
 app.UseAuthorization();

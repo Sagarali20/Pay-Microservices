@@ -56,6 +56,13 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction() || app.Env
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors(option =>
+{
+    option.AllowAnyOrigin();
+    option.AllowAnyMethod();
+    option.AllowAnyHeader();
+});
+
 CurrentUserInfo.Configure(app.Services.GetRequiredService<IHttpContextAccessor>());
 
 app.UseConsul(serviceSettings);
