@@ -1,2 +1,2 @@
-# necpaybd-core
+# Pay-service
 # 2024-06-29 👉 Added feature branch for SendMoney module / service
