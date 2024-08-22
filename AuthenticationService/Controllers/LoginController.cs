@@ -145,6 +145,7 @@ namespace AuthenticationService.Controllers
         [HttpPost("logout")]
         public async Task<IActionResult> LogOut()
         {
+			int UserId=2;
 
             return Ok("ok");
         }  
