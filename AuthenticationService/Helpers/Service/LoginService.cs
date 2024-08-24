@@ -28,6 +28,7 @@ namespace AuthenticationService.Helpers.Service
         private static string LOGIN_USER_KEY = "@id_user_key";
         private static string LOGIN_CLIENT_IP_ADDRESS = "@tx_client_ip_addr";
         private static string LOGIN_IS_LOG_IN = "@is_logged_in";
+        private static string USER_ACCOUNT_TYPE = "@id_accountType";
         private static string LOGIN_USER_MOD_KEY = "@id_user_mod_key";
         private static string LOGIN_HOSTNAME = "@hostname";
         private static string USER_USER_KEY = "@id_user_key"; 
@@ -80,7 +81,8 @@ namespace AuthenticationService.Helpers.Service
                         parameter.Add(USER_PASSWORD, request.Password, DbType.String, ParameterDirection.Input);
                         parameter.Add(USER_GENDER, request.Gender, DbType.String, ParameterDirection.Input);
                         parameter.Add(USER_DOB, request.Dob, DbType.Date, ParameterDirection.Input);
-                        parameter.Add(USER_MOD_KEY, 1001, DbType.Int32, ParameterDirection.Input);
+                        parameter.Add(USER_MOD_KEY, CurrentUserInfo.UserId(), DbType.Int32, ParameterDirection.Input);
+                        parameter.Add(USER_ACCOUNT_TYPE, request.AccountTypeId, DbType.Int32, ParameterDirection.Input);
                         parameter.Add(Constants.TX_DESCRIPTION, request.Description, DbType.String, ParameterDirection.Input);
                         parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
                         await context.ExecuteAsync(query, parameter);
