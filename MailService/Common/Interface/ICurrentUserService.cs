@@ -1,4 +1,4 @@
-﻿namespace SendMoneyService.Helpers.Interface
+﻿namespace Common.Interface
 {
     public interface ICurrentUserService
     {

@@ -1,5 +1,4 @@
-﻿
-namespace CommonService.Helpers
+﻿namespace Common
 {
     public class Result
     {
@@ -21,11 +20,6 @@ namespace CommonService.Helpers
         public static Result Failure(IEnumerable<string> errors)
         {
             return new Result(false, errors, "Failed");
-        }
-
-        internal static Result Success(List<string> list)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -1,6 +1,7 @@
-﻿namespace SendMoneyService.Helpers
+﻿
+namespace Common
 {
-    public class CommonEntity
+    public class CommonProperty
     {
         public int IdEnvKey { get; set; }
         public int IdUserModKey { get; set; }

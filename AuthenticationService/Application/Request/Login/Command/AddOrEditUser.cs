@@ -6,7 +6,6 @@ namespace AuthenticationService.Application.Request.Login.Command
 {
     public class AddOrEditUser : IRequest<Result>
     {
-        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -14,29 +13,26 @@ namespace AuthenticationService.Application.Request.Login.Command
         public string Gender { get; set; }
         public string Password { get; set; }
         public string Identity { get; set; }
+        public int AccountTypeId { get; set; }
         public string Description { get; set; }
-        public DateTime DttDob { get; set; }
-        public int IsActive { get; set; }
-
-
+        public DateTime Dob { get; set; }
         public AddOrEditUser
             (
-            int userId, string firstName, string lastName, string email,
-            string mobileNo, string gender, string password, string identity,
-            string description, DateTime dttDob, int isActive
+            string firstName, string lastName, string email,
+            string mobileNo, string gender, string password, string identity, int accountTypeId,
+            string description, DateTime dob
             )
         {
-            UserId = userId;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             MobileNo = mobileNo;
             Gender = gender;
             Password = password;
-            Identity = identity;       
+            Identity = identity;
+            AccountTypeId = accountTypeId;
             Description = description;
-            DttDob = dttDob;    
-            IsActive = isActive;
+            Dob = dob;    
         }
 
     }
