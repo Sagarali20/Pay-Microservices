@@ -1,12 +1,10 @@
 ﻿using AuthenticationService.Application.Request.Login;
 using AuthenticationService.Application.Request.Login.Command;
 using Dapper;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Data;
 using AuthenticationService.Helpers.Interface;
 using AuthenticationService.Models;
-using AuthenticationService.Application.Request.Login.Query;
-using System.Text.RegularExpressions;
+using Common;
 
 namespace AuthenticationService.Helpers.Service
 {

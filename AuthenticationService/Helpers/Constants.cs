@@ -9,6 +9,7 @@
 
         #region SP Name
         public static string Add_User = "INS_user";
+        public static string Add_User_Document = "INS_user_document";
         public static string UPD_User = "UPD_user";
         public static string ADD_Login = "INS_login";
         public static string ADD_GenericMap = "INS_genericmap";

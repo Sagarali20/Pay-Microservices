@@ -1,6 +1,5 @@
 ﻿using AuthenticationService.Application.Request.Login.Command;
-using AuthenticationService.Application.Request.Login.Query;
-using AuthenticationService.Helpers;
+using Common;
 
 namespace AuthenticationService.Application.Request.Login
 {

@@ -3,6 +3,7 @@ using AuthenticationService.Application.Request.Login.Command;
 using AuthenticationService.Helpers.Interface;
 using AuthenticationService.Models;
 using AuthenticationService.Utils;
+using Common;
 using Dapper;
 using System.Data;
 
@@ -12,7 +13,7 @@ namespace AuthenticationService.Helpers.Service
     {
         private readonly DapperContext _dapperContext;
         private readonly ICurrentUserService _currentUserService;
-        private readonly ILogger<PermissionService> _logger;
+        private readonly ILogger<LoginService> _logger;
 
 
         #region sp_parameter
@@ -25,6 +26,9 @@ namespace AuthenticationService.Helpers.Service
         private static string USER_PASSWORD = "@tx_password";
         private static string USER_DOB = "@dt_dob";
         private static string USER_MOD_KEY = "@id_user_mod_key";
+        private static string USER_DOCUMENT_IMAGE_LOCATION = "@tx_image_location";
+        private static string USER_DOCUMENT_FILE_LOCATION = "@tx_file_location";
+
         private static string LOGIN_USER_KEY = "@id_user_key";
         private static string LOGIN_CLIENT_IP_ADDRESS = "@tx_client_ip_addr";
         private static string LOGIN_IS_LOG_IN = "@is_logged_in";
@@ -36,7 +40,7 @@ namespace AuthenticationService.Helpers.Service
 
         #endregion
 
-        public LoginService(DapperContext dapperContext, ICurrentUserService currentUserService, ILogger<PermissionService> logger)
+        public LoginService(DapperContext dapperContext, ICurrentUserService currentUserService, ILogger<LoginService> logger)
         {
             _dapperContext = dapperContext;
             _currentUserService = currentUserService;
@@ -219,6 +223,50 @@ namespace AuthenticationService.Helpers.Service
             }
 
         }
+
+        public async Task<Result> SaveUserDocument(SaveUserDocument request)
+        {
+            using (var context = _dapperContext.CreateConnection())
+            {
+                _logger.LogInformation("request receive from Login service");
+                try
+                {
+                    //if (request.IdUserKey == 0 || request.IdUserKey == null)
+                    //{
+                    //    request.IdUserKey = CurrentUserInfo.UserId();
+                    //}
+                    string query = Constants.Add_User_Document;
+                    DynamicParameters parameter = new DynamicParameters();
+                    parameter.Add(USER_DOCUMENT_IMAGE_LOCATION, request.ImageLocation, DbType.String, ParameterDirection.Input);
+                    parameter.Add(USER_DOCUMENT_FILE_LOCATION, request.FileLocation, DbType.String, ParameterDirection.Input);
+                    parameter.Add(LOGIN_USER_KEY, request.IdUserKey, DbType.Int32, ParameterDirection.Input);
+                    parameter.Add(USER_MOD_KEY, CurrentUserInfo.UserId(), DbType.Int32, ParameterDirection.Input);
+                    parameter.Add(Constants.TX_DESCRIPTION, request.Description, DbType.String, ParameterDirection.Input);
+                    parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
+                    await context.ExecuteAsync(query, parameter);
+                    int res = parameter.Get<int>("@message");
+
+                    if (res > 0)
+                    {
+                        _logger.LogInformation("Save done from SaveUserDocument ");
+
+                        return Result.Success("Save has been successfully");
+                    }
+
+
+                    return Result.Failure(new List<string>() { "Something wrong" });
+
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex.Message);
+                    _logger.LogInformation("exception from catch block : " + ex.Message);
+                    return Result.Failure(new List<string> { ex.Message });
+                }
+
+            }
+        }
+
 
     }
 

@@ -1,4 +1,4 @@
-﻿using AuthenticationService.Helpers;
+﻿using Common;
 using MediatR;
 
 namespace AuthenticationService.Application.Request.Login.Command

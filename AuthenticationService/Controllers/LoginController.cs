@@ -16,6 +16,8 @@ using System.Text;
 using System;
 using AuthenticationService.Application.Request.Login.Query;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.Extensions.Hosting;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AuthenticationService.Controllers
 {
@@ -26,12 +28,19 @@ namespace AuthenticationService.Controllers
         private readonly JwtTokenHandler _jwtTokenHandler;
         private readonly IMediator _mediator;
         private readonly ILogger<LoginController> _logger;
+        private  readonly IWebHostEnvironment _environment;
+        // Allowed image file types
+        private readonly string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
 
-        public LoginController(IMediator mediator, JwtTokenHandler jwtTokenHandler, ILogger<LoginController> logger)
+        // Max file size allowed 5 MB 
+        private const long maxFileSize = 5 * 1024 * 1024;
+
+        public LoginController(IMediator mediator, JwtTokenHandler jwtTokenHandler, ILogger<LoginController> logger, IWebHostEnvironment environment)
         {
             _mediator = mediator;
             _jwtTokenHandler = jwtTokenHandler;
             _logger = logger;
+            _environment = environment;
         }
 
         [HttpPost("[action]")]
@@ -119,6 +128,109 @@ namespace AuthenticationService.Controllers
             }
         }
 
+        [HttpPost("[action]")]
+        public async Task<IActionResult> UploadImage([FromForm] IFormFile image)
+        {
+
+            bool result = false;
+            string path = "";
+            // Validate file extension
+            var fileExtension = Path.GetExtension(image.FileName).ToLowerInvariant();
+            if (!permittedExtensions.Contains(fileExtension))
+            {
+                return BadRequest("Invalid file format. Only JPG, JPEG, PNG, and GIF are allowed.");
+            }
+
+            // Validate file size
+            if (image.Length > maxFileSize)
+            {
+                return BadRequest($"File size exceeds the limit of {maxFileSize / (1024 * 1024)} MB.");
+            }
+
+            var date = String.Format(DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
+            if (string.IsNullOrWhiteSpace(_environment.WebRootPath))
+            {
+                _environment.WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+
+                path = _environment.WebRootPath + "\\Files\\" + "\\" + "UserDocument" + "\\" + "\\" + "Images" + "\\" + "\\" + date + "\\";
+            }
+            else
+            {
+                path = _environment.WebRootPath + "\\Files\\" + "\\" + "UserDocument" + "\\" + "\\" + "Images" + "\\" + "\\" + date + "\\";
+            }
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            //var fileName = imageFile.FileName;
+            //Random _random = new Random();
+            var fileName = Path.GetFileNameWithoutExtension(image.FileName)+"-" + Guid.NewGuid() + Path.GetExtension(image.FileName);
+            using (FileStream fileStream = System.IO.File.Create(path + fileName))
+            {
+                image.CopyTo(fileStream);
+                fileStream.Flush();
+                path = Path.Combine(string.Format("/Files/" + "UserDocument"+"/Images" + "/{0}/{1}", date, fileName));
+            }
+            return Ok(new { image.FileName, path });
+        }
+        [HttpPost("[action]")]
+
+        public async Task<IActionResult> UploadFile([FromForm] IFormFile file)
+        {
+
+
+            string[] permittedExtensions = { ".doc", ".docx", ".pdf", ".txt" };
+            bool result = false;
+            string path = "";
+            // Validate file extension
+            var fileExtension = Path.GetExtension(file.FileName).ToLowerInvariant();
+            if (!permittedExtensions.Contains(fileExtension))
+            {
+                return BadRequest("Invalid file format. Only doc, docx, pdf, and txt are allowed.");
+            }
+
+
+            var date = String.Format(DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
+            if (string.IsNullOrWhiteSpace(_environment.WebRootPath))
+            {
+                _environment.WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+
+                path = _environment.WebRootPath + "\\Files\\" + "\\" + "UserDocument" + "\\" + "\\" + "Files" + "\\" + "\\" + date + "\\";
+            }
+            else
+            {
+                path = _environment.WebRootPath + "\\Files\\" + "\\" + "UserDocument" + "\\" + "\\" + "Files" + "\\" + "\\" + date + "\\";
+            }
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            //var fileName = imageFile.FileName;
+            //Random _random = new Random();
+            var fileName = Path.GetFileNameWithoutExtension(file.FileName) + "-" + Guid.NewGuid() + Path.GetExtension(file.FileName);
+            using (FileStream fileStream = System.IO.File.Create(path + fileName))
+            {
+                file.CopyTo(fileStream);
+                fileStream.Flush();
+                path = Path.Combine(string.Format("/Files/" + "UserDocument" +"/Files"+ "/{0}/{1}", date, fileName));
+            }
+            return Ok(new { file.FileName, path });
+        }
+
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> SaveUserDocument(SaveUserDocument command)
+        {
+            _logger.LogInformation("User Document save requst received from Endpoint");
+            var result = await _mediator.Send(command);
+            _logger.LogInformation("User Document save request successfully processed");
+
+            return Ok(result);
+        }
+
+
+
+
         private ClaimsPrincipal GetPrincipleFromExpiredToken(string token)
         {
             var key = Encoding.ASCII.GetBytes(JwtTokenHandler.JWT_SECURITY_KEY);
@@ -130,7 +242,7 @@ namespace AuthenticationService.Controllers
                 ValidateIssuerSigningKey = false,
                 IssuerSigningKey = new SymmetricSecurityKey(key),
                 ValidateLifetime = false
-            };
+            }; 
             var tokenhandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken;
             var principal = tokenhandler.ValidateToken(token, tokenValidationParameter, out securityToken);
@@ -145,7 +257,6 @@ namespace AuthenticationService.Controllers
         [HttpPost("logout")]
         public async Task<IActionResult> LogOut()
         {
-			int UserId=2;
 
             return Ok("ok");
         }  

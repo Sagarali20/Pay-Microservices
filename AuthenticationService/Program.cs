@@ -62,6 +62,8 @@ app.UseCors(option =>
     option.AllowAnyMethod();
     option.AllowAnyHeader();
 });
+app.UseStaticFiles();
+
 
 CurrentUserInfo.Configure(app.Services.GetRequiredService<IHttpContextAccessor>());
 
