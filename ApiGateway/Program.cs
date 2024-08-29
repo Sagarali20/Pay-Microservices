@@ -12,7 +12,7 @@ builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
      .AddEnvironmentVariables();
 builder.Services.AddOcelot().AddConsul();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
-
+builder.Services.AddHttpContextAccessor();
 
 // Add services to the container.
 

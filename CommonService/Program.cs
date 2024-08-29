@@ -1,6 +1,8 @@
 using CommonService.Application.Request.CommonGet;
 using CommonService.Helpers;
 using CommonService.Helpers.Service;
+using CommonService.RegistersExtensions;
+using CommonService.Utils;
 using Serilog;
 using System.Reflection;
 
@@ -19,6 +21,13 @@ builder.Logging.AddSerilog(logger);
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddScoped<DapperContext>();
 builder.Services.AddScoped<ICommonGetService, CommonGetService>();
+
+var configuration = builder.Configuration;
+var services = builder.Services;
+var serviceSettings = services.StartupBoostrap(configuration);
+services.AddSingleton(serviceSettings);
+services.AddConsulSettings(serviceSettings);
+services.AddHealthChecks();
 
 // Add services to the container.
 
@@ -50,8 +59,15 @@ app.UseCors(option =>
     option.AllowAnyHeader();
 });
 CurrentUserInfo.Configure(app.Services.GetRequiredService<IHttpContextAccessor>());
+app.UseConsul(serviceSettings);
+app.UseRouting();
+
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHealthChecks("/health");
+});
 app.Run();
