@@ -18,7 +18,7 @@
         "ASPNETCORE_ENVIRONMENT": "Production"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5183"
+      "applicationUrl": "http://localhost:8001"
     },
     "Staging": {
       "commandName": "IISExpress",
@@ -28,7 +28,7 @@
         "ASPNETCORE_ENVIRONMENT": "Staging"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5183"
+      "applicationUrl": "http://localhost:8001"
     },
     "UAT": {
       "commandName": "IISExpress",
@@ -38,7 +38,7 @@
         "ASPNETCORE_ENVIRONMENT": "UAT"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5183"
+      "applicationUrl": "http://localhost:8001"
     },
     "Container (Dockerfile)": {
       "commandName": "Docker",
@@ -55,7 +55,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:59179",
+      "applicationUrl": "http://localhost:8001",
       "sslPort": 0
     }
   }

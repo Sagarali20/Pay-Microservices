@@ -24,7 +24,7 @@
       "DownstreamScheme": "http",
       "UseServiceDiscovery": true,
       "ServiceName": "sendmoney-service",
-      "UpstreamPathTemplate": "/sendmoney/{url}",
+      "UpstreamPathTemplate": "/{url}",
       "UpstreamHttpMethod": [ "GET", "POST" ],
       //"AuthorizationPolicy": "RequireAdministratorRole",
       "AuthenticationOptions": {
@@ -41,16 +41,24 @@
         "PeriodTimespan": 60,
         "Limit": 100
       }
-      // "UpstreamPathTemplate": "/sendmoney/{catchAll}",
-      //"DownstreamHostAndPorts": [
-      //  {
-      //    "Host": "localhost",
-      //    "Port": 5183
-      //  }
-      //],s
-      //"DownstreamPathTemplate": "/{catchAll}",
+    },
+    //Common Service Web API
+    {
+      "ServiceName": "Common-service",
+      "UpstreamPathTemplate": "/api/CommonGet/GetAllAccountType",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/CommonGet/GetAllAccountType"
 
-      //"DownstreamPathTemplate": "/{url}"
+    },
+    {
+      "ServiceName": "Common-service",
+      "UpstreamPathTemplate": "/api/CommonGet/GetBalanceByAccountNumber",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/CommonGet/GetBalanceByAccountNumber"
     }
   ],
   "GlobalConfiguration": {

@@ -1,7 +1,6 @@
-﻿using Consul;
-using PaymentService.Settings;
-
-namespace PaymentService.RegistersExtensions
+﻿using CommonService.Settings;
+using Consul;
+namespace CommonService.RegistersExtensions
 {
     public static class ServiceRegistryExtensions
     {
@@ -23,16 +22,16 @@ namespace PaymentService.RegistersExtensions
             var serviceId=serviceSettings.ServiceName+"-"+Guid.NewGuid();
             var registration = new AgentServiceRegistration()
             {
-                ID = "sendmoney-service1", //{uri.Port}",
+                ID = "Common-service1", //{uri.Port}",
                 // servie name
                 Name = serviceSettings.ServiceName,
                 Address = serviceSettings.ServiceHost, //$"{uri.Host}",
-                Port = serviceSettings.ServicePort, // uri.Port
+                Port = serviceSettings.ServicePort,  // uri.Port
                 Check = new AgentServiceCheck()
                 {
                     HTTP = $"http://{serviceSettings.ServiceHost}:{serviceSettings.ServicePort}/health",
                     Interval = TimeSpan.FromSeconds(10),
-                    //DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(10)
+                    DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1)
                 }
             };
 
@@ -44,6 +43,7 @@ namespace PaymentService.RegistersExtensions
             {
                 logger.LogInformation("Unregistering from Consul");
                 consulClient.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true);
+
             });
 
             return app;
