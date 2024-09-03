@@ -5,19 +5,24 @@ namespace AddMoneyService.Application.RequestMoney.Command
 {
     public class AddRequestMoney : IRequest<Result>
     {
-        public string TxSenderPhone { get; set; }
-        public string TxReceiverPhone { get; set; }
-        public decimal DccAmount { get; set; }
-        public decimal DccChargeAmount { get; set; }
-        public string TxReferenceNote { get; set; }
-        public AddRequestMoney(string txSenderPhone, string txReceiverPhone, decimal dccAmount, decimal dccChargeAmount, 
-            string txReferenceNote)
+        /*public string SenderPhone { get; set; }
+        public string ReceiverPhone { get; set; }
+        public decimal Amount { get; set; }
+        public decimal ChargeAmount { get; set; }
+        public string ReferenceNote { get; set; }
+        string senderPhone, string receiverPhone, decimal amount, decimal chargeAmount, 
+            string referenceNote, 
+        SenderPhone = senderPhone;
+            ReceiverPhone = receiverPhone;
+            Amount = amount;
+            ChargeAmount = chargeAmount;
+            ReferenceNote = referenceNote;
+         */
+        public List<AddMoney> AddMoney { get; set; }
+        public AddRequestMoney(List<AddMoney> addMoney)
         {
-            TxSenderPhone = txSenderPhone;
-            TxReceiverPhone = txReceiverPhone;
-            DccAmount = dccAmount;
-            DccChargeAmount = dccChargeAmount;
-            TxReferenceNote = txReferenceNote;
+            AddMoney = addMoney;
+
         }
     }
 
@@ -38,6 +43,15 @@ namespace AddMoneyService.Application.RequestMoney.Command
             _logger.LogInformation("request result from handler");
             return result;
         }
+    }
+
+    public class AddMoney
+    {
+        public string SenderPhone { get; set; }
+        public string ReceiverPhone { get; set; }
+        public decimal Amount { get; set; }
+        public decimal ChargeAmount { get; set; }
+        public string ReferenceNote { get; set; }
     }
 
 }
