@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddMoneyService", "AddMoney
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\Common\Common.csproj", "{A39D9E6A-4681-46C4-8727-BF5995AD0414}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddMoneyService.Test", "AddMoneyService.Test\AddMoneyService.Test.csproj", "{D4E936C3-3841-40E2-B25B-8497AD551754}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A39D9E6A-4681-46C4-8727-BF5995AD0414}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A39D9E6A-4681-46C4-8727-BF5995AD0414}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A39D9E6A-4681-46C4-8727-BF5995AD0414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4E936C3-3841-40E2-B25B-8497AD551754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4E936C3-3841-40E2-B25B-8497AD551754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4E936C3-3841-40E2-B25B-8497AD551754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4E936C3-3841-40E2-B25B-8497AD551754}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
