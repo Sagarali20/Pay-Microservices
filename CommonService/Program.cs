@@ -37,12 +37,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddCors(p => p.AddPolicy("PSP", policy =>
-{
-    policy.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
-
-}));
-
 var app = builder.Build();
 
 

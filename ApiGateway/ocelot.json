@@ -18,14 +18,132 @@
       "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/Authentication/Refresh"
     },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Authentication/SaveUser",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Authentication/SaveUser"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Authentication/Updateuser",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Authentication/Updateuser"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Authentication/UploadImage",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Authentication/UploadImage"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Authentication/UploadFile",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Authentication/UploadFile"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Authentication/Resetpassword",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Authentication/Resetpassword"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Authentication/SaveUserDocument",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Authentication/SaveUserDocument"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Authentication/GetAllDocumentType",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Authentication/GetAllDocumentType"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Authentication/logout",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Authentication/logout"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Permission/SavePermission",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Permission/SavePermission"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Permission/GetAllGroup",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Permission/GetAllGroup"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Permission/SaveGroup",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Permission/SaveGroup"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Permission/SaveRole",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Permission/SaveRole"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Permission/GetAllRole",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Permission/GetAllRole"
+    },
+    {
+      "ServiceName": "auth-service",
+      "UpstreamPathTemplate": "/api/Permission/GetAllPermission",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Permission/GetAllPermission"
+    },
+
     // Sendmoney Web API
     {
-      "DownstreamPathTemplate": "/{url}",
+      "DownstreamPathTemplate": "/api/SendMoney/Send",
       "DownstreamScheme": "http",
       "UseServiceDiscovery": true,
       "ServiceName": "sendmoney-service",
+<<<<<<< HEAD
+      "UpstreamPathTemplate": "/api/SendMoney/Send",
+      "UpstreamHttpMethod": [ "Post" ],
+=======
       "UpstreamPathTemplate": "/{url}",
       "UpstreamHttpMethod": [ "GET", "POST" ],
+>>>>>>> 340c41d6df570d7de69143d0f253e3b2c35824f3
       //"AuthorizationPolicy": "RequireAdministratorRole",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
@@ -42,6 +160,18 @@
         "Limit": 100
       }
     },
+<<<<<<< HEAD
+
+    //Remittance Service Web API
+    {
+      "ServiceName": "remittance-service",
+      "UpstreamPathTemplate": "/api/Ramittance/Ramittance",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Ramittance/Ramittance"
+
+    },
     //Common Service Web API
     {
       "ServiceName": "Common-service",
@@ -51,6 +181,17 @@
       "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/CommonGet/GetAllAccountType"
 
+=======
+    //Common Service Web API
+    {
+      "ServiceName": "Common-service",
+      "UpstreamPathTemplate": "/api/CommonGet/GetAllAccountType",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/CommonGet/GetAllAccountType"
+
+>>>>>>> 340c41d6df570d7de69143d0f253e3b2c35824f3
     },
     {
       "ServiceName": "Common-service",
@@ -62,14 +203,14 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000",
+    "BaseUrl": "http://192.168.1.25:8500",
     "RateLimitOptions": {
       "QuotaExceededMessage": "Request not allowed",
       "HttpStatusCode": 909
     },
     "ServiceDiscoveryProvider": {
       "Scheme": "http",
-      "Host": "localhost",
+      "Host": "192.168.1.25",
       "Port": "8500",
       "Type": "Consul"
     }

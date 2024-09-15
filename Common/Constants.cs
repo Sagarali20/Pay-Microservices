@@ -6,6 +6,7 @@
         public static string ID_TRANSACTION_EXT_TYPE_KEY = "@id_transaction_ext_type_key";
         public static string TX_DESCRIPTION = "@tx_description";
         public static string IS_ACTIVE = "@is_active";
+        public static string ID_USER_KEY = "@id_user_key";
         public static string MESSAGE = "@message";
         #endregion
 
