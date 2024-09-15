@@ -10,11 +10,19 @@
         #region SP Name
         public static string Add_User = "INS_user";
         public static string Add_User_Document = "INS_user_document";
+        public static string UPD_User_Document = "UPD_user_document";
+
         public static string UPD_User = "UPD_user";
+        public static string UPD_Userpass = "UPD_Userpassword";
+
         public static string ADD_Login = "INS_login";
         public static string ADD_GenericMap = "INS_genericmap";
         public static string ADD_Group = "INS_group";
         public static string ADD_Role = "INS_role";
+        public static string SEL_USERID = "SEL_GetPasswordByUserId";
+        public static string CHECK_ID = "SEL_checkid";
+
+
 
         #endregion
 

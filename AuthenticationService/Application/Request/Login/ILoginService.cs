@@ -8,6 +8,11 @@ namespace AuthenticationService.Application.Request.Login
     {
         Task<Result> AddUser(AddOrEditUser request);
         Task<Result> SaveUserDocument(SaveUserDocument request);
+        Task<Result> UpdateUser(Updateuser request);
         Task<User> VerifyUser(LoginUser request);
+        Task<Result> ResetPassword(ResetPassword request);
+        Task<List<Models.Type>> GetAllDocumentType();
+
+
     }
 }

@@ -1,11 +1,14 @@
-﻿using AuthenticationService.Application.Request.Login;
+﻿ using AuthenticationService.Application.Request.Login;
 using AuthenticationService.Application.Request.Login.Command;
 using AuthenticationService.Helpers.Interface;
 using AuthenticationService.Models;
 using AuthenticationService.Utils;
 using Common;
 using Dapper;
+using System;
 using System.Data;
+using System.Reflection.Metadata;
+using System.Transactions;
 
 namespace AuthenticationService.Helpers.Service
 {
@@ -54,10 +57,6 @@ namespace AuthenticationService.Helpers.Service
                 _logger.LogInformation("request receive from Login service");
                 try
                 {
-                        //var query = "select id_user_key from T_USER where id_user_key=" + request.UserId;
-                        ////var data = context.ExecuteScalar(query);
-                        //if ((Convert.ToInt32(data) == request.UserId))
-                        //string query = "select id_user_key from T_USER where id_user_key=" + request.IdUser;
 
                         string qryForemail = string.Format("select  tx_email from  T_USER where tx_email='{0}'", request.Email);
 
@@ -65,9 +64,10 @@ namespace AuthenticationService.Helpers.Service
 
                         if (data != null)
                         {
-                            return Result.Failure(new List<string>() { "Email already exists",data.tx_email });
+                            return Result.Failure(new List<string>() { "Email already exists", data.tx_email });
                         }
                         string qrymobileNo = string.Format("select  tx_mobile_no from  T_USER where tx_mobile_no='{0}'", request.MobileNo);
+
                         User mobileNo = context.QueryFirstOrDefault<User>(qrymobileNo);
                         if (mobileNo != null)
                         {
@@ -99,8 +99,8 @@ namespace AuthenticationService.Helpers.Service
                             return Result.Success("Save has been successfully");
                         }
 
-                    
-                    return Result.Failure(new List<string>() { "Something wrong" });
+
+                        return Result.Failure(new List<string>() { "Something wrong" });
 
                 }
                 catch (Exception ex)
@@ -115,11 +115,87 @@ namespace AuthenticationService.Helpers.Service
 
         }
 
-        public async Task<Result> UpdateUser(AddOrEditUser request)
+        public async Task<Result> UpdateUser(Updateuser request)
         {
+            using (var context = _dapperContext.CreateConnection())
+            {
+                try
+                {
+                    //var query = "select id_user_key from T_USER where id_user_key=" + request.IdUser;
+                    //var data = context.ExecuteScalar(query);
 
-             return Result.Success("Update has been successfully"); ;
+
+
+                    var storedProcedure = Constants.CHECK_ID;
+
+                    // Define the parameters for the stored procedure
+                    DynamicParameters parameters = new DynamicParameters();
+
+                    parameters.Add(USER_USER_KEY, request.IdUser, DbType.String, ParameterDirection.Input);
+                    parameters.Add("@message", "", DbType.Int32, ParameterDirection.Output);
+
+                    // Execute the stored procedure using Dapper
+                    var storedPassword = await context.ExecuteScalarAsync<string>(
+                        storedProcedure,
+                        parameters,
+                        commandType: CommandType.StoredProcedure
+                    );
+
+
+
+                    if ((Convert.ToInt32(storedPassword) == request.IdUser))
+                    {
+
+                        request.TxPassword = MD5Encryption.GetMD5HashData(request.TxPassword);
+
+                        string usquery = Constants.UPD_User;
+
+                        DynamicParameters parameter = new DynamicParameters();
+
+                        parameter.Add(USER_USER_KEY, request.IdUser, DbType.Int64, ParameterDirection.Input);
+
+                        parameter.Add(USER_FIRST_NAME, request.TxFirstName, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_LAST_NAME, request.TxLastName, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_EMAIL, request.TxEmail, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_MOBILE_NO, request.TxMobileNo, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_IDENTITY, request.TxIdentity, DbType.String, ParameterDirection.Input);
+                        //parameter.Add(USER_PASSWORD, request.TxPassword, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_GENDER, request.TxGender, DbType.String, ParameterDirection.Input);
+                        parameter.Add(USER_DOB, request.Dt_dob, DbType.Date, ParameterDirection.Input);
+                        parameter.Add(USER_MOD_KEY, 1001, DbType.Int32, ParameterDirection.Input);
+
+                        parameter.Add(Constants.TX_DESCRIPTION, request.TxDescription, DbType.String, ParameterDirection.Input);
+                        parameter.Add(Constants.IS_ACTIVE, request.IsActive, DbType.Int32, ParameterDirection.Input);
+
+                        parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
+
+                        await context.ExecuteAsync(usquery, parameter);
+
+                        int res = parameter.Get<int>("@message");
+
+                        if (res > 0)
+                        {
+                            return Result.Success("Update has been successful");
+                        }
+                        else
+                        {
+                            return Result.Failure(new List<string>() { "Something wrong" });
+                        }
+
+                    }
+
+                    return Result.Failure(new List<string>() { "Something wrong" });
+
+                }
+
+                catch (Exception ex)
+                {
+                    return Result.Failure(new List<string> { ex.Message });
+                }
+            }
+
         }
+
 
         public async Task<User> VerifyUser(LoginUser request)
         {
@@ -223,7 +299,73 @@ namespace AuthenticationService.Helpers.Service
             }
 
         }
+        /**
+             * 
+             -- Create date: 08/17/2024
+             -- Description: update user password
+             * 
+        public async Task<Result> ResetPassword(ResetPassword request)
+        {
+            using (var context = _dapperContext.CreateConnection())
+            {
 
+                var storedProcedure = Constants.SEL_USERID;
+
+                // Define the parameters for the stored procedure
+                DynamicParameters parameters = new DynamicParameters();
+
+                parameters.Add(USER_MOBILE_NO, request.Tx_mobile_no, DbType.String, ParameterDirection.Input);
+                parameters.Add("@message", "", DbType.Int32, ParameterDirection.Output);
+
+                // Execute the stored procedure using Dapper
+                var storedPassword = await context.ExecuteScalarAsync<string>(
+                    storedProcedure,
+                    parameters,
+                    commandType: CommandType.StoredProcedure
+                );
+
+                if (storedPassword == null)
+                {
+                    throw new Exception("User not found.");
+                
+                }
+                 var inputPasswordHash = MD5Encryption.GetMD5HashData(request.CurrentPassword);
+                // Validate current password
+                if (storedPassword != inputPasswordHash)
+                {
+                    throw new Exception("Current password is incorrect.");
+                }
+                // Validate new password and confirmation
+                if (request.NewPassword != request.Confirmpassword)
+                {
+                    throw new Exception("New password and confirmation password do not match.");
+                }
+
+                request.Confirmpassword = MD5Encryption.GetMD5HashData(request.Confirmpassword);
+
+                string usquery = Constants.UPD_Userpass;
+                DynamicParameters parameter = new DynamicParameters();
+                parameter.Add(USER_MOBILE_NO, request.Tx_mobile_no, DbType.String, ParameterDirection.Input);
+                parameter.Add(USER_PASSWORD, request.Confirmpassword, DbType.String, ParameterDirection.Input);
+                parameter.Add(USER_MOD_KEY, CurrentUserInfo.UserId(), DbType.Int32, ParameterDirection.Input);
+                parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
+
+                await context.ExecuteAsync(usquery, parameter);
+                int res = parameter.Get<int>("@message");
+                if (res > 0)
+                {
+                    return Result.Success("Updatepassword has been successful");
+                }
+                else
+                {
+                    return Result.Failure(new List<string>() { "Something wrong" });
+                }
+
+               
+            }
+
+                throw new NotImplementedException();
+        } 
         public async Task<Result> SaveUserDocument(SaveUserDocument request)
         {
             using (var context = _dapperContext.CreateConnection())
@@ -231,6 +373,34 @@ namespace AuthenticationService.Helpers.Service
                 _logger.LogInformation("request receive from Login service");
                 try
                 {
+                    string SP;
+                    DynamicParameters parameter = new DynamicParameters();
+                    parameter.Add(USER_DOCUMENT_IMAGE_LOCATION, request.ImageLocation, DbType.String, ParameterDirection.Input);
+                    parameter.Add(LOGIN_USER_KEY, request.IdUserKey, DbType.Int32, ParameterDirection.Input);
+                    parameter.Add(USER_DOCUMENT_TYPE_KEY, request.IdDocumentType, DbType.Int32, ParameterDirection.Input);
+                    parameter.Add(USER_MOD_KEY, CurrentUserInfo.UserId(), DbType.Int32, ParameterDirection.Input);
+                    parameter.Add(Constants.TX_DESCRIPTION, request.Description, DbType.String, ParameterDirection.Input);
+                    parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
+
+                    string QueryForDocument = "select id_user_document_key from T_USER_DOCUMENT where id_user_key=" + request.IdUserKey;
+                    var data = context.ExecuteScalar(QueryForDocument);
+                    if (data is not null)
+                    {
+                        SP = Constants.UPD_User_Document;
+                        parameter.Add(USER_DOCUMENT_KEY, Convert.ToInt32(data), DbType.Int32, ParameterDirection.Input);
+                        await context.ExecuteAsync(SP, parameter);
+                        int res2 = parameter.Get<int>("@message");
+                        if(res2 > 0)
+                        {
+                            _logger.LogInformation("Update done from SaveUserDocument");
+                            return Result.Success("Update has been successfully.");
+
+                        }
+
+                    }
+                    SP = Constants.Add_User_Document;
+                    await context.ExecuteAsync(SP, parameter);
+=======
                     //if (request.IdUserKey == 0 || request.IdUserKey == null)
                     //{
                     //    request.IdUserKey = CurrentUserInfo.UserId();
@@ -244,6 +414,7 @@ namespace AuthenticationService.Helpers.Service
                     parameter.Add(Constants.TX_DESCRIPTION, request.Description, DbType.String, ParameterDirection.Input);
                     parameter.Add("@message", "", DbType.Int32, ParameterDirection.Output);
                     await context.ExecuteAsync(query, parameter);
+>>>>>>> 340c41d6df570d7de69143d0f253e3b2c35824f3
                     int res = parameter.Get<int>("@message");
 
                     if (res > 0)
@@ -267,6 +438,27 @@ namespace AuthenticationService.Helpers.Service
             }
         }
 
+        public async Task<List<Models.Type>> GetAllDocumentType()
+        {
+            try
+            {
+                _logger.LogInformation("GetAllDocument Type from Login service");
+                List<Models.Type> Type = new List<Models.Type>();
+                using (var context = _dapperContext.CreateConnection())
+                {
+                    string qryFortype = "select id_type_key as TypeID,tx_type_category as CategoryType, tx_type_name as TypeName  from T_TYPE where tx_type_category='DocumentType' and is_active=1";
+                    Type = context.Query<Models.Type>(qryFortype).ToList();
+                }
+                _logger.LogInformation("GetAllDocument Type from Type");
+                return Type;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                _logger.LogInformation("exception from catch block : " + ex.Message);
+                return null;
+            }
+        }
 
     }
 

@@ -52,6 +52,16 @@ namespace AuthenticationService.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Updateuser(Updateuser command)
+        {
+
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        
         [HttpPost("[action]")]
         public async Task<IActionResult> Login(LoginUser command)
         {
@@ -174,6 +184,9 @@ namespace AuthenticationService.Controllers
             return Ok(new { image.FileName, path });
         }
         [HttpPost("[action]")]
+        public async Task<IActionResult> UploadFile([FromForm] IFormFile file)
+        {
+
 
         public async Task<IActionResult> UploadFile([FromForm] IFormFile file)
         {
@@ -212,11 +225,24 @@ namespace AuthenticationService.Controllers
             {
                 file.CopyTo(fileStream);
                 fileStream.Flush();
+                path = Path.Combine(string.Format("/Files/" + "UserDocument" + "/Files" + "/{0}/{1}", date, fileName));
                 path = Path.Combine(string.Format("/Files/" + "UserDocument" +"/Files"+ "/{0}/{1}", date, fileName));
             }
             return Ok(new { file.FileName, path });
         }
 
+        [HttpPost("[action]")]
+
+        public async Task<IActionResult> Resetpassword(ResetPassword command)
+        {
+
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> SaveUserDocument(SaveUserDocument command)
+        {
+            _logger.LogInformation("User Document save requst received from Endpoint"); 
 
         [HttpPost("[action]")]
         public async Task<IActionResult> SaveUserDocument(SaveUserDocument command)
@@ -226,6 +252,24 @@ namespace AuthenticationService.Controllers
             _logger.LogInformation("User Document save request successfully processed");
 
             return Ok(result);
+        }
+        /*
+        * Author: Md.Sagar Ali
+        * Date : 08/31/2024
+        * Description: Get All Account Type list from database.
+        */
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetAllDocumentType()
+        {
+            try
+            {
+                _logger.LogInformation("GetAll Document type requst received from Endpoint");
+                return Ok(new { result = await _mediator.Send(new GetAllDocumentType()) });
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.Message);
+            }
         }
 
 

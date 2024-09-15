@@ -52,7 +52,7 @@ namespace AuthenticationService.Controllers
         * Description: Get All Group list from database.
         */
 
-        [HttpPost("[action]")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> GetAllGroup()
         {
             try
@@ -120,7 +120,7 @@ namespace AuthenticationService.Controllers
         * Description: Get All Role list from database.
         */
 
-        [HttpPost("[action]")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> GetAllRole()
         {
             try
@@ -140,7 +140,7 @@ namespace AuthenticationService.Controllers
         * Description: Get All Permission list from database.
         */
 
-        [HttpPost("[action]")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> GetAllPermission()
         {
             try

@@ -42,12 +42,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<JwtTokenHandler>();
 builder.Services.AddHttpContextAccessor();
-
-builder.Services.AddCors(p => p.AddPolicy("PSP", policy =>
-{
-    policy.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
-}));
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

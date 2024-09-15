@@ -7,6 +7,14 @@ namespace AuthenticationService.Application.Request.Login.Command
     {
         public int IdUserKey { get; set; }
         public string ImageLocation { get; set; }
+        public int IdDocumentType { get; set; }
+        public string Description { get; set; }
+
+        public SaveUserDocument(int idUserKey, string imageLocation, int idDocumentType, string description)
+        {
+            IdUserKey = idUserKey;
+            ImageLocation = imageLocation;
+            IdDocumentType = idDocumentType;
         public string FileLocation { get; set; }
         public string Description { get; set; }
 
