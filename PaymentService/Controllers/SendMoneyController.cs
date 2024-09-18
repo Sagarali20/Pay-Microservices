@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Common;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PaymentService.Application.Request.Send.Command;
@@ -29,12 +30,12 @@ namespace PaymentService.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Send(AddOrEditTransaction command)
         {
-            if(command.DecTransactionAmount < 0)
+            if(command.TransactionAmount < 0)
             {
-                return Ok("Invalid Amount");
+                return StatusCode(StatusCodes.Status400BadRequest, Result.Failure(new List<string> { "Invalid Amount " }));
             }
 
-            _logger.LogInformation("requst received from this contact no: "+ command.ContactNo+ " amount :"+ command.DecTransactionAmount);
+            _logger.LogInformation("requst received from this contact no: "+ command.ContactNo+ " amount :"+ command.TransactionAmount);
             var result = await _mediator.Send(command);
             _logger.LogInformation("send money request successfully processed");
 

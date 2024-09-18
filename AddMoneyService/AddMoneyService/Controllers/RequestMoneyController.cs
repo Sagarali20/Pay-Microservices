@@ -15,20 +15,14 @@ namespace AddMoneyService.Controllers
         {
             _mediator = mediator;
             _logger = logger;
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         [HttpPost("[action]")]
         public async Task<IActionResult> RequestMoney(AddRequestMoney command)
         {
             _logger.LogInformation("request receive from controller");
-            if (command.DccAmount < 0)
-            {
-                _logger.LogInformation("user input negative amount : "+ command.DccAmount);
-                return Ok("Invalid Amount");
-            }
-
-            _logger.LogInformation("requst received from this sender no: " + command.TxSenderPhone+ " amount :" + command.DccAmount + " receiver contact no : "+ command.TxReceiverPhone + " Charge Amount : "+ command.DccChargeAmount);
-
+            
             var result = await _mediator.Send(command);
             
             _logger.LogInformation("request money successfully processed");

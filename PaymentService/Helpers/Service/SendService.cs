@@ -56,7 +56,7 @@ namespace PaymentService.Helpers.Service
 
                     string qryForCheckAvailableBalance = "select dec_balance from T_ACCOUNT where id_account_key =" + 2;
                     var data = context.ExecuteScalar(qryForCheckAvailableBalance, transaction: transactionScope);
-                    if (!(Convert.ToInt32(data) >= request.DecTransactionAmount))
+                    if (!(Convert.ToInt32(data) >= request.TransactionAmount))
                     {
                         _logger.LogInformation("insufficient Balance");
                         return Result.Failure(new List<string> { "insufficient Balance" });
@@ -64,13 +64,13 @@ namespace PaymentService.Helpers.Service
 
                     string query = Constants.ACT_TRANSACTION;
                     DynamicParameters parameter = new DynamicParameters();
-                    parameter.Add(TXN_TYPE_KEY, request.IdTransactionTypeKey, DbType.Int32, ParameterDirection.Input);
-                    parameter.Add(TXN_AMT, request.DecTransactionAmount, DbType.Decimal, ParameterDirection.Input);
-                    parameter.Add(TXN_STATUS, request.TxTransactionStatus, DbType.String, ParameterDirection.Input);
-                    parameter.Add(TXN_EXT_TYPE_KEY, request.IdTransactionExtTypeKey, DbType.Int32, ParameterDirection.Input);
+                    parameter.Add(TXN_TYPE_KEY, request.TransactionTypeKey, DbType.Int32, ParameterDirection.Input);
+                    parameter.Add(TXN_AMT, request.TransactionAmount, DbType.Decimal, ParameterDirection.Input);
+                    parameter.Add(TXN_STATUS, request.TransactionStatus, DbType.String, ParameterDirection.Input);
+                    parameter.Add(TXN_EXT_TYPE_KEY, request.TransactionExtTypeKey, DbType.Int32, ParameterDirection.Input);
 
-                    parameter.Add(Constants.TX_DESCRIPTION, request.IdTransactionExtTypeKey, DbType.Int32, ParameterDirection.Input);
-                    parameter.Add(Constants.IS_ACTIVE, request.IdTransactionExtTypeKey, DbType.Int32, ParameterDirection.Input);
+                    parameter.Add(Constants.TX_DESCRIPTION, request.Description, DbType.String, ParameterDirection.Input);
+                    parameter.Add(Constants.IS_ACTIVE, request.TransactionExtTypeKey, DbType.Int32, ParameterDirection.Input);
 
                     parameter.Add(Message, "", DbType.Int32, ParameterDirection.Output);
                     await context.ExecuteAsync(query, parameter, transaction: transactionScope);
@@ -82,7 +82,7 @@ namespace PaymentService.Helpers.Service
                         string queryUpdateSender = Constants.UPD_SENDER_ACCOUNT_BALANCE;
                         DynamicParameters parameterUpdateSender = new DynamicParameters();
                         parameterUpdateSender.Add(ACT_ACCOUNT_KEY_SENDER, 2, DbType.Int32, ParameterDirection.Input);
-                        parameterUpdateSender.Add(ACT_DEC_BALANCE, request.DecTransactionAmount, DbType.Int32, ParameterDirection.Input);
+                        parameterUpdateSender.Add(ACT_DEC_BALANCE, request.TransactionAmount, DbType.Int32, ParameterDirection.Input);
                         parameterUpdateSender.Add(Message, "", DbType.Int32, ParameterDirection.Output);
                         await context.ExecuteAsync(queryUpdateSender, parameterUpdateSender, transaction: transactionScope);
 
@@ -91,7 +91,7 @@ namespace PaymentService.Helpers.Service
                         DynamicParameters parameterUpdateReceiver = new DynamicParameters();
 
                         parameterUpdateReceiver.Add(ACT_ACCOUNT_KEY_RECEIVER, 3, DbType.Int32, ParameterDirection.Input);
-                        parameterUpdateReceiver.Add(ACT_DEC_BALANCE, request.DecTransactionAmount, DbType.Int32, ParameterDirection.Input);
+                        parameterUpdateReceiver.Add(ACT_DEC_BALANCE, request.TransactionAmount, DbType.Int32, ParameterDirection.Input);
                         parameterUpdateReceiver.Add(Message, "", DbType.Int32, ParameterDirection.Output);
                         await context.ExecuteAsync(queryUpdateReciver, parameterUpdateReceiver, transaction: transactionScope);
 
@@ -107,7 +107,7 @@ namespace PaymentService.Helpers.Service
                         parameterForInsertTransfer.Add(Message, "", DbType.Int32, ParameterDirection.Output);
                         await context.ExecuteAsync(spForInsertTransfer, parameterForInsertTransfer, transaction: transactionScope);
 
-                        SendNotify();
+                        /*SendNotify();*/
 
                         _logger.LogInformation("transaction success");
                         transactionScope.Commit();

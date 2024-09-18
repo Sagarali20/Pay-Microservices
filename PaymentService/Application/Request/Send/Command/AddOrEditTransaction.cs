@@ -5,23 +5,23 @@ namespace PaymentService.Application.Request.Send.Command
 {
     public class AddOrEditTransaction : IRequest<Result>
     {
-        public int IdTransactionTypeKey { get; set; }
-        public decimal DecTransactionAmount { get; set; }
-        public string TxTransactionStatus { get; set; } = string.Empty;
+        public int TransactionTypeKey { get; set; }
+        public decimal TransactionAmount { get; set; }
+        public string TransactionStatus { get; set; } = string.Empty;
         public string ContactNo { get; set; }=string.Empty;
-        public string TxDescription { get; set; }=string.Empty;
-        public int IdTransactionExtTypeKey { get; set; }
+        public string Description { get; set; }=string.Empty;
+        public int TransactionExtTypeKey { get; set; }
         public int IsActive { get; set; }
 
-        public AddOrEditTransaction(int idTransactionTypeKey, decimal decTransactionAmount,
-            string txTransactionStatus, string contactNo, string txDescription, int idTransactionExtTypeKey, int isActive)
+        public AddOrEditTransaction(int transactionTypeKey, decimal transactionAmount,
+            string transactionStatus, string contactNo, string description, int transactionExtTypeKey, int isActive)
         {
-            IdTransactionTypeKey = idTransactionTypeKey;
-            DecTransactionAmount = decTransactionAmount;
-            TxTransactionStatus = txTransactionStatus;
+            TransactionTypeKey = transactionTypeKey;
+            TransactionAmount = transactionAmount;
+            TransactionStatus = transactionStatus;
             ContactNo = contactNo;
-            IdTransactionExtTypeKey = idTransactionExtTypeKey;
-            TxDescription = txDescription;
+            TransactionExtTypeKey = transactionExtTypeKey;
+            Description = description;
             IsActive = isActive;
         }
     }

@@ -1,6 +1,7 @@
 using Common;
 using Common.Interface;
 using RemittanceService.Application.Request.Ramittance;
+using RemittanceService.RegistersExtensions;
 using Serilog;
 using System.Data;
 using System.Data.SqlClient;
@@ -24,6 +25,12 @@ var encryptionHelper = new EncryptionHelper(builder.Configuration["Encryption:Ke
 string decryptedConnectionString = encryptionHelper.Decrypt(connectionString);
 builder.Services.AddTransient<IDbConnection>(db => new SqlConnection(decryptedConnectionString));
 //builder.Services.AddTransient<IDbConnection>(db => new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
+var configuration = builder.Configuration;
+var services = builder.Services;
+var serviceSettings = services.StartupBoostrap(configuration);
+services.AddSingleton(serviceSettings);
+services.AddConsulSettings(serviceSettings);
+services.AddHealthChecks();
 
 // Add services to the container.
 builder.Services.AddHttpContextAccessor();
@@ -44,9 +51,24 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseConsul(serviceSettings);
+app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(option =>
+{
+    option.AllowAnyOrigin();
+    option.AllowAnyMethod();
+    option.AllowAnyHeader();
+});
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHealthChecks("/health");
+});
+
 
 app.Run();

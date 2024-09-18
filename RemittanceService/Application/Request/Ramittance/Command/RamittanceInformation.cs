@@ -1,65 +1,69 @@
 ﻿using Common;
 using MediatR;
+using System.ComponentModel.DataAnnotations;
 
 namespace RemittanceService.Application.Request.Ramittance.Command
 {
     public class RamittanceInformation : IRequest<Result>
     {
-        public int IdRemittanceKey { get; set; }
-        public int IdRemittanceNo { get; set; }
-        public string TxBeneficiaryName { get; set; }
-        public string TxBeneficiarySurname { get; set; }
-        public string TxBeneficiaryCountry { get; set; }
-        public string TxBeneficiaryAccIdentifier { get; set; }
-        public string TxBeneficiaryCurrencyCode { get; set; }
-        public decimal DecBeneficiaryAmount { get; set; }
-        public int IdCustomerId { get; set; }
-        public string TxCustomerName { get; set; }
-        public string TxCustomerSurname { get; set; }
-        public string TxCustomerGender { get; set; }
-        public string TxCustomerPassportNo { get; set; }
-        public string TxCustomerPassportCountry { get; set; }
-        public string TxCustomerAddress { get; set; }
-        public string TxCustomerSuburb { get; set; }
-        public string TxCustomerCity { get; set; }
-        public string TxCustomerAccNo { get; set; }
-        public string TxCustomerPhone { get; set; }
-        public decimal DccCustomerAmount { get; set; }
-        public string TxReferenceNo { get; set; }
-        public int IdTransactionExtTypeKey { get; set; }
-        public string TxDescription { get; set; }
+        
+        public int RemittanceKey { get; set; }
+        public int RemittanceNo { get; set; }
+        public string BeneficiaryName { get; set; }
+        public string BeneficiarySurname { get; set; }
+        public int BeneficiaryCountryId { get; set; }
+        public string BeneficiaryAccIdentifier { get; set; }
+        public string BeneficiaryCurrencyCode { get; set; }
+        public decimal BeneficiaryAmount { get; set; }
+        public int CustomerId { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerSurname { get; set; }
+        public string CustomerGender { get; set; }
+        public string CustomerPassportNo { get; set; }
+        public int CustomerPassportCountryId { get; set; }
+        public string CustomerAddress { get; set; }
+        public string CustomerSuburb { get; set; }
+        public int CustomerCityId { get; set; }
+        public string CustomerAccNo { get; set; }
+        public string CustomerPhone { get; set; }
+        public decimal CustomerAmount { get; set; }
+        public string ReferenceNo { get; set; }
+        public int TransactionExtTypeKey { get; set; }
+        public string Description { get; set; }
         public int IsActive { get; set; }
 
-        public RamittanceInformation(int idRemittanceKey, int idRemittanceNo, string txBeneficiaryName, string txBeneficiarySurname,
-            string txBeneficiaryCountry, string txBeneficiaryAccIdentifier, string txBeneficiaryCurrencyCode, decimal decBeneficiaryAmount, int idCustomerId,
-            string txCustomerName, string txCustomerSurname, string txCustomerGender, string txCustomerPassportNo, string txCustomerPassportCountry,
-            string txCustomerAddress, string txCustomerSuburb, string txCustomerCity, string txCustomerAccNo, string txCustomerPhone, decimal dccCustomerAmount,
-            string txReferenceNo, int idTransactionExtTypeKey, string txDescription, int isActive
+        public RamittanceInformation(
+            int remittanceKey, int remittanceNo, string beneficiaryName, string beneficiarySurname,
+            int beneficiaryCountryId, string beneficiaryAccIdentifier, string beneficiaryCurrencyCode, 
+            decimal beneficiaryAmount, int customerId, string customerName, string customerSurname, 
+            string customerGender, string customerPassportNo, int customerPassportCountryId, string customerAddress,
+            string customerSuburb, int customerCityId, string customerAccNo, string customerPhone, 
+            decimal customerAmount, string referenceNo, int transactionExtTypeKey, string description, int isActive
             )
         {
-            IdRemittanceKey = idRemittanceKey;
-            IdRemittanceNo = idRemittanceNo;
-            TxBeneficiaryName = txBeneficiaryName;
-            TxBeneficiarySurname = txBeneficiarySurname;
-            TxBeneficiaryCountry = txBeneficiaryCountry;
-            TxBeneficiaryAccIdentifier = txBeneficiaryAccIdentifier;
-            TxBeneficiaryCurrencyCode = txBeneficiaryCurrencyCode;
-            DecBeneficiaryAmount = decBeneficiaryAmount;
-            IdCustomerId = idCustomerId;
-            TxCustomerName = txCustomerName;
-            TxCustomerSurname = txCustomerSurname;
-            TxCustomerGender = txCustomerGender;
-            TxCustomerPassportNo = txCustomerPassportNo;
-            TxCustomerPassportCountry = txCustomerPassportCountry;
-            TxCustomerAddress = txCustomerAddress;
-            TxCustomerSuburb = txCustomerSuburb;
-            TxCustomerCity = txCustomerCity;
-            TxCustomerAccNo = txCustomerAccNo;
-            TxCustomerPhone = txCustomerPhone;
-            DccCustomerAmount = dccCustomerAmount;
-            TxReferenceNo = txReferenceNo;
-            IdTransactionExtTypeKey = idTransactionExtTypeKey;
-            TxDescription = txDescription;
+            RemittanceKey = remittanceKey;
+            RemittanceNo = remittanceNo;
+            BeneficiaryName = beneficiaryName;
+            BeneficiarySurname = beneficiarySurname;
+            BeneficiaryCountryId = beneficiaryCountryId;
+            BeneficiaryAccIdentifier = beneficiaryAccIdentifier;
+            BeneficiaryCurrencyCode = beneficiaryCurrencyCode;
+            BeneficiaryAmount = beneficiaryAmount;
+            CustomerId = customerId;
+            CustomerName = customerName;
+            CustomerSurname = customerSurname;
+            CustomerGender = customerGender;
+            CustomerPassportNo = customerPassportNo;
+            CustomerPassportCountryId = customerPassportCountryId;
+            CustomerAddress = customerAddress;
+            CustomerSuburb = customerSuburb;
+            CustomerCityId = customerCityId;
+            CustomerAccNo = customerAccNo;
+            CustomerPhone = customerPhone;
+            CustomerAmount = customerAmount;
+            ReferenceNo = referenceNo;
+            TransactionExtTypeKey = transactionExtTypeKey;
+            Description = description;
             IsActive = isActive;
         }
     }
@@ -77,28 +81,29 @@ namespace RemittanceService.Application.Request.Ramittance.Command
         {
             Models.Ramittance ramittance = new Models.Ramittance
             {
-                IdRemittanceKey = request.IdRemittanceKey,
-                IdRemittanceNo = request.IdRemittanceNo,
-                TxBeneficiaryName = request.TxBeneficiaryName,
-                TxBeneficiarySurname = request.TxBeneficiarySurname,
-                TxBeneficiaryAccIdentifier = request.TxBeneficiaryAccIdentifier,
-                TxBeneficiaryCurrencyCode = request.TxBeneficiaryCurrencyCode,
-                TxBeneficiaryCountry = request.TxBeneficiaryCountry,
-                DecBeneficiaryAmount = request.DecBeneficiaryAmount,
-                TxCustomerName = request.TxCustomerName,
-                TxCustomerSurname = request.TxCustomerSurname,
-                TxCustomerGender = request.TxCustomerGender,
-                TxCustomerPassportNo = request.TxCustomerPassportNo,
-                TxCustomerPassportCountry = request.TxCustomerPassportCountry,
-                TxCustomerAddress = request.TxCustomerAddress,
-                TxCustomerSuburb = request.TxCustomerSuburb,
-                TxCustomerCity = request.TxCustomerCity,
-                TxCustomerAccNo = request.TxCustomerAccNo,
-                TxCustomerPhone = request.TxCustomerPhone,
-                DccCustomerAmount = request.DccCustomerAmount,
-                TxReferenceNo = request.TxReferenceNo,
-                IdTransactionExtTypeKey = request.IdTransactionExtTypeKey,
-                TxDescription = request.TxDescription,
+                IdRemittanceKey = request.RemittanceKey,
+                IdRemittanceNo = request.RemittanceNo,
+                TxBeneficiaryName = request.BeneficiaryName,
+                TxBeneficiarySurname = request.BeneficiarySurname,
+                TxBeneficiaryAccIdentifier = request.BeneficiaryAccIdentifier,
+                TxBeneficiaryCurrencyCode = request.BeneficiaryCurrencyCode,
+                IdBeneficiaryCountry = request.BeneficiaryCountryId,
+                DecBeneficiaryAmount = request.BeneficiaryAmount,
+                IdCustomerId = request.CustomerId,
+                TxCustomerName = request.CustomerName,
+                TxCustomerSurname = request.CustomerSurname,
+                TxCustomerGender = request.CustomerGender,
+                TxCustomerPassportNo = request.CustomerPassportNo,
+                IdCustomerPassportCountry = request.CustomerPassportCountryId,
+                TxCustomerAddress = request.CustomerAddress,
+                TxCustomerSuburb = request.CustomerSuburb,
+                IdCustomerCity = request.CustomerCityId,
+                TxCustomerAccNo = request.CustomerAccNo,
+                TxCustomerPhone = request.CustomerPhone,
+                DccCustomerAmount = request.CustomerAmount,
+                TxReferenceNo = request.ReferenceNo,
+                IdTransactionExtTypeKey = request.TransactionExtTypeKey,
+                TxDescription = request.Description,
                 IsActive = request.IsActive
             };
 

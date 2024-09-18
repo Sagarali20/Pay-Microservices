@@ -20,7 +20,7 @@ namespace RemittanceService.Helpers.Service
 
         private static string TX_BENEFICIARY_NAME = "@tx_beneficiaryName";
         private static string TX_BENEFICIARY_SURENAME = "@tx_beneficiarySurname";
-        private static string TX_BENEFICIARY_COUNTRY = "@tx_beneficiaryCountry";
+        private static string TX_BENEFICIARY_COUNTRY = "@id_beneficiaryCountry";
         private static string TX_BENEFICIARY_ACCIDENTIFIER = "@tx_beneficiaryAccIdentifier";
         private static string TX_BENEFICIARY_CURRENCY_CODE = "@tx_beneficiaryCurrencyCode";
         private static string DCC_BENEFICIARY_AMOUNT = "@dec_beneficiaryAmount";
@@ -30,10 +30,10 @@ namespace RemittanceService.Helpers.Service
         private static string TX_CUSTOMER_SURENAME = "@tx_customerSurname";
         private static string TX_CUSTOMER_GENDER = "@tx_customerGender";
         private static string TX_CUSTOMER_PASSPORT_NO = "@tx_customerPassportNo";
-        private static string TX_CUSTOMER_PASSPORT_COUNTRY = "@tx_customerPassportCountry";
+        private static string TX_CUSTOMER_PASSPORT_COUNTRY = "@id_customerPassportCountry";
         private static string TX_CUSTOMER_ADDRESS = "@tx_customerAddress";
         private static string TX_CUSTOMER_SUBURB = "@tx_customerSuburb";
-        private static string TX_CUSTOMER_CITY = "@tx_customerCity";
+        private static string TX_CUSTOMER_CITY = "@id_customerCity";
         private static string TX_CUSTOMER_ACCNO = "@tx_customerAccNo";
         private static string TX_CUSTOMER_PHONE = "@tx_customerPhone";
 
@@ -84,7 +84,7 @@ namespace RemittanceService.Helpers.Service
 
                     parameter.Add(TX_BENEFICIARY_NAME, request.TxBeneficiaryName, DbType.String, ParameterDirection.Input);
                     parameter.Add(TX_BENEFICIARY_SURENAME, request.TxBeneficiarySurname, DbType.String, ParameterDirection.Input);
-                    parameter.Add(TX_BENEFICIARY_COUNTRY, request.TxBeneficiaryCountry, DbType.String, ParameterDirection.Input);
+                    parameter.Add(TX_BENEFICIARY_COUNTRY, request.IdBeneficiaryCountry, DbType.Int32, ParameterDirection.Input);
                     parameter.Add(TX_BENEFICIARY_ACCIDENTIFIER, request.TxBeneficiaryAccIdentifier, DbType.String, ParameterDirection.Input);
                     parameter.Add(TX_BENEFICIARY_CURRENCY_CODE, request.TxBeneficiaryCurrencyCode, DbType.String, ParameterDirection.Input);
                     parameter.Add(DCC_BENEFICIARY_AMOUNT, request.DecBeneficiaryAmount, DbType.Decimal, ParameterDirection.Input);
@@ -94,17 +94,17 @@ namespace RemittanceService.Helpers.Service
                     parameter.Add(TX_CUSTOMER_SURENAME, request.TxCustomerSurname, DbType.String, ParameterDirection.Input);
                     parameter.Add(TX_CUSTOMER_GENDER, request.TxCustomerGender, DbType.String, ParameterDirection.Input);
                     parameter.Add(TX_CUSTOMER_PASSPORT_NO, request.TxCustomerPassportNo, DbType.String, ParameterDirection.Input);
-                    parameter.Add(TX_CUSTOMER_PASSPORT_COUNTRY, request.TxCustomerPassportCountry, DbType.String, ParameterDirection.Input);
+                    parameter.Add(TX_CUSTOMER_PASSPORT_COUNTRY, request.IdCustomerPassportCountry, DbType.Int32, ParameterDirection.Input);
 
                     parameter.Add(TX_CUSTOMER_ADDRESS, request.TxCustomerAddress, DbType.String, ParameterDirection.Input);
                     parameter.Add(TX_CUSTOMER_SUBURB, request.TxCustomerSuburb, DbType.String, ParameterDirection.Input);
-                    parameter.Add(TX_CUSTOMER_CITY, request.TxCustomerCity, DbType.String, ParameterDirection.Input);
+                    parameter.Add(TX_CUSTOMER_CITY, request.IdCustomerCity, DbType.Int32, ParameterDirection.Input);
                     parameter.Add(TX_CUSTOMER_ACCNO, request.TxCustomerAccNo, DbType.String, ParameterDirection.Input);
                     parameter.Add(TX_CUSTOMER_PHONE, request.TxCustomerPhone, DbType.String, ParameterDirection.Input);
                     parameter.Add(DCC_CUSTOMER_AMOUNT, request.DccCustomerAmount, DbType.Decimal, ParameterDirection.Input);
                     parameter.Add(TX_REFERENCE_NO, request.TxReferenceNo, DbType.String, ParameterDirection.Input);
 
-                    parameter.Add(Constants.ID_TRANSACTION_EXT_TYPE_KEY, request.IdTransactionExtTypeKey, DbType.String, ParameterDirection.Input);
+                    parameter.Add(Constants.ID_TRANSACTION_EXT_TYPE_KEY, request.IdTransactionExtTypeKey, DbType.Int32, ParameterDirection.Input);
                     parameter.Add(Constants.TX_DESCRIPTION, request.TxDescription, DbType.String, ParameterDirection.Input);
                     parameter.Add(Constants.IS_ACTIVE, request.IsActive, DbType.Int32, ParameterDirection.Input);
                     parameter.Add(Constants.MESSAGE, "", DbType.Int32, ParameterDirection.Output);
@@ -153,7 +153,7 @@ namespace RemittanceService.Helpers.Service
                         transaction.Commit();
 
                         /*notification start*/
-                        SendNotification();
+                        //SendNotification();
                         /*notification end*/
 
                         _logger.LogInformation("commit done from remittance ");

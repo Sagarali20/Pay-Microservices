@@ -3,9 +3,21 @@ using PaymentService.Application.Request.Send;
 using PaymentService.Helpers;
 using PaymentService.Helpers.Service;
 using PaymentService.RegistersExtensions;
+using Serilog;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+//logger configuration
+var logger = new LoggerConfiguration()
+ .ReadFrom.Configuration(builder.Configuration)
+ .MinimumLevel.Debug()
+ .Enrich.FromLogContext()
+ .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
+
+
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<DapperContext>();
@@ -31,7 +43,7 @@ var app = builder.Build();
 
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("UAT"))
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -45,6 +57,13 @@ app.UseConsul(serviceSettings);
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCors(option =>
+{
+    option.AllowAnyOrigin();
+    option.AllowAnyMethod();
+    option.AllowAnyHeader();
+});
 
 app.UseEndpoints(endpoints =>
 {

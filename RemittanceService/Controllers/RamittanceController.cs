@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Common;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RemittanceService.Application.Request.Ramittance.Command;
@@ -29,14 +30,15 @@ namespace RemittanceService.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Ramittance(RamittanceInformation command)
         {
-            if(command.DccCustomerAmount < 0)
+            if(command.CustomerAmount < 0)
             {
-                _logger.LogInformation("invalid amount from user : "+ command.DccCustomerAmount);
-                return Ok("Invalid Amount");
-            }else if(command.DecBeneficiaryAmount < 0)
+                _logger.LogInformation("invalid amount from user : "+ command.CustomerAmount);
+                return StatusCode(StatusCodes.Status400BadRequest, Result.Failure(new List<string> { "Invalid Amount " }));
+            }
+            else if(command.BeneficiaryAmount < 0)
             {
-                _logger.LogInformation("invalid amount from user : " + command.DecBeneficiaryAmount);
-                return Ok("Invalid Amount");
+                _logger.LogInformation("invalid amount from user : " + command.BeneficiaryAmount);
+                return StatusCode(StatusCodes.Status400BadRequest, Result.Failure(new List<string> { "Invalid Amount " }));
             }
 
             _logger.LogInformation("request receive from ");

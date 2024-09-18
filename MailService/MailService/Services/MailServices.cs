@@ -173,14 +173,12 @@ namespace MailService.Services
                 message.Body = multipart;
                 using (var client = new SmtpClient())
                 {
-
                     client.CheckCertificateRevocation = checkCertificateRevocation;
                     client.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => serverCertificateValidationCallback;
                     client.Connect(mailSetting.Host, mailSetting.Port);
                     client.Authenticate(mailSetting.MailFrom, mailSetting.Password);
                     client.Send(message);
                     client.Disconnect(true);
-
                 }
                 mailLog = buildMailLog(mailBody, mailSetting, 0, null, null, 1);
                 mailLog.Response = new(new
