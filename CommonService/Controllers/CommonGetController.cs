@@ -23,6 +23,9 @@ namespace CommonService.Controllers
         * Date : 18/08/2024
         * Description: Get All Account Type list from database.
         */
+
+
+
         [HttpGet("[action]")]
         public async Task<IActionResult> GetAllAccountType()
         {
