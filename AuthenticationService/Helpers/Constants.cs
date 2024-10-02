@@ -21,6 +21,7 @@
         public static string ADD_Role = "INS_role";
         public static string SEL_USERID = "SEL_GetPasswordByUserId";
         public static string CHECK_ID = "SEL_checkid";
+        public static string INS_account = "INS_account";
 
 
 

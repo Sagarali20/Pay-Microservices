@@ -7,6 +7,7 @@ using AuthenticationService.Application.Request.Login;
 using AuthenticationService.RegistersExtensions;
 using AuthenticationService.Helpers.Service;
 using Serilog;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,18 @@ var logger = new LoggerConfiguration()
  .MinimumLevel.Debug()
  .Enrich.FromLogContext()
  .CreateLogger();
+
+// redis cache configuration
+/*builder.Services.AddStackExchangeRedisCache(
+option =>
+{
+    var connection = builder.Configuration.GetConnectionString("Redis");
+    option.Configuration = connection;
+});*/
+
+/*var connection = builder.Configuration.GetConnectionString("Redis");*/
+builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
+
 
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);

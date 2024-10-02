@@ -15,14 +15,6 @@ namespace AuthenticationService.Application.Request.Login.Command
             IdUserKey = idUserKey;
             ImageLocation = imageLocation;
             IdDocumentType = idDocumentType;
-        public string FileLocation { get; set; }
-        public string Description { get; set; }
-
-        public SaveUserDocument(int idUserKey, string imageLocation, string fileLocation,string description)
-        {
-            IdUserKey = idUserKey;
-            ImageLocation = imageLocation;
-            FileLocation = fileLocation;
             Description = description;
         }
     }

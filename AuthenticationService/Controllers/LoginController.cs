@@ -18,6 +18,7 @@ using AuthenticationService.Application.Request.Login.Query;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Extensions.Hosting;
 using static System.Net.Mime.MediaTypeNames;
+using Newtonsoft.Json.Linq;
 
 namespace AuthenticationService.Controllers
 {
@@ -28,7 +29,7 @@ namespace AuthenticationService.Controllers
         private readonly JwtTokenHandler _jwtTokenHandler;
         private readonly IMediator _mediator;
         private readonly ILogger<LoginController> _logger;
-        private  readonly IWebHostEnvironment _environment;
+        private readonly IWebHostEnvironment _environment;
         // Allowed image file types
         private readonly string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
 
@@ -61,7 +62,7 @@ namespace AuthenticationService.Controllers
             return Ok(result);
         }
 
-        
+
         [HttpPost("[action]")]
         public async Task<IActionResult> Login(LoginUser command)
         {
@@ -76,13 +77,13 @@ namespace AuthenticationService.Controllers
                 {
                     if (user.tx_password == command.Password)
                     {
-                        authenticationResponse = _jwtTokenHandler.GenerateJwtToken(user.id_user_key,user.tx_mobile_no,0,"");
+                        authenticationResponse = _jwtTokenHandler.GenerateJwtToken(user.id_user_key, user.tx_mobile_no, 0, "");
                         var res = new
                         {
                             result = true,
                             userFullName = user.tx_first_name + " " + user.tx_last_name,
                             token = authenticationResponse.JwtToken,
-                            permission=user.Permission
+                            permission = user.Permission
                         };
                         _logger.LogInformation("User Validation request successfully processed");
 
@@ -119,8 +120,8 @@ namespace AuthenticationService.Controllers
             {
                 var pricipal = GetPrincipleFromExpiredToken(token);
 
-                var result = await _mediator.Send(new LoginUser(pricipal.Identity.Name.ToString(), "" ));
-                if(result is not null)
+                var result = await _mediator.Send(new LoginUser(pricipal.Identity.Name.ToString(), ""));
+                if (result is not null)
                 {
                     _logger.LogInformation("User token request successfully processed");
                     return Ok(new { token = _jwtTokenHandler.GenerateJwtToken(result.id_user_key, result.tx_mobile_no, 0, "").JwtToken.ToString() });
@@ -133,7 +134,7 @@ namespace AuthenticationService.Controllers
             }
             catch (Exception ex)
             {
-               _logger.LogError(ex.Message);
+                _logger.LogError(ex.Message);
                 return Ok(ex.Message);
             }
         }
@@ -174,23 +175,18 @@ namespace AuthenticationService.Controllers
             }
             //var fileName = imageFile.FileName;
             //Random _random = new Random();
-            var fileName = Path.GetFileNameWithoutExtension(image.FileName)+"-" + Guid.NewGuid() + Path.GetExtension(image.FileName);
+            var fileName = Path.GetFileNameWithoutExtension(image.FileName) + "-" + Guid.NewGuid() + Path.GetExtension(image.FileName);
             using (FileStream fileStream = System.IO.File.Create(path + fileName))
             {
                 image.CopyTo(fileStream);
                 fileStream.Flush();
-                path = Path.Combine(string.Format("/Files/" + "UserDocument"+"/Images" + "/{0}/{1}", date, fileName));
+                path = Path.Combine(string.Format("/Files/" + "UserDocument" + "/Images" + "/{0}/{1}", date, fileName));
             }
             return Ok(new { image.FileName, path });
         }
         [HttpPost("[action]")]
         public async Task<IActionResult> UploadFile([FromForm] IFormFile file)
         {
-
-
-        public async Task<IActionResult> UploadFile([FromForm] IFormFile file)
-        {
-
 
             string[] permittedExtensions = { ".doc", ".docx", ".pdf", ".txt" };
             bool result = false;
@@ -201,7 +197,6 @@ namespace AuthenticationService.Controllers
             {
                 return BadRequest("Invalid file format. Only doc, docx, pdf, and txt are allowed.");
             }
-
 
             var date = String.Format(DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
             if (string.IsNullOrWhiteSpace(_environment.WebRootPath))
@@ -226,7 +221,6 @@ namespace AuthenticationService.Controllers
                 file.CopyTo(fileStream);
                 fileStream.Flush();
                 path = Path.Combine(string.Format("/Files/" + "UserDocument" + "/Files" + "/{0}/{1}", date, fileName));
-                path = Path.Combine(string.Format("/Files/" + "UserDocument" +"/Files"+ "/{0}/{1}", date, fileName));
             }
             return Ok(new { file.FileName, path });
         }
@@ -235,15 +229,40 @@ namespace AuthenticationService.Controllers
 
         public async Task<IActionResult> Resetpassword(ResetPassword command)
         {
+            try
+            {
+                if (!string.IsNullOrEmpty(command.Token))
+                {
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    tokenHandler.ValidateToken(command.Token, new TokenValidationParameters()
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenHandler.JWT_SECURITY_KEY)),
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ClockSkew = TimeSpan.Zero,
+                    }, out SecurityToken validatedToken);
+                }
 
-            var result = await _mediator.Send(command);
-            return Ok(result);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+                var sss = new
+                {
+                    title = "something wrong",
+                    success = false,
+                    errorMessage = ex.Message,
+                    statusCode = StatusCodes.Status500InternalServerError,
+                };
+                return Ok(sss);
+            }
+            
         }
-        [HttpPost("[action]")]
-        public async Task<IActionResult> SaveUserDocument(SaveUserDocument command)
-        {
-            _logger.LogInformation("User Document save requst received from Endpoint"); 
-
+        
+        
         [HttpPost("[action]")]
         public async Task<IActionResult> SaveUserDocument(SaveUserDocument command)
         {
@@ -272,9 +291,6 @@ namespace AuthenticationService.Controllers
             }
         }
 
-
-
-
         private ClaimsPrincipal GetPrincipleFromExpiredToken(string token)
         {
             var key = Encoding.ASCII.GetBytes(JwtTokenHandler.JWT_SECURITY_KEY);
@@ -286,7 +302,7 @@ namespace AuthenticationService.Controllers
                 ValidateIssuerSigningKey = false,
                 IssuerSigningKey = new SymmetricSecurityKey(key),
                 ValidateLifetime = false
-            }; 
+            };
             var tokenhandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken;
             var principal = tokenhandler.ValidateToken(token, tokenValidationParameter, out securityToken);
@@ -297,12 +313,35 @@ namespace AuthenticationService.Controllers
 
         }
 
+        /*
+         * author: ziaul talukder
+         * date : 09/04/2024
+         * description: otp send service
+         */
+        [HttpPost("[action]")]
+        public async Task<IActionResult> SendOTP(SendOtp command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        /*
+         * author: ziaul talukder
+         * date : 09/04/2024
+         * description: otp send service
+         */
+        [HttpPost("[action]")]
+        public async Task<IActionResult> ValidateOTP(ValidateOtp command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
 
         [HttpPost("logout")]
         public async Task<IActionResult> LogOut()
         {
 
             return Ok("ok");
-        }  
+        }
     }
 }

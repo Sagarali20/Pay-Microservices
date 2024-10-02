@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>E:\PublishNecpay\AuthService</_PublishTargetUrl>
-    <History>True|2024-08-19T06:21:12.4430593Z;True|2024-08-15T19:39:11.1692599+06:00;</History>
+    <_PublishTargetUrl>E:\Development\Publish\GetWayEndPoint\AuthApiPublish</_PublishTargetUrl>
+    <History>True|2024-09-24T07:30:16.2024173Z||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

@@ -6,3 +6,11 @@
 .vs/
 [Bb]in/
 [Oo]bj/
+MailService/MailService/appsettings.UAT.json
+MailService/MailService/appsettings.UAT.json
+MailService/MailService/appsettings.UAT.json
+MailService/MailService/appsettings.Staging.json
+MailService/MailService/appsettings.Production.json
+/AuthenticationService/Properties
+AuthenticationService/AuthenticationService.csproj.user
+/AuthenticationService

@@ -12,7 +12,8 @@ namespace AuthenticationService.Application.Request.Login
         Task<User> VerifyUser(LoginUser request);
         Task<Result> ResetPassword(ResetPassword request);
         Task<List<Models.Type>> GetAllDocumentType();
-
+        Task<Result> SendOtp(SendOtp request);
+        Task<Result> ValidateOTP(ValidateOtp request);
 
     }
 }
